@@ -17,8 +17,8 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
     Ok(views.html.index())
   }
 
-  def gladiators = Action {implicit request: Request[AnyContent] =>
-    print(gamecontroller.boardToString)
+  def gladiators = Action {
+    val board = gamecontroller.boardToString
     Ok("ha")
   }
 }
