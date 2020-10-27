@@ -7,6 +7,7 @@ target
 /.settings
 /RUNNING_PID
 .bloop/*
+.metals/*
 project/metals/*
 project/project/*
 project/metals*
