@@ -1,11 +1,16 @@
 name := """de.htwg.wt.Gladiators"""
-organization := "com.example"
+organization := "de.htwg"
 
-version := "1.0-SNAPSHOT"
+version := "0.1"
+
+bloopAggregateSourceDependencies in Global := true
+
+lazy val gladiatorBase = ProjectRef(uri("git://github.com/VoigtSebastian/de.htwg.se.Gladiators.git#master"), "gladiatorsBase")
 
 lazy val root = (project in file("."))
     .enablePlugins(PlayScala)
-    .dependsOn(ProjectRef(uri("git://github.com/VoigtSebastian/de.htwg.se.Gladiators.git#master"), "root"))
+    .dependsOn(gladiatorBase)
+    .aggregate(gladiatorBase)
     .settings(
         libraryDependencies ++= Seq(
             guice,
