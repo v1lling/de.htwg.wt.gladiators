@@ -26,6 +26,6 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
 
     def gladiators = Action {
         val board = controller.boardToString
-        Ok("ha")
+        Ok(board)
     }
 }
