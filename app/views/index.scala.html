@@ -1,5 +1,52 @@
 @()
 
-@main("Welcome to Play") {
-  <h1>Welcome to Play!</h1>
+@main("Gladiators") {
+  <img src="@routes.Assets.versioned("images/gladiators.png")" width="200"/>
+  <h1>Gladiators - The Game</h1>
+  <h2>Now available for Browsers</h2>
+
+  <p>
+    Gladiators is a turn-based strategy game for 2 Players.
+    Players can buy different Gladiators (such as Knights, Archer or Tanks) 
+    for different amount of credits. Each Gladiator has attributes which
+    specify its skills. Attributes are:
+  </p>
+    <ul>
+      <li>Movement Points (how far gan a Gladiator walk per turn)</li>
+      <li>Health Points (how much damage can a Gladiator take until it dies)</li>
+      <li>Attach Points (how much damage can a Gladiator make per attack)</li>
+    </ul>
+  <p>
+    Gladiators can be bought in the shop.
+    Each Gladiator-Type has a possible interval of values for each attribute.
+    They get randomly-generated.
+  </p>
+  <table>
+    <tr>
+      <th>Gladiator-Type</th>
+      <th>Movement-Points</th>
+      <th>Health-Points</th>
+      <th>Attach-Points</th>
+    </tr>
+    <tr>
+      <th>Knight</th>
+      <th>3 - 4</th>
+      <th>50 - 80</th>
+      <th>50 - 80</th>
+    </tr>
+    <tr>
+      <th>Archer</th>
+      <th>2 - 3</th>
+      <th>30 - 50</th>
+      <th>40 - 70</th>
+    </tr>
+    <tr>
+      <th>Tank</th>
+      <th>1 - 2</th>
+      <th>80 - 100</th>
+      <th>30 - 50</th>
+    </tr>
+  </table>
+  </br></br>
+  <a href="/gladiators">Play the Game</a>
 }

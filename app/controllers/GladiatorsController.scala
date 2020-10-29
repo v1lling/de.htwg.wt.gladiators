@@ -24,24 +24,16 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
     controller.namePlayerOne("one")
     controller.namePlayerTwo("two")
 
-    def index() = Action { implicit request: Request[AnyContent] =>
+    def about = Action {
         Ok(views.html.index())
     }
 
     def gladiators = Action {
-        Ok(printGame)
+        Ok(views.html.gladiators(controller))
     }
 
     def processCommand(cmd: String) = Action {
         tui.processInputLine(cmd)
-        Ok(printGame)
-    }
-
-    def printGame: String = {
-        val board = controller.boardToString
-        val shop = controller.shopToString
-        val currentPlayer = controller.currentPlayer
-        val currentPlayerOutput = "Player: " + currentPlayer.get.name + "\nCredits: " + currentPlayer.get.credits
-        currentPlayerOutput + "\n\n" + board +"\n\n" + shop
+        Ok(views.html.gladiators(controller))
     }
 }

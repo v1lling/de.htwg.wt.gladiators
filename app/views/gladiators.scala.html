@@ -1,0 +1,41 @@
+@import de.htwg.se.gladiators.util.Coordinate
+@(controller:de.htwg.se.gladiators.controller.BaseImplementation.Controller)
+@gladiators = @{ controller.playerOne.get.gladiators ++ controller.playerTwo.get.gladiators}
+@shop = @{controller.shop}
+
+@main("Gladiators") {
+    <div class="gamecontainer">
+        <div class="player">
+            Player: @{controller.currentPlayer.get.name} </br>
+            Credits: @{controller.currentPlayer.get.credits} </br>
+        </div>
+        </br></br>
+        <div class="board">
+        
+            @for(x <- 0 until controller.board.tiles.size) {
+                <div class="boardRow">
+                @for(y <- 0 until controller.board.tiles.size) {
+                    <span class="tile">
+                        @{controller.board.tiles(x)(y).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))}
+                    </span>
+                }
+                </div>
+            }
+        </div>
+        </br></br>
+        <div class="shop">
+            <div>Type | Attack-Points | Movement-Points | Health-Points | Cost</div>
+            
+            @for(i <- 0 until shop.stock.length) {
+                <div>
+                    @{shop.stock(i).gladiatorType} |
+                    @{shop.stock(i).attackPoints} |
+                    @{shop.stock(i).movementPoints.toString} |
+                    @{shop.stock(i).healthPoints.toString} |
+                    @{shop.stock(i).calculateCost.toString} |
+                </div>
+            }
+        </div>
+    </div>
+}
+
