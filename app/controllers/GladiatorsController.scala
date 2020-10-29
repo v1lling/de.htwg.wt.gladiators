@@ -5,6 +5,9 @@ import play.api._
 import play.api.mvc._
 import de.htwg.se.gladiators.util.Configuration
 import de.htwg.se.gladiators.controller.BaseImplementation.Controller
+import de.htwg.se.gladiators.aview.Tui
+import com.softwaremill.macwire._
+
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -16,6 +19,7 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
     // App don't ask me why ¯\_(ツ)_/¯
     val configuration = Configuration(5, 15)
     val controller = Controller(configuration)
+    val tui = wire[Tui]
     // FIXME: We need to initialize players to call boardToString
     controller.namePlayerOne("one")
     controller.namePlayerTwo("two")
@@ -25,7 +29,19 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
     }
 
     def gladiators = Action {
+        Ok(printGame)
+    }
+
+    def processCommand(cmd: String) = Action {
+        tui.processInputLine(cmd)
+        Ok(printGame)
+    }
+
+    def printGame: String = {
         val board = controller.boardToString
-        Ok(board)
+        val shop = controller.shopToString
+        val currentPlayer = controller.currentPlayer
+        val currentPlayerOutput = "Player: " + currentPlayer.get.name + "\nCredits: " + currentPlayer.get.credits
+        currentPlayerOutput + "\n\n" + board +"\n\n" + shop
     }
 }

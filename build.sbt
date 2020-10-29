@@ -14,7 +14,9 @@ lazy val root = (project in file("."))
     .settings(
         libraryDependencies ++= Seq(
             guice,
-            "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
+            "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test,
+            "com.softwaremill.macwire" %% "macros" % "2.3.6" % "provided",
+            "com.softwaremill.macwire" %% "util" % "2.3.6"
     ))
 
 scalaVersion := "2.12.12"
