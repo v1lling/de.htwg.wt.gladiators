@@ -1,25 +1,25 @@
 @()
 
 @main("Gladiators") {
-  <img src="@routes.Assets.versioned("images/gladiators.png")" width="200"/>
   <h1>Gladiators - The Game</h1>
   <h2>Now available for Browsers</h2>
 
   <p>
     Gladiators is a turn-based strategy game for 2 Players.
     Players can buy different Gladiators (such as Knights, Archer or Tanks) 
-    for different amount of credits. Each Gladiator has attributes which
-    specify its skills. Attributes are:
+    for a certain amount of money (credits). Money can get earned by killing enemy gladiators
+    or attacking the gold mine that is randomly positioned on the board.
+    Gladiators can be bought in the shop.
+    They have a set of attributes that specify their skills. Attributes are:
   </p>
     <ul>
-      <li>Movement Points (how far gan a Gladiator walk per turn)</li>
+      <li>Movement Points (how far can a Gladiator walk per turn)</li>
       <li>Health Points (how much damage can a Gladiator take until it dies)</li>
       <li>Attach Points (how much damage can a Gladiator make per attack)</li>
     </ul>
   <p>
-    Gladiators can be bought in the shop.
+    The shop generates random gladiators and provides them to the players.
     Each Gladiator-Type has a possible interval of values for each attribute.
-    They get randomly-generated.
   </p>
   <table>
     <tr>
@@ -46,7 +46,14 @@
       <th>80 - 100</th>
       <th>30 - 50</th>
     </tr>
+    
   </table>
-  </br></br>
+  <p>
+    The goal of the game is to destroy the enemy's base by attacking it.
+  </p>
+  </br>
   <a href="/gladiators">Play the Game</a>
+  </br></br>
+  <img src="@routes.Assets.versioned("images/gladiators.gif")" width="400"/>
+
 }
