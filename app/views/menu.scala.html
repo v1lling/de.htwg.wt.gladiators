@@ -1,0 +1,13 @@
+@()
+<div class="menubar">
+    <img src="@routes.Assets.versioned("images/logo.png")"/>
+    <div class="menubar-linkcontainer">
+        <div class="menubar-link">
+            <a href=@{routes.GladiatorsController.gladiators()}><i class="fa fa-dot-circle-o" aria-hidden="true"></i>Game</a>
+        </div>
+        <div class="menubar-link">
+            <a href=@{routes.GladiatorsController.about()}><i class="fa fa-dot-circle-o" aria-hidden="true"></i>About</a>
+        </div>
+    </div>
+
+</div>

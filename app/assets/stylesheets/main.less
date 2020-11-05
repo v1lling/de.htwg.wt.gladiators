@@ -1,0 +1,142 @@
+// Global
+@font-face {
+    font-family: "Roboto";
+    src: url("/assets/fonts/Roboto-Regular.tff");
+}
+
+body {
+    background: #23074d;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #cc5333, #23074d);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #cc5333, #23074d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    height: 100vh;
+    font-family: Roboto;
+    display: flex;
+    flex-direction: column;
+}
+
+//MenuBar
+.menubar {
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+        height: inherit;
+        border: 2px solid white;
+        border-radius: 10px;
+    }
+    .menubar-linkcontainer {
+        border-radius: 0 10px 10px 0;
+        display: flex;
+        flex-direction: row;
+        height: 3rem;
+        background-color: rgba(255,255,255,0.8);
+        
+    }
+    .menubar-link {
+        padding: 0 2rem 0rem 2rem;
+        transition-duration: 0.6s;
+        color: black;
+        &:hover {
+            background-color:  rgba(0,0,0,0.8);
+            a {
+                color: white;
+            }
+        }
+        &:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+    }
+    a {
+        font-size: 2rem;
+        color: black;
+        text-decoration: none;
+    }
+}
+
+//About
+.about {
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    table tr th {
+        font-weight: normal;
+        padding-left: 1rem;
+    }
+    
+}
+
+
+//Game
+.gamecontainer {
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 20px;
+    padding: 1rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vh;
+}
+
+// Player
+.player {
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+// Board
+.board {
+    border: 2px solid black;
+    .board-row {
+        display: flex;
+    }
+    .board-tile {
+        width: 4vh;
+        height: 4vh;
+        border: 1px solid black;
+        flex: 1;
+        text-align: -webkit-center;
+        background-size: contain;
+        &.S {
+            background-image: url("/assets/images/sand_60.png");
+        }
+        &.B {
+            background-image: url("/assets/images/house_60.png");
+
+        }
+        &.P {
+            background-image: url("/assets/images/palm_60.png");
+        }
+        &.M {
+            background-image: url("/assets/images/gold_60.png");
+        }
+    }
+
+    
+}
+
+// Shop
+.shop {
+    width: 90%;
+    .shop-row {
+        display: flex;
+        &.header {
+            font-weight: bold;
+        }
+    }
+    .shop-cell {
+        text-align: center;
+        flex: 1;
+    }
+
+}
