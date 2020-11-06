@@ -1,13 +1,19 @@
-@()
-<div class="menubar">
-    <img src="@routes.Assets.versioned("images/logo.png")"/>
-    <div class="menubar-linkcontainer">
-        <div class="menubar-link">
-            <a href=@{routes.GladiatorsController.gladiators()}><i class="fa fa-dot-circle-o" aria-hidden="true"></i>Game</a>
-        </div>
-        <div class="menubar-link">
-            <a href=@{routes.GladiatorsController.about()}><i class="fa fa-dot-circle-o" aria-hidden="true"></i>About</a>
-        </div>
-    </div>
+<nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a class="navbar-brand">
+      <!-- Logo Image -->
+      <img src="@routes.Assets.versioned("images/logo.png")" width="60" alt="" class="d-inline-block align-middle mr-2">
+      <!-- Logo Text -->
+      <span class="text-uppercase font-weight-bold">Gladiators</span>
+    </a>
 
-</div>
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a href=@{routes.GladiatorsController.gladiators()} class="nav-link">Game <span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a href=@{routes.GladiatorsController.about()} class="nav-link">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

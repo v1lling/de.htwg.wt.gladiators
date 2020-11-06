@@ -5,14 +5,19 @@
 
 @main("Gladiators") {
     @menu()
-    <div class="gamecontainer">
-        <div class="player">
-            <div>Player: @{controller.currentPlayer.get.name}</div>
-            <div>Credits: @{controller.currentPlayer.get.credits}</div>
+    <div class="container gamecontainer">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                Player: @{controller.currentPlayer.get.name}
+            </div>
+            <div class="col-4">
+                Credits: @{controller.currentPlayer.get.credits}
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-outline-primary">End Turn</button>
+            </div>
         </div>
-        </br></br>
-        <div class="board">
-        
+        <div class="row board">
             @for(x <- 0 until controller.board.tiles.size) {
                 <div class="board-row">
                 @for(y <- 0 until controller.board.tiles.size) {
@@ -23,7 +28,6 @@
                 </div>
             }
         </div>
-        </br></br>
         <div class="shop">
             <div class="shop-row header">
                 <span class="shop-cell">Type</span>
