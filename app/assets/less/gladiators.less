@@ -6,12 +6,16 @@
         display: flex;
     }
     .board-tile {
-        width: 4vh;
-        height: 4vh;
+        width: 4vw;
+        height: 4vw;
+        max-width: 60px;
+        max-height: 60px;
         border: 1px solid black;
         flex: 1;
         text-align: -webkit-center;
-        background-size: contain;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         &.S {
             background-image: url("/assets/images/sand_60.png");
         }
@@ -26,6 +30,7 @@
         }
     }  
 }
+
 // Panel
 .panel {
     display: flex;

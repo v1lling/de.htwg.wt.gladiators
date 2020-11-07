@@ -17,12 +17,16 @@
   display: flex;
 }
 .board .board-tile {
-  width: 4vh;
-  height: 4vh;
+  width: 4vw;
+  height: 4vw;
+  max-width: 60px;
+  max-height: 80px;
   border: 1px solid black;
   flex: 1;
   text-align: -webkit-center;
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .board .board-tile.S {
   background-image: url("/assets/images/sand_60.png");
@@ -88,9 +92,9 @@ body {
   margin: 0;
   background: #23074d;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #cc5333, #23074d);
+  background: -webkit-linear-gradient(to top, #cc5333, #05065f);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #cc5333, #23074d);
+  background: linear-gradient(to top, #cc5333, #05065f);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family: Roboto !important;
 }
