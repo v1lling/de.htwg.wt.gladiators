@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/assets/fonts/Roboto-Regular.ttf");
+}
+body {
+  background: #23074d;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #cc5333, #23074d);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #cc5333, #23074d);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+  font-size: 3rem;
+  font-family: Roboto;
+  display: flex;
+  flex-direction: column;
+}
+.about {
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 20px;
+  padding: 1rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about table tr th {
+  font-weight: normal;
+  padding-left: 1rem;
+}
+.gamecontainer {
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.board {
+  display: flex;
+  flex-direction: column;
+}
+.board .board-row {
+  display: flex;
+}
+.board .board-tile {
+  width: 4vh;
+  height: 4vh;
+  border: 1px solid black;
+  flex: 1;
+  text-align: -webkit-center;
+  background-size: contain;
+}
+.board .board-tile.S {
+  background-image: url("/assets/images/sand_60.png");
+}
+.board .board-tile.B {
+  background-image: url("/assets/images/house_60.png");
+}
+.board .board-tile.P {
+  background-image: url("/assets/images/palm_60.png");
+}
+.board .board-tile.M {
+  background-image: url("/assets/images/gold_60.png");
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.shop {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.shop .shop-item {
+  height: 4vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+.shop .shop-item.Knight {
+  background-image: url("/assets/images/sword.png");
+}
+.shop .shop-item.Archer {
+  background-image: url("/assets/images/bow.png");
+}
+.shop .shop-item.Tank {
+  background-image: url("/assets/images/shield.png");
+}

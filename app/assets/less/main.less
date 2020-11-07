@@ -1,7 +1,7 @@
 // Global
 @font-face {
     font-family: "Roboto";
-    src: url("/assets/fonts/Roboto-Regular.tff");
+    src: url("/assets/fonts/Roboto-Regular.ttf");
 }
 
 body {
@@ -10,49 +10,10 @@ body {
     background: linear-gradient(to top, #cc5333, #23074d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
     height: 100vh;
+    font-size: 3rem;
     font-family: Roboto;
     display: flex;
     flex-direction: column;
-}
-
-//MenuBar
-.menubar {
-    height: 4rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    img {
-        height: inherit;
-        border: 2px solid white;
-        border-radius: 10px;
-    }
-    .menubar-linkcontainer {
-        border-radius: 0 10px 10px 0;
-        display: flex;
-        flex-direction: row;
-        height: 3rem;
-        background-color: rgba(255,255,255,0.8);
-        
-    }
-    .menubar-link {
-        padding: 0 2rem 0rem 2rem;
-        transition-duration: 0.6s;
-        color: black;
-        &:hover {
-            background-color:  rgba(0,0,0,0.8);
-            a {
-                color: white;
-            }
-        }
-        &:last-child {
-            border-radius: 0 10px 10px 0;
-        }
-    }
-    a {
-        font-size: 2rem;
-        color: black;
-        text-decoration: none;
-    }
 }
 
 //About
@@ -61,7 +22,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     border-radius: 20px;
     padding: 1rem;
-    margin: 5rem;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,34 +30,22 @@ body {
         font-weight: normal;
         padding-left: 1rem;
     }
-    
 }
-
 
 //Game
 .gamecontainer {
     background-color: rgba(255,255,255,0.5);
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border-radius: 20px;
-    padding: 1rem;
+    padding: 2rem;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80vh;
-}
-
-// Player
-.player {
-    font-size: 2rem;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
 }
 
 // Board
 .board {
-    border: 2px solid black;
     display: flex;
     flex-direction: column;
     .board-row {
@@ -122,23 +71,38 @@ body {
         &.M {
             background-image: url("/assets/images/gold_60.png");
         }
-    }
-
-    
+    }  
 }
+// Panel
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 
 // Shop
 .shop {
-    width: 90%;
-    .shop-row {
-        display: flex;
-        &.header {
-            font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .shop-item {
+        height: 4vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-top: 1rem;
+        &.Knight {
+            background-image: url("/assets/images/sword.png");  
+        }
+        &.Archer {
+            background-image: url("/assets/images/bow.png");  
+        }
+        &.Tank {
+            background-image: url("/assets/images/shield.png");  
         }
     }
-    .shop-cell {
-        text-align: center;
-        flex: 1;
-    }
-
+    
 }
