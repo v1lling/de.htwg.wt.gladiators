@@ -43,8 +43,8 @@
 .panel {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-width: 15vh;
+  background: moccasin;
+  border: 2px solid black;
 }
 .panel .panel-info {
   text-align: center;
@@ -55,7 +55,7 @@
 .shop {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  align-items: center;
 }
 .shop .shop-item {
   height: 4vh;
@@ -65,6 +65,7 @@
   border: 1px solid black;
   border-radius: 5px;
   margin-top: 1rem;
+  width: 50%;
 }
 .shop .shop-item.Knight {
   background-image: url("/assets/images/sword.png");

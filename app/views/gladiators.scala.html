@@ -5,7 +5,7 @@
 
 @main("Gladiators") {
     @navbar()
-    <div class="container my-container">
+    <div class="my-container container">
         
         <div class="row">
             
@@ -21,18 +21,24 @@
                 }
             </div>
             <div class="col-sm-12 col-lg-3 panel">
-                <div class="panel-info">
-                    <button type="button" class="btn btn-primary btn-rounded">End Turn</button>
-                    <div>Player: @{controller.currentPlayer.get.name}</div>
-                    <div>Credits: @{controller.currentPlayer.get.credits}</div>
+                <div class="row panel-info">
+                   Player: @{controller.currentPlayer.get.name}  
                 </div>
-               
+                <div class="row panel-info">
+                    Credits: @{controller.currentPlayer.get.credits} 
+                </div>
                 <div class="row shop">
                     @for(i <- 0 until shop.stock.length) {
                         <div class="shop-item @{shop.stock(i).gladiatorType}">
                             <span class="shop-cell">$@{shop.stock(i).calculateCost.toString}</span>
                         </div>
                     }
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary btn-rounded">End Turn</button>
+
+                    </div>
                 </div>
             </div>
             <!--
