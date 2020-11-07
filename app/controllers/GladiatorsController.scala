@@ -25,7 +25,7 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
     controller.namePlayerTwo("two")
 
     def about = Action {
-        Ok(views.html.index())
+        Ok(views.html.about())
     }
 
     def gladiators = Action {
