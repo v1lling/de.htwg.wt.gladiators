@@ -18,9 +18,9 @@
 }
 .board .board-tile {
   width: 4vw;
-  height: 4vw;
+  height: 4vh;
   max-width: 60px;
-  max-height: 80px;
+  max-height: 60px;
   border: 1px solid black;
   flex: 1;
   text-align: -webkit-center;
