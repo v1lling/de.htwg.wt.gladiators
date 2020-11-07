@@ -1,0 +1,66 @@
+// Board
+.board {
+    display: flex;
+    flex-direction: column;
+    .board-row {
+        display: flex;
+    }
+    .board-tile {
+        width: 4vh;
+        height: 4vh;
+        border: 1px solid black;
+        flex: 1;
+        text-align: -webkit-center;
+        background-size: contain;
+        &.S {
+            background-image: url("/assets/images/sand_60.png");
+        }
+        &.B {
+            background-image: url("/assets/images/house_60.png");
+        }
+        &.P {
+            background-image: url("/assets/images/palm_60.png");
+        }
+        &.M {
+            background-image: url("/assets/images/gold_60.png");
+        }
+    }  
+}
+// Panel
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 15vh;
+    .panel-info {
+        text-align: center;
+        button {
+            width: 100%;
+        }
+    }
+}
+
+// Shop
+.shop {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .shop-item {
+        height: 4vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-top: 1rem;
+        &.Knight {
+            background-image: url("/assets/images/sword.png");  
+        }
+        &.Archer {
+            background-image: url("/assets/images/bow.png");  
+        }
+        &.Tank {
+            background-image: url("/assets/images/shield.png");  
+        }
+    }
+}
