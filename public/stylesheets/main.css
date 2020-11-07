@@ -70,6 +70,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 15vh;
+}
+.panel .panel-info {
+  text-align: center;
+}
+.panel .panel-info button {
+  width: 100%;
 }
 .shop {
   display: flex;
