@@ -6,9 +6,7 @@
 @main("Gladiators") {
     @navbar()
     <div class="container my-container">
-        
         <div class="row game">
-            
             <div class="col-xs-12 col-sm-12 col-lg-9 board">
                 @for(x <- 0 until controller.board.tiles.size) {
                     <div class="board-row">
@@ -32,6 +30,13 @@
                     @for(i <- 0 until shop.stock.length) {
                         <button class="btn btn-light shop-item @{shop.stock(i).gladiatorType}">
                             $@{shop.stock(i).calculateCost.toString}
+                            <!--
+                                <span class="shop-cell">@{shop.stock(i).gladiatorType}</span>
+                                <span class="shop-cell">@{shop.stock(i).attackPoints}</span>
+                                <span class="shop-cell">@{shop.stock(i).movementPoints.toString}</span>
+                                <span class="shop-cell">@{shop.stock(i).healthPoints.toString}</span>
+                                <span class="shop-cell">@{shop.stock(i).calculateCost.toString}</span>
+                            -->
                         </button>
                     }
                 </div>
@@ -39,30 +44,7 @@
                     <button type="button" class="btn btn-light btn-rounded">End Turn</button>
                 </div>
             </div>
-            <!--
-            <div class="shop">
-                <div class="shop-row header">
-                    <span class="shop-cell">Type</span>
-                    <span class="shop-cell">Attack</span>
-                    <span class="shop-cell">Movement</span>
-                    <span class="shop-cell">Health</span>
-                    <span class="shop-cell">Cost</span>
-                </div>
-                
-                @for(i <- 0 until shop.stock.length) {
-                    <div class=shop-row>
-                        <span class="shop-cell">@{shop.stock(i).gladiatorType}</span>
-                        <span class="shop-cell">@{shop.stock(i).attackPoints}</span>
-                        <span class="shop-cell">@{shop.stock(i).movementPoints.toString}</span>
-                        <span class="shop-cell">@{shop.stock(i).healthPoints.toString}</span>
-                        <span class="shop-cell">@{shop.stock(i).calculateCost.toString}</span>
-                    </div>
-                }
-            </div>
-            -->
-            
         </div>
-        
     </div>
 }
 

@@ -8,7 +8,6 @@ import de.htwg.se.gladiators.controller.BaseImplementation.Controller
 import de.htwg.se.gladiators.aview.Tui
 import com.softwaremill.macwire._
 
-
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
