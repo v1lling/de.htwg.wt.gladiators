@@ -19,16 +19,16 @@
                 }
             </div>
             <div class="col-xs-12 col-sm-12 col-lg-3 panel">
-                <div class="panel-info">
+                <div class="panel-child panel-info">
                    Player: @{controller.currentPlayer.get.name}  
                 </div>
-                <div class="panel-info">
+                <div class="panel-child panel-info">
                     Credits: @{controller.currentPlayer.get.credits} 
                 </div>
-                <div class="panel-shop">
+                <div class="panel-child panel-shop">
                     Shop
                     @for(i <- 0 until shop.stock.length) {
-                        <button class="btn btn-light shop-item @{shop.stock(i).gladiatorType}">
+                        <button class="btn btn-outline-dark shop-item @{shop.stock(i).gladiatorType}">
                             $@{shop.stock(i).calculateCost.toString}
                             <!--
                                 <span class="shop-cell">@{shop.stock(i).gladiatorType}</span>
@@ -40,8 +40,8 @@
                         </button>
                     }
                 </div>
-                <div class="panel-buttons">
-                    <button type="button" class="btn btn-light btn-rounded">End Turn</button>
+                <div class="panel-child panel-buttons">
+                    <button type="button" class="btn btn-success btn-rounded">End Turn</button>
                 </div>
             </div>
         </div>

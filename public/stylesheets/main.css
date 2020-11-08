@@ -36,6 +36,7 @@ body {
   .my-container {
     border-radius: 0px;
     margin-top: 0;
+    padding: 0;
   }
   h1 {
     font-size: 2rem !important;
@@ -57,6 +58,9 @@ body {
 }
 .game {
   border: 2px solid black;
+  font-family: Moonflower;
+  font-size: 2rem;
+  line-height: normal;
 }
 .board {
   display: flex;
@@ -95,12 +99,25 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: lightgrey;
+  background: darkgray;
   background-image: url("/assets/images/wood.png");
+  background-image: url(/assets/images/wood.png);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .panel button {
   border: 1px solid black;
   width: 80%;
+  font-family: 'MoonFlower';
+  font-size: 36px;
+  line-height: normal;
+  color: black;
+}
+.panel-child {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1rem;
+  background: lightgray;
 }
 .panel-info {
   text-align: center;
@@ -118,7 +135,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   margin-top: 1rem;
-  text-align: left;
+  text-align: end;
 }
 .panel-shop .shop-item.Knight {
   background-image: url("/assets/images/sword.png");
