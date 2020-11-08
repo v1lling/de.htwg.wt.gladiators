@@ -1,7 +1,15 @@
+.col {
+    &.board {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 // Board
 .board {
     display: flex;
     flex-direction: column;
+    border: 2px solid black;
     .board-row {
         display: flex;
     }
@@ -17,16 +25,16 @@
         background-position: center;
         background-repeat: no-repeat;
         &.S {
-            background-image: url("/assets/images/sand_60.png");
+            background-image: url("/assets/images/bord/sand.png");
         }
         &.B {
-            background-image: url("/assets/images/house_60.png");
+            background-image: url("/assets/images/board/house.png");
         }
         &.P {
-            background-image: url("/assets/images/palm_60.png");
+            background-image: url("/assets/images/board/palm.png");
         }
         &.M {
-            background-image: url("/assets/images/gold_60.png");
+            background-image: url("/assets/images/board/gold.png");
         }
     }  
 }
@@ -37,6 +45,7 @@
     flex-direction: column;
     background: moccasin;
     border: 2px solid black;
+    background-image: url("/assets/images/wood.png");
     .panel-info {
         text-align: center;
         button {
