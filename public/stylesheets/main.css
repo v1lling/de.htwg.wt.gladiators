@@ -55,14 +55,14 @@ body {
   max-width: 100%;
   height: auto;
 }
-.col.board {
-  padding-left: 0;
-  padding-right: 0;
+.game {
+  border: 2px solid black;
 }
 .board {
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 .board .board-row {
   display: flex;
@@ -80,7 +80,7 @@ body {
   background-repeat: no-repeat;
 }
 .board .board-tile.S {
-  background-image: url("/assets/images/bord/sand.png");
+  background-image: url("/assets/images/board/sand.png");
 }
 .board .board-tile.B {
   background-image: url("/assets/images/board/house.png");
@@ -94,39 +94,44 @@ body {
 .panel {
   display: flex;
   flex-direction: column;
-  background: moccasin;
-  border: 2px solid black;
+  justify-content: space-around;
+  background: lightgrey;
   background-image: url("/assets/images/wood.png");
 }
-.panel .panel-info {
+.panel button {
+  border: 1px solid black;
+  width: 80%;
+}
+.panel-info {
   text-align: center;
 }
-.panel .panel-info button {
+.panel-info button {
   width: 100%;
 }
-.shop {
+.panel-shop {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.shop .shop-item {
-  height: 4vh;
+.panel-shop .shop-item {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  border: 1px solid black;
-  border-radius: 5px;
   margin-top: 1rem;
-  width: 50%;
+  text-align: left;
 }
-.shop .shop-item.Knight {
+.panel-shop .shop-item.Knight {
   background-image: url("/assets/images/sword.png");
 }
-.shop .shop-item.Archer {
+.panel-shop .shop-item.Archer {
   background-image: url("/assets/images/bow.png");
 }
-.shop .shop-item.Tank {
+.panel-shop .shop-item.Tank {
   background-image: url("/assets/images/shield.png");
+}
+.panel-buttons {
+  display: flex;
+  justify-content: center;
 }
 #idLogo {
   border: 3px solid lightgrey;

@@ -5,11 +5,11 @@
 
 @main("Gladiators") {
     @navbar()
-    <div class="my-container container">
+    <div class="container my-container">
         
-        <div class="row">
+        <div class="row game">
             
-            <div class="col col-sm-12 col-lg-9 board">
+            <div class="col-xs-12 col-sm-12 col-lg-9 board">
                 @for(x <- 0 until controller.board.tiles.size) {
                     <div class="board-row">
                     @for(y <- 0 until controller.board.tiles.size) {
@@ -20,25 +20,23 @@
                     </div>
                 }
             </div>
-            <div class="col col-sm-12 col-lg-3 panel">
-                <div class="row panel-info">
+            <div class="col-xs-12 col-sm-12 col-lg-3 panel">
+                <div class="panel-info">
                    Player: @{controller.currentPlayer.get.name}  
                 </div>
-                <div class="row panel-info">
+                <div class="panel-info">
                     Credits: @{controller.currentPlayer.get.credits} 
                 </div>
-                <div class="row shop">
+                <div class="panel-shop">
+                    Shop
                     @for(i <- 0 until shop.stock.length) {
-                        <div class="shop-item @{shop.stock(i).gladiatorType}">
-                            <span class="shop-cell">$@{shop.stock(i).calculateCost.toString}</span>
-                        </div>
+                        <button class="btn btn-light shop-item @{shop.stock(i).gladiatorType}">
+                            $@{shop.stock(i).calculateCost.toString}
+                        </button>
                     }
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-primary btn-rounded">End Turn</button>
-
-                    </div>
+                <div class="panel-buttons">
+                    <button type="button" class="btn btn-light btn-rounded">End Turn</button>
                 </div>
             </div>
             <!--
