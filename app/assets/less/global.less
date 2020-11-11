@@ -8,6 +8,9 @@
     src: url("/assets/fonts/MoonFlowerBold.ttf");
 }
 
+// Global variables
+@default-boxshadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
 // Global styles 
 html {
     margin: 0px;
@@ -23,8 +26,9 @@ body {
 }
 .my-container {
     background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    padding: 1rem;
+    border: 7px solid ivory;
+    box-shadow: @default-boxshadow;
+    padding: 2rem 1rem 2rem 1rem;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -40,5 +44,6 @@ body {
         line-height: normal;
         color: black;
         width: 100%;
+        box-shadow: @default-boxshadow;
     }
 }

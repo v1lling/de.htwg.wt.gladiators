@@ -49,6 +49,7 @@
                     @for(i <- 0 until shop.stock.length) {
                         <button class="btn btn-outline-dark shop-item @{shop.stock(i).gladiatorType}">
                             $@{shop.stock(i).calculateCost.toString}
+                            <div class="layer"></div>
                             <!--
                                 <span class="shop-cell">@{shop.stock(i).gladiatorType}</span>
                                 <span class="shop-cell">@{shop.stock(i).attackPoints}</span>

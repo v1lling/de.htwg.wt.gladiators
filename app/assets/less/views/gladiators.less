@@ -8,7 +8,7 @@
     font-family: Moonflower;
     font-size: 2rem;
     line-height: normal;
-    background: darkgrey;
+    background-image: url(/assets/images/sand.png);
 }
 
 // PlayerInfo GladiatorInfo
@@ -16,6 +16,8 @@
     border: 1px solid black;
     border-radius: 5px;
     width: 100%;
+    background-color: ivory;
+    box-shadow: @default-boxshadow;
 }
 .playerinfo:not(:last-child) {
     margin-bottom: 1rem;
@@ -93,24 +95,28 @@
 // Shop
 .panel-shop {
     .shop-item {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
         margin-top: 1rem;
         text-align: end;
-        &.Knight {
+        position: relative;
+        background-color: #f6c663;
+        &.Knight .layer{
             background-image: url("/assets/images/sword.png");  
         }
-        &.Archer {
+        &.Archer .layer {
             background-image: url("/assets/images/bow.png");  
         }
-        &.Tank {
+        &.Tank .layer {
             background-image: url("/assets/images/shield.png");  
         }
+        .layer {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     }
-}
-
-.panel-buttons {
-    display: flex;
-    justify-content: center;
 }
