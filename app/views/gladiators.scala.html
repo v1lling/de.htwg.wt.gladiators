@@ -7,18 +7,19 @@
     @navbar()
     <div class="container my-container game">
         <div class="row">
-            
-        </div>
-        <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">
-                <div class="playerinfo">
-                    Player: @{controller.playerOne.get.name}
-                    Credits: @{controller.playerOne.get.credits}$
-                 </div>   
-                 <div class="playerinfo">
-                    Player: @{controller.playerTwo.get.name}
-                    Credits: @{controller.playerTwo.get.credits}$
-                 </div>
+                <div class="panel-player">
+                    Player
+                    <div class="playerinfo">
+                        Name: @{controller.playerOne.get.name}
+                        Credits: @{controller.playerOne.get.credits}
+                     </div>   
+                     <div class="playerinfo">
+                        Name: @{controller.playerTwo.get.name}
+                        Credits: @{controller.playerTwo.get.credits}
+                     </div>
+                </div>
+                
                  <div class="panel-buttons">
                     <button type="button" class="btn btn-success btn-rounded">End Turn</button>
                 </div>
@@ -59,9 +60,6 @@
                     }
                 </div>
             </div>
-        </div>
-        <div class="row">
-            
         </div>
     </div>
 }

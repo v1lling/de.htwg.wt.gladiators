@@ -1,9 +1,6 @@
 // Layout
 .row {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    width: 100%;
-    justify-content: center;
+    width: 100%; 
 }
 
 // Game
@@ -14,20 +11,14 @@
     background: darkgrey;
 }
 
-// Playerinfo
-.playerinfo {
+// PlayerInfo GladiatorInfo
+.playerinfo, .gladiatorinfo {
     border: 1px solid black;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
     border-radius: 5px;
+    width: 100%;
 }
-
-// GladiatorInfo
-.gladiatorinfo {
-    border: 1px solid black;
-    border-radius: 5px;
+.playerinfo:not(:last-child) {
+    margin-bottom: 1rem;
 }
 
 // Board
@@ -69,13 +60,17 @@
 .panel {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    >:not(:last-child) {
+        margin-bottom: 1rem;
+    }
 }
 
 .panel-gladiator,
-.panel-shop {
+.panel-shop,
+.panel-player {
     display: flex;
     flex-direction: column;
     align-items: center;
