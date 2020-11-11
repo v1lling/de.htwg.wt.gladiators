@@ -5,9 +5,25 @@
 
 @main("Gladiators") {
     @navbar()
-    <div class="container my-container">
-        <div class="row game">
-            <div class="col-xs-12 col-sm-12 col-lg-9 board">
+    <div class="container my-container game">
+        <div class="row">
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-2 panel">
+                <div class="playerinfo">
+                    Player: @{controller.playerOne.get.name}
+                    Credits: @{controller.playerOne.get.credits}$
+                 </div>   
+                 <div class="playerinfo">
+                    Player: @{controller.playerTwo.get.name}
+                    Credits: @{controller.playerTwo.get.credits}$
+                 </div>
+                 <div class="panel-buttons">
+                    <button type="button" class="btn btn-success btn-rounded">End Turn</button>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-lg-8 board">
                 @for(x <- 0 until controller.board.tiles.size) {
                     <div class="board-row">
                     @for(y <- 0 until controller.board.tiles.size) {
@@ -18,14 +34,16 @@
                     </div>
                 }
             </div>
-            <div class="col-xs-12 col-sm-12 col-lg-3 panel">
-                <div class="panel-child panel-info">
-                   Player: @{controller.currentPlayer.get.name}  
+            <div class="col-xs-12 col-sm-12 col-lg-2 panel">
+                <div class="panel-gladiator">
+                    Gladiator 
+                    <div class="gladiatorinfo">
+                        <div>AP: 45</div>
+                        <div>MP: 3</div>
+                        <div>HP: 76</div>
+                    </div>
                 </div>
-                <div class="panel-child panel-info">
-                    Credits: @{controller.currentPlayer.get.credits} 
-                </div>
-                <div class="panel-child panel-shop">
+                <div class="panel-shop">
                     Shop
                     @for(i <- 0 until shop.stock.length) {
                         <button class="btn btn-outline-dark shop-item @{shop.stock(i).gladiatorType}">
@@ -40,10 +58,10 @@
                         </button>
                     }
                 </div>
-                <div class="panel-child panel-buttons">
-                    <button type="button" class="btn btn-success btn-rounded">End Turn</button>
-                </div>
             </div>
+        </div>
+        <div class="row">
+            
         </div>
     </div>
 }

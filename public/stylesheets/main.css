@@ -31,6 +31,16 @@ body {
   align-items: center;
   border-radius: 20px;
   margin-top: 2rem;
+  text-align: center;
+}
+.my-container button {
+  border: 1px solid black;
+  width: 80%;
+  font-family: 'MoonFlower';
+  font-size: 36px;
+  line-height: normal;
+  color: black;
+  width: 100%;
 }
 @media only screen and (max-width: 768px) {
   .my-container {
@@ -44,6 +54,9 @@ body {
   h2 {
     font-size: 1.5rem !important;
   }
+  .game .board .board-tile {
+    height: 3vh;
+  }
 }
 .about {
   text-align: center;
@@ -56,24 +69,42 @@ body {
   max-width: 100%;
   height: auto;
 }
+.row {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
 .game {
-  border: 2px solid black;
   font-family: Moonflower;
   font-size: 2rem;
   line-height: normal;
+  background: darkgrey;
+}
+.playerinfo {
+  border: 1px solid black;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border-radius: 5px;
+}
+.gladiatorinfo {
+  border: 1px solid black;
+  border-radius: 5px;
 }
 .board {
   display: flex;
   flex-direction: column;
   padding-left: 0 !important;
   padding-right: 0 !important;
+  border: 2px solid black;
 }
 .board .board-row {
   display: flex;
 }
 .board .board-tile {
-  width: 5vw;
-  height: 5vh;
+  height: 4vh;
   max-width: 60px;
   max-height: 60px;
   border: 1px solid black;
@@ -98,37 +129,18 @@ body {
 .panel {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  background: darkgray;
-  background-image: url("/assets/images/wood.png");
-  background-image: url(/assets/images/wood.png);
+  justify-content: space-evenly;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.panel button {
-  border: 1px solid black;
-  width: 80%;
-  font-family: 'MoonFlower';
-  font-size: 36px;
-  line-height: normal;
-  color: black;
-}
-.panel-child {
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 1rem;
-  background: lightgray;
-}
-.panel-info {
-  text-align: center;
-}
-.panel-info button {
-  width: 100%;
-}
+.panel-gladiator,
 .panel-shop {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.gladiatorinfo {
+  width: 100%;
 }
 .panel-shop .shop-item {
   background-position: center;
