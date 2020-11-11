@@ -28,9 +28,9 @@
                 @for(x <- 0 until controller.board.tiles.size) {
                     <div class="board-row">
                     @for(y <- 0 until controller.board.tiles.size) {
-                        <span class="board-tile @{controller.board.tiles(x)(y).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))}">
-                            <!-- @{controller.board.tiles(x)(y).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))} <-->
-                        </span>
+                        <div class="board-tile @{controller.board.tiles(x)(y).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))}">
+                            <div class="overlay"></div>
+                        </div>
                     }
                     </div>
                 }
@@ -54,7 +54,6 @@
                                 <span class="shop-cell">@{shop.stock(i).attackPoints}</span>
                                 <span class="shop-cell">@{shop.stock(i).movementPoints.toString}</span>
                                 <span class="shop-cell">@{shop.stock(i).healthPoints.toString}</span>
-                                <span class="shop-cell">@{shop.stock(i).calculateCost.toString}</span>
                             -->
                         </button>
                     }

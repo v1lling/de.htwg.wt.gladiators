@@ -41,6 +41,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        position: relative;
         &.S {
             background-image: url("/assets/images/board/sand.png");
         }
@@ -52,6 +53,14 @@
         }
         &.M {
             background-image: url("/assets/images/board/gold.png");
+        }
+        &:hover > .overlay {
+            width:100%;
+            height:100%;
+            position:absolute;
+            background-color: white;
+            opacity:0.5;
+            transition: 0.2s;
         }
     }  
 }
