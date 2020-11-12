@@ -1,5 +1,16 @@
+var oController = {};
+
+
 /**
-* Ends turn and sets new current player
+ * Event when tile is clicked
+ */
+function onClickTile(oSource) {
+    console.log("Tile clicked: " + oSource.getAttribute("x") + "," + oSource.getAttribute("y"));
+}
+
+/**
+ * Event when "End Turn" button is clicked
+ * Ends turn and sets new current player
  */
 function onClickEndTurn() {
     var fnSuccess = function(oResult) {
@@ -32,6 +43,8 @@ function sendRequest(sPath, fnSuccess) {
         url: sPath,
         dataType: "json",
         success: function (oResult) {
+            //save Json
+            oController = oResult.response;
             fnSuccess(oResult);
         },
         error: function(oResult) {

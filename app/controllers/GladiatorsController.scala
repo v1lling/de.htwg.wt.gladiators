@@ -35,6 +35,7 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
 
     def processCommand(cmd: String) = Action {
         tui.processInputLine(cmd)
+        //Ok(Json.toJson(controller))
         Ok(views.html.gladiators(controller))
     }
 

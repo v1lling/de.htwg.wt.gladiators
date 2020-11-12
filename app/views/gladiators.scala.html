@@ -28,7 +28,10 @@
                 @for(x <- 0 until controller.board.tiles.size) {
                     <div class="board-row">
                     @for(y <- 0 until controller.board.tiles.size) {
-                        <div class="board-tile @{controller.board.tiles(x)(y).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))}">
+                        <div class="board-tile @{controller.board.tiles(x)(y).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))}"
+                            x=@{x}
+                            y=@{y}
+                            onclick="onClickTile(this)">
                             <div class="overlay"></div>
                         </div>
                     }
