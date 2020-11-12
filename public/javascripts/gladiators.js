@@ -2,8 +2,8 @@
 * Ends turn and sets new current player
  */
 function onClickEndTurn() {
-    var fnSuccess = function(result) {
-        console.log(result);
+    var fnSuccess = function(oResult) {
+        console.log(oResult);
         // set active player
     }
     sendRequest("/gladiators/end", fnSuccess);
@@ -14,8 +14,8 @@ function onClickEndTurn() {
  * Initializes the game
  */
 function loadJson() {
-    var fnSuccess = function(result) {
-        console.log(result);
+    var fnSuccess = function(oResult) {
+        console.log(oResult);
         // initializing
     }
     sendRequest("/json", fnSuccess);
@@ -23,19 +23,19 @@ function loadJson() {
 
 /**
  * Sends a request to the server
- * @param {string} path - The request URL
+ * @param {string} sPath - The request URL
  * @param {function} fnSuccess - Callback function for success
  */
-function sendRequest(path, fnSuccess) {
+function sendRequest(sPath, fnSuccess) {
     $.ajax({
         method: "GET",
-        url: path,
+        url: sPath,
         dataType: "json",
-        success: function (result) {
-            fnSuccess(result);
+        success: function (oResult) {
+            fnSuccess(oResult);
         },
-        error: function(result) {
-            console.log(result);
+        error: function(oResult) {
+            console.log(oResult);
         }
     });
 }
