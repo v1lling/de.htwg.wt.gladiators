@@ -1,11 +1,47 @@
-var oController = {};
-
+var oController = {},
+    oCurrGladiator = {};
 
 /**
  * Event when tile is clicked
  */
 function onClickTile(oSource) {
-    console.log("Tile clicked: " + oSource.getAttribute("x") + "," + oSource.getAttribute("y"));
+    var x = oSource.getAttribute("x"),
+        y = oSource.getAttribute("y"),
+        sPath = "";
+    console.log("Tile clicked: " + x + "," + y);
+    toggleActive(oSource.children[0]);
+    if (oCurrGladiator.shop) {
+        //buy
+        sPath = "/gladiators/buy "+oCurrGladiator.shopIndex+" "+x+" "+y;
+        oCurrGladiator = {}; //TODO: only when success
+        sendRequest(sPath);
+    } else if(oCurrGladiator.board) {
+        //move or attack
+        sPath = "/gladiators/move "+oCurrGladiator.x+" "+oCurrGladiator.y+" "+x+" "+y;
+        oCurrGladiator = {}; //TODO: only when success
+        sendRequest(sPath);
+    } else {
+        //save gladiator
+        oCurrGladiator = {};
+        if (oSource.getAttribute("gladiator")) {
+            oCurrGladiator = {
+                board: true,
+                x: x,
+                y: y
+            }
+        }
+    }
+}
+
+/**
+ * Event when gladiator in shop is clicked
+ */
+function onClickShopItem(oSource) {
+    oCurrGladiator = {
+        shop: true,
+        shopIndex: oSource.getAttribute("index")
+    };
+    toggleActive();
 }
 
 /**
@@ -45,12 +81,27 @@ function sendRequest(sPath, fnSuccess) {
         success: function (oResult) {
             //save Json
             oController = oResult.response;
-            fnSuccess(oResult);
+            if (fnSuccess) {
+                fnSuccess(oResult);
+            }
         },
         error: function(oResult) {
             console.log(oResult);
         }
     });
+}
+
+/**
+ * Sets the active class for an element
+ * Removes active class from the rest
+ * @param {Object} oElement - the new active element
+ */
+function toggleActive(oElement) {
+    $(".overlay").removeClass("active");
+    $(".shop-item").removeClass("active");
+    if (oElement) {
+        $(oElement).addClass("active");
+    }
 }
 
 $(document).ready(function() {

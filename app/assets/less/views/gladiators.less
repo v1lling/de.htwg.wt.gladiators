@@ -56,15 +56,31 @@
         &.M {
             background-image: url("/assets/images/board/gold.png");
         }
-        &:hover > .overlay {
-            width:100%;
-            height:100%;
+        &.T {
+            background-image: url("/assets/images/gladiators/sandshield_p2.png");
+        }
+        &.K {
+            background-image: url("/assets/images/gladiators/sandsword_p2.png");
+        }
+        &.A {
+            background-image: url("/assets/images/gladiators/sandbow_p2.png");
+        }
+        .overlay {
+            height: 100%;
+            width: 100%;
             position:absolute;
-            background-color: white;
             opacity:0.5;
             transition: 0.2s;
         }
-    }  
+        &:hover > .overlay {
+            background-color: white;
+        }
+        .overlay.active {  
+            -webkit-box-shadow: inset 0px 0px 0px 5px #f00;
+            -moz-box-shadow: inset 0px 0px 0px 5px #f00;
+            box-shadow: inset 0px 0px 0px 5px #f00;
+        }
+    }
 }
 
 // Panel

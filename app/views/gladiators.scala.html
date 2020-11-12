@@ -25,12 +25,13 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-lg-8 board">
-                @for(x <- 0 until controller.board.tiles.size) {
+                @for(y <- 0 until controller.board.tiles.size) {
                     <div class="board-row">
-                    @for(y <- 0 until controller.board.tiles.size) {
-                        <div class="board-tile @{controller.board.tiles(x)(y).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))}"
+                    @for(x <- 0 until controller.board.tiles.size) {
+                        <div class="board-tile @{controller.board.tiles(y)(x).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))}"
                             x=@{x}
                             y=@{y}
+                            gladiator="@{controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y))}"
                             onclick="onClickTile(this)">
                             <div class="overlay"></div>
                         </div>
@@ -50,7 +51,9 @@
                 <div class="panel-shop">
                     Shop
                     @for(i <- 0 until shop.stock.length) {
-                        <button class="btn btn-outline-dark shop-item @{shop.stock(i).gladiatorType}">
+                        <button class="btn btn-outline-dark shop-item @{shop.stock(i).gladiatorType}"
+                            onclick="onClickShopItem(this)"
+                            index=@{i + 1}>
                             $@{shop.stock(i).calculateCost.toString}
                             <div class="layer"></div>
                             <!--
