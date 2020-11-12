@@ -8,6 +8,7 @@ GET     /                           controllers.GladiatorsController.about
 GET     /about                      controllers.GladiatorsController.about
 GET     /gladiators                 controllers.GladiatorsController.gladiators
 GET     /gladiators/:cmd            controllers.GladiatorsController.processCommand(cmd)
+GET     /json                       controllers.GladiatorsController.controllerToJson
 
 
 # Map static resources from the /public folder to the /assets URL path

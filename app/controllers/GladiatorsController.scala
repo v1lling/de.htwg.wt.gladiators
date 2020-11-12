@@ -7,6 +7,8 @@ import de.htwg.se.gladiators.util.Configuration
 import de.htwg.se.gladiators.controller.BaseImplementation.Controller
 import de.htwg.se.gladiators.aview.Tui
 import com.softwaremill.macwire._
+import play.api.libs.json.JsValue
+import play.api.libs.json.Json
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -33,6 +35,11 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
 
     def processCommand(cmd: String) = Action {
         tui.processInputLine(cmd)
+        Ok(views.html.gladiators(controller))
+    }
+
+    def controllerToJson = Action {
+        //Ok(Json.toJson(controller))
         Ok(views.html.gladiators(controller))
     }
 }
