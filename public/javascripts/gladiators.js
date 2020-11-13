@@ -9,21 +9,22 @@ function onClickTile(oSource) {
         y = oSource.getAttribute("y"),
         sPath = "";
     console.log("Tile clicked: " + x + "," + y);
-    toggleActive(oSource.children[0]);
+    toggleActiveClass(oSource.children[0]);
     if (oCurrGladiator.shop) {
         //buy
-        sPath = "/gladiators/buy "+oCurrGladiator.shopIndex+" "+x+" "+y;
-        oCurrGladiator = {}; //TODO: only when success
+        sPath = "/gladiators/buy "+(oCurrGladiator.shopIndex+1)+" "+x+" "+y;
+        oCurrGladiator = {}; //FIXME: only when success
         sendRequest(sPath);
     } else if(oCurrGladiator.board) {
         //move or attack
         sPath = "/gladiators/move "+oCurrGladiator.x+" "+oCurrGladiator.y+" "+x+" "+y;
-        oCurrGladiator = {}; //TODO: only when success
+        oCurrGladiator = {}; //FIXME: only when success
         sendRequest(sPath);
     } else {
         //save gladiator
         oCurrGladiator = {};
-        if (oSource.getAttribute("gladiator")) {
+        if ($(oSource).data("gladiator")) {
+            //save
             oCurrGladiator = {
                 board: true,
                 x: x,
@@ -41,7 +42,7 @@ function onClickShopItem(oSource) {
         shop: true,
         shopIndex: oSource.getAttribute("index")
     };
-    toggleActive();
+    toggleActiveClass();
 }
 
 /**
@@ -54,6 +55,68 @@ function onClickEndTurn() {
         // set active player
     }
     sendRequest("/gladiators/end", fnSuccess);
+}
+
+/**
+ * Shows the stats of a gladiator
+ * @param {object} oGladiator - the Gladiator
+ */
+function showGladiatorStats(oSource) {
+    var oGladiator = $(oSource).data("gladiator");
+    if (oGladiator) {
+        $("#idGladiatorAP").html(oGladiator.attackPoints);
+        $("#idGladiatorHP").html(oGladiator.healthPoints);
+        $("#idGladiatorMP").html(oGladiator.movementPoints);
+    } else {
+        $("#idGladiatorAP").html("-");
+        $("#idGladiatorHP").html("-");
+        $("#idGladiatorMP").html("-");
+    }
+}
+
+/**
+ * Updates the gladiator
+ */
+function updateGladiators() {
+    if (oController) {
+        $(".board-tile").removeClass (function (index, className) {
+            return (className.match (/(^|\s)glad-\S+/g) || []).join(' ');
+        });
+        oController.playerOne.gladiators.forEach(function(g) {
+            var x = g.position.x,
+                y = g.position.y,
+                type = g.type;
+            $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]")
+            .data("gladiator", g)
+            .addClass("glad-"+type+"1");
+        });
+        oController.playerTwo.gladiators.forEach(function(g) {
+            var x = g.position.x,
+                y = g.position.y,
+                type = g.type;
+            $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]")
+                .data("gladiator", g)
+                .addClass("glad-"+type+"2");
+        });
+    }
+}
+
+/**
+ * Updates the shop
+ */
+function updateShop() {
+    if (oController) {
+        $(".shop-item").removeClass (function (index, className) {
+            return (className.match (/(^|\s)glad-\S+/g) || []).join(' ');
+        });
+        //FIXME for some reason this is not working yet
+        oController.shop.stock.forEach(function(g, i) {
+            $(".shop-item").filter("[index="+i+"]")
+            .data("gladiator", g)
+            .addClass("glad-" + g.type)
+            .html(g.calculateCost)
+        });
+    }
 }
 
 /**
@@ -80,11 +143,14 @@ function sendRequest(sPath, fnSuccess) {
         dataType: "json",
         success: function (oResult) {
             //save Json
-            oController = oResult.response;
+            oController = oResult;
             if (fnSuccess) {
                 fnSuccess(oResult);
             }
-        },
+            //FIXME: not always call this, put this into fnSuccess callback
+            updateGladiators(); 
+            updateShop();
+        }.bind(this),
         error: function(oResult) {
             console.log(oResult);
         }
@@ -96,7 +162,7 @@ function sendRequest(sPath, fnSuccess) {
  * Removes active class from the rest
  * @param {Object} oElement - the new active element
  */
-function toggleActive(oElement) {
+function toggleActiveClass(oElement) {
     $(".overlay").removeClass("active");
     $(".shop-item").removeClass("active");
     if (oElement) {

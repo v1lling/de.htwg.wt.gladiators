@@ -11,18 +11,6 @@
     background-image: url(/assets/images/sand.png);
 }
 
-// PlayerInfo GladiatorInfo
-.playerinfo, .gladiatorinfo {
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 100%;
-    background-color: ivory;
-    box-shadow: @default-boxshadow;
-}
-.playerinfo:not(:last-child) {
-    margin-bottom: 1rem;
-}
-
 // Board
 .board {
     display: flex;
@@ -44,6 +32,7 @@
         background-position: center;
         background-repeat: no-repeat;
         position: relative;
+        transition: 0.2s;
         &.S {
             background-image: url("/assets/images/board/sand.png");
         }
@@ -56,13 +45,22 @@
         &.M {
             background-image: url("/assets/images/board/gold.png");
         }
-        &.T {
+        &.glad-Tank1 {
+            background-image: url("/assets/images/gladiators/sandshield_p1.png");
+        }
+        &.glad-Knight1 {
+            background-image: url("/assets/images/gladiators/sandsword_p1.png");
+        }
+        &.glad-Archer1 {
+            background-image: url("/assets/images/gladiators/sandbow_p1.png");
+        }
+        &.glad-Tank2 {
             background-image: url("/assets/images/gladiators/sandshield_p2.png");
         }
-        &.K {
+        &.glad-Knight2 {
             background-image: url("/assets/images/gladiators/sandsword_p2.png");
         }
-        &.A {
+        &.glad-Archer2 {
             background-image: url("/assets/images/gladiators/sandbow_p2.png");
         }
         .overlay {
@@ -81,6 +79,18 @@
             box-shadow: inset 0px 0px 0px 5px #f00;
         }
     }
+}
+
+// PlayerInfo GladiatorInfo
+.playerinfo, .gladiatorinfo {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    background-color: ivory;
+    box-shadow: @default-boxshadow;
+}
+.playerinfo:not(:last-child) {
+    margin-bottom: 1rem;
 }
 
 // Panel
@@ -115,13 +125,13 @@
         text-align: end;
         position: relative;
         background-color: #f6c663;
-        &.Knight .layer{
+        &.glad-Knight .layer{
             background-image: url("/assets/images/sword.png");  
         }
-        &.Archer .layer {
+        &.glad-Archer .layer {
             background-image: url("/assets/images/bow.png");  
         }
-        &.Tank .layer {
+        &.glad-Tank .layer {
             background-image: url("/assets/images/shield.png");  
         }
         .layer {

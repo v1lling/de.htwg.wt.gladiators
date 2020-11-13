@@ -113,6 +113,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  transition: 0.2s;
 }
 .board .board-tile.S {
   background-image: url("/assets/images/board/sand.png");
@@ -126,13 +127,22 @@ body {
 .board .board-tile.M {
   background-image: url("/assets/images/board/gold.png");
 }
-.board .board-tile.T {
+.board .board-tile.glad-Tank1 {
+  background-image: url("/assets/images/gladiators/sandshield_p1.png");
+}
+.board .board-tile.glad-Knight1 {
+  background-image: url("/assets/images/gladiators/sandsword_p1.png");
+}
+.board .board-tile.glad-Archer1 {
+  background-image: url("/assets/images/gladiators/sandbow_p1.png");
+}
+.board .board-tile.glad-Tank2 {
   background-image: url("/assets/images/gladiators/sandshield_p2.png");
 }
-.board .board-tile.K {
+.board .board-tile.glad-Knight2 {
   background-image: url("/assets/images/gladiators/sandsword_p2.png");
 }
-.board .board-tile.A {
+.board .board-tile.glad-Archer2 {
   background-image: url("/assets/images/gladiators/sandbow_p2.png");
 }
 .board .board-tile .overlay {

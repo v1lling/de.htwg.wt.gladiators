@@ -5,9 +5,9 @@ import play.api._
 import play.api.mvc._
 import de.htwg.se.gladiators.util.Configuration
 import de.htwg.se.gladiators.controller.BaseImplementation.Controller
+import de.htwg.se.gladiators.controller.BaseImplementation.ControllerJson._
 import de.htwg.se.gladiators.aview.Tui
 import com.softwaremill.macwire._
-import play.api.libs.json.JsValue
 import play.api.libs.json.Json
 
 /**
@@ -35,12 +35,13 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
 
     def processCommand(cmd: String) = Action {
         tui.processInputLine(cmd)
-        //Ok(Json.toJson(controller))
-        Ok(views.html.gladiators(controller))
+        // FIXME: check if processInputLine was successfull:
+        // success: give back Ok
+        // error: give back 400code with error output
+        Ok(Json.toJson(controller))
     }
 
     def controllerToJson = Action {
-        //Ok(Json.toJson(controller))
-        Ok(views.html.gladiators(controller))
+        Ok(Json.toJson(controller))
     }
 }

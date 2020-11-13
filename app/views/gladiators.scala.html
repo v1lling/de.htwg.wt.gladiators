@@ -31,8 +31,8 @@
                         <div class="board-tile @{controller.board.tiles(y)(x).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))}"
                             x=@{x}
                             y=@{y}
-                            gladiator="@{controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y))}"
-                            onclick="onClickTile(this)">
+                            onclick="onClickTile(this)"
+                            onmouseover="showGladiatorStats(this)">
                             <div class="overlay"></div>
                         </div>
                     }
@@ -43,25 +43,21 @@
                 <div class="panel-gladiator">
                     Gladiator 
                     <div class="gladiatorinfo">
-                        <div>AP: 45</div>
-                        <div>MP: 3</div>
-                        <div>HP: 76</div>
+                        <div>AP: <span id="idGladiatorAP">-</span></div>
+                        <div>HP: <span id="idGladiatorHP">-</span></div>
+                        <div>MP: <span id="idGladiatorMP">-</span></div>
                     </div>
                 </div>
                 <div class="panel-shop">
                     Shop
                     @for(i <- 0 until shop.stock.length) {
                         <button class="btn btn-outline-dark shop-item @{shop.stock(i).gladiatorType}"
+                            onmouseover="showGladiatorStats(this)"
                             onclick="onClickShopItem(this)"
-                            index=@{i + 1}>
+                            index=@{i}>
                             $@{shop.stock(i).calculateCost.toString}
+
                             <div class="layer"></div>
-                            <!--
-                                <span class="shop-cell">@{shop.stock(i).gladiatorType}</span>
-                                <span class="shop-cell">@{shop.stock(i).attackPoints}</span>
-                                <span class="shop-cell">@{shop.stock(i).movementPoints.toString}</span>
-                                <span class="shop-cell">@{shop.stock(i).healthPoints.toString}</span>
-                            -->
                         </button>
                     }
                 </div>
