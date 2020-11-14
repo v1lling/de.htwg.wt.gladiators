@@ -8,18 +8,21 @@ function onClickTile(oSource) {
     var x = oSource.getAttribute("x"),
         y = oSource.getAttribute("y"),
         sPath = "";
-    console.log("Tile clicked: " + x + "," + y);
     toggleActiveClass(oSource.children[0]);
     if (oCurrGladiator.shop) {
         //buy
-        sPath = "/gladiators/buy "+(oCurrGladiator.shopIndex+1)+" "+x+" "+y;
-        oCurrGladiator = {}; //FIXME: only when success
-        sendRequest(sPath);
+        sPath = "/gladiators/buy "+(parseInt(oCurrGladiator.shopIndex)+1)+" "+x+" "+y;
+        sendRequest(sPath, function() {
+            updateGame();
+            oCurrGladiator = {};
+        });
     } else if(oCurrGladiator.board) {
         //move or attack
         sPath = "/gladiators/move "+oCurrGladiator.x+" "+oCurrGladiator.y+" "+x+" "+y;
-        oCurrGladiator = {}; //FIXME: only when success
-        sendRequest(sPath);
+        sendRequest(sPath, function() {
+            updateBoard();
+            oCurrGladiator = {};
+        });
     } else {
         //save gladiator
         oCurrGladiator = {};
@@ -50,11 +53,7 @@ function onClickShopItem(oSource) {
  * Ends turn and sets new current player
  */
 function onClickEndTurn() {
-    var fnSuccess = function(oResult) {
-        console.log(oResult);
-        // set active player
-    }
-    sendRequest("/gladiators/end", fnSuccess);
+    sendRequest("/gladiators/end", updateCurrentPlayer);
 }
 
 /**
@@ -75,12 +74,46 @@ function showGladiatorStats(oSource) {
 }
 
 /**
- * Updates the gladiator
+ * Updates the current player
  */
-function updateGladiators() {
+function updateCurrentPlayer() {
     if (oController) {
-        $(".board-tile").removeClass (function (index, className) {
-            return (className.match (/(^|\s)glad-\S+/g) || []).join(' ');
+        $(".playerinfo").removeClass("active");
+        if (JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerOne)) {
+            $(".player1").addClass("active");
+        } else {
+            $(".player2").addClass("active");
+        }
+    }
+}
+
+/**
+ * Updates the shop
+ */
+function updateShop() {
+    if (oController) {
+        removePrefixClass("shop-item","glad");
+        oController.shop.stock.forEach(function(g, i) {
+            $(".shop-item").filter("[index="+i+"]")
+            .data("gladiator", g)
+            .addClass("glad-" + g.type);
+            // .children("span").text("???") //FIXME: we need the cost as an attribute of gladiator
+        });
+    }
+}
+
+/**
+ * Updates the board (tiles + gladiators)
+ */
+function updateBoard() {
+    if (oController) {
+        removePrefixClass("board-tile","tile");
+        removePrefixClass("board-tile", "glad");
+        oController.board.tiles.forEach(function(row, y) {
+            row.forEach(function(tile, x) {
+                $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]")
+                    .addClass("tile-" + tile.type)
+            })
         });
         oController.playerOne.gladiators.forEach(function(g) {
             var x = g.position.x,
@@ -102,33 +135,12 @@ function updateGladiators() {
 }
 
 /**
- * Updates the shop
+ * Updates the game
  */
-function updateShop() {
-    if (oController) {
-        $(".shop-item").removeClass (function (index, className) {
-            return (className.match (/(^|\s)glad-\S+/g) || []).join(' ');
-        });
-        //FIXME for some reason this is not working yet
-        oController.shop.stock.forEach(function(g, i) {
-            $(".shop-item").filter("[index="+i+"]")
-            .data("gladiator", g)
-            .addClass("glad-" + g.type)
-            .html(g.calculateCost)
-        });
-    }
-}
-
-/**
- * Loads the controller as json
- * Initializes the game
- */
-function loadJson() {
-    var fnSuccess = function(oResult) {
-        console.log(oResult);
-        // initializing
-    }
-    sendRequest("/json", fnSuccess);
+function updateGame() {
+    updateShop();
+    updateBoard();
+    updateCurrentPlayer();
 }
 
 /**
@@ -147,11 +159,9 @@ function sendRequest(sPath, fnSuccess) {
             if (fnSuccess) {
                 fnSuccess(oResult);
             }
-            //FIXME: not always call this, put this into fnSuccess callback
-            updateGladiators(); 
-            updateShop();
         }.bind(this),
         error: function(oResult) {
+            //show error message to user
             console.log(oResult);
         }
     });
@@ -170,7 +180,20 @@ function toggleActiveClass(oElement) {
     }
 }
 
+/**
+ * Removes a class from elements
+ * @param {String} sElementClass - class of elements
+ * @param {String} sRemoveClass - prefix of to be removed class
+ */
+function removePrefixClass(sElementClass, sRemoveClass) {
+    $("."+sElementClass).each(function() {
+        var element = $(this)[0];
+        const classes = element.className.split(" ").filter(c => !c.startsWith(sRemoveClass));
+        element.className = classes.join(" ").trim();
+    });
+}
+
 $(document).ready(function() {
-    console.log("Document is ready, filling grid");
-    loadJson();
+    console.log("Document is ready, loading data");
+    sendRequest("/json", updateGame);
 });

@@ -6,6 +6,17 @@
   font-family: "MoonFlower";
   src: url("/assets/fonts/MoonFlowerBold.ttf");
 }
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
 html {
   margin: 0px;
   min-height: 100%;
@@ -81,17 +92,6 @@ body {
   line-height: normal;
   background-image: url(/assets/images/sand.png);
 }
-.playerinfo,
-.gladiatorinfo {
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 100%;
-  background-color: ivory;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-.playerinfo:not(:last-child) {
-  margin-bottom: 1rem;
-}
 .board {
   display: flex;
   flex-direction: column;
@@ -113,18 +113,18 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  transition: 0.2s;
+  transition: 0.5s;
 }
-.board .board-tile.S {
+.board .board-tile.tile-Sand {
   background-image: url("/assets/images/board/sand.png");
 }
-.board .board-tile.B {
+.board .board-tile.tile-Base {
   background-image: url("/assets/images/board/house.png");
 }
-.board .board-tile.P {
+.board .board-tile.tile-Palm {
   background-image: url("/assets/images/board/palm.png");
 }
-.board .board-tile.M {
+.board .board-tile.tile-Mine {
   background-image: url("/assets/images/board/gold.png");
 }
 .board .board-tile.glad-Tank1 {
@@ -160,6 +160,29 @@ body {
   -moz-box-shadow: inset 0px 0px 0px 5px #f00;
   box-shadow: inset 0px 0px 0px 5px #f00;
 }
+.playerinfo,
+.gladiatorinfo {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  background-color: ivory;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.playerinfo.active,
+.gladiatorinfo.active {
+  animation: pulse 1s linear infinite;
+}
+.playerinfo.active.player1,
+.gladiatorinfo.active.player1 {
+  border: 2px solid #2525b5;
+}
+.playerinfo.active.player2,
+.gladiatorinfo.active.player2 {
+  border: 2px solid #f13737;
+}
+.playerinfo:not(:last-child) {
+  margin-bottom: 1rem;
+}
 .panel {
   display: flex;
   flex-direction: column;
@@ -186,13 +209,13 @@ body {
   position: relative;
   background-color: #f6c663;
 }
-.panel-shop .shop-item.Knight .layer {
+.panel-shop .shop-item.glad-Knight .layer {
   background-image: url("/assets/images/sword.png");
 }
-.panel-shop .shop-item.Archer .layer {
+.panel-shop .shop-item.glad-Archer .layer {
   background-image: url("/assets/images/bow.png");
 }
-.panel-shop .shop-item.Tank .layer {
+.panel-shop .shop-item.glad-Tank .layer {
   background-image: url("/assets/images/shield.png");
 }
 .panel-shop .shop-item .layer {

@@ -10,14 +10,14 @@
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">
                 <div class="panel-player">
                     Player
-                    <div class="playerinfo">
+                    <div class="playerinfo player1">
                         Name: @{controller.playerOne.get.name}
                         Credits: @{controller.playerOne.get.credits}
-                     </div>   
-                     <div class="playerinfo">
-                        Name: @{controller.playerTwo.get.name}
-                        Credits: @{controller.playerTwo.get.credits}
-                     </div>
+                    </div>   
+                    <div class="playerinfo player2">
+                    Name: @{controller.playerTwo.get.name}
+                    Credits: @{controller.playerTwo.get.credits}
+                    </div>
                 </div>
                 
                  <div class="panel-buttons">
@@ -28,7 +28,7 @@
                 @for(y <- 0 until controller.board.tiles.size) {
                     <div class="board-row">
                     @for(x <- 0 until controller.board.tiles.size) {
-                        <div class="board-tile @{controller.board.tiles(y)(x).stringRepresentation(controller.board.gladiatorAtPosition(gladiators, Coordinate(x, y)))}"
+                        <div class="board-tile"
                             x=@{x}
                             y=@{y}
                             onclick="onClickTile(this)"
@@ -51,12 +51,12 @@
                 <div class="panel-shop">
                     Shop
                     @for(i <- 0 until shop.stock.length) {
-                        <button class="btn btn-outline-dark shop-item @{shop.stock(i).gladiatorType}"
+                        <button class="btn btn-outline-dark shop-item"
                             onmouseover="showGladiatorStats(this)"
                             onclick="onClickShopItem(this)"
                             index=@{i}>
-                            $@{shop.stock(i).calculateCost.toString}
-
+                            
+                            <span>$@{shop.stock(i).calculateCost.toString}</span>
                             <div class="layer"></div>
                         </button>
                     }
