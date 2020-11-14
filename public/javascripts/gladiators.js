@@ -154,15 +154,13 @@ function sendRequest(sPath, fnSuccess) {
         url: sPath,
         dataType: "json",
         success: function (oResult) {
-            //save Json
             oController = oResult;
             if (fnSuccess) {
-                fnSuccess(oResult);
+                fnSuccess();
             }
         }.bind(this),
-        error: function(oResult) {
-            //show error message to user
-            console.log(oResult);
+        error: function(oResponse) {
+            Msg.error(oResponse.responseText, 5000);
         }
     });
 }

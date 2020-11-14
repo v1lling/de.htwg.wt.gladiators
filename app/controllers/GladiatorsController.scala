@@ -34,11 +34,13 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
     }
 
     def processCommand(cmd: String) = Action {
-        tui.processInputLine(cmd)
-        // FIXME: check if processInputLine was successfull:
-        // success: give back Ok
-        // error: give back 400code with error output
-        Ok(Json.toJson(controller))
+        var errormessage = tui.processInputLine(cmd)
+        // FIXME: check if processInputLine was successfull in SE repository
+        if (errormessage) {
+            Ok(Json.toJson(controller))
+        } else {
+            BadRequest(errormessage.toString);
+        }
     }
 
     def controllerToJson = Action {
