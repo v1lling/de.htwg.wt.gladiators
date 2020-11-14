@@ -120,6 +120,7 @@ body {
 }
 .about {
   text-align: center;
+  background-image: url(/assets/images/sand_bright.png);
 }
 .about table tr th {
   font-weight: normal;
