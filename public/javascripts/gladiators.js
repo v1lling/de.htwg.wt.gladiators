@@ -115,6 +115,13 @@ function updateBoard() {
         removePrefixClass("board-tile", "glad");
         oController.board.tiles.forEach(function(row, y) {
             row.forEach(function(tile, x) {
+                if (tile.tileType == "Base") {
+                    if (y == 0) {
+                        tile.tileType += "1";
+                    } else {
+                        tile.tileType += "2";
+                    }
+                }
                 $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]")
                     .addClass("tile-" + tile.tileType)
             })
