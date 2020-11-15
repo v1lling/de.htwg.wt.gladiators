@@ -195,8 +195,9 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
     $.ajax({
         method: sMethod,
         url: sPath,
-        data: oPayload,
+        data: JSON.stringify(oPayload),
         dataType: "json",
+        contentType: "application/json",
         success: function (oResult) {
             oController = oResult;
             if (fnSuccess) {
