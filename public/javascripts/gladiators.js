@@ -9,14 +9,18 @@ function onClickTile(oSource) {
         y = oSource.getAttribute("y"),
         sPath = "";
     toggleActiveClass(oSource.children[0]);
-    if (oCurrGladiator.shop) {
+    if (oCurrGladiator.source == "shop") {
         //buy
         sPath = "/gladiators/buy "+(parseInt(oCurrGladiator.shopIndex)+1)+" "+x+" "+y;
         sendRequest(sPath, function() {
             updateGame();
             oCurrGladiator = {};
+            var iNewCredits1 = oController.playerOne.credits,
+                iNewCredits2 = oController.playerTwo.credits;
+            animateValue("idPlayer1Credits", iNewCredits1, 1000);
+            animateValue("idPlayer2Credits", iNewCredits2, 1000);
         });
-    } else if(oCurrGladiator.board) {
+    } else if(oCurrGladiator.source == "board") {
         //move or attack
         sPath = "/gladiators/move "+oCurrGladiator.x+" "+oCurrGladiator.y+" "+x+" "+y;
         sendRequest(sPath, function() {
@@ -29,7 +33,7 @@ function onClickTile(oSource) {
         if ($(oSource).data("gladiator")) {
             //save
             oCurrGladiator = {
-                board: true,
+                source: "shop",
                 x: x,
                 y: y
             }
@@ -42,7 +46,7 @@ function onClickTile(oSource) {
  */
 function onClickShopItem(oSource) {
     oCurrGladiator = {
-        shop: true,
+        source: "shop",
         shopIndex: oSource.getAttribute("index")
     };
     toggleActiveClass();
@@ -96,7 +100,7 @@ function updateShop() {
         oController.shop.stock.forEach(function(g, i) {
             $(".shop-item").filter("[index="+i+"]")
             .data("gladiator", g)
-            .addClass("glad-" + g.type);
+            .addClass("glad-" + g.gladiatorType);
             // .children("span").text("???") //FIXME: we need the cost as an attribute of gladiator
         });
     }
@@ -112,24 +116,22 @@ function updateBoard() {
         oController.board.tiles.forEach(function(row, y) {
             row.forEach(function(tile, x) {
                 $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]")
-                    .addClass("tile-" + tile.type)
+                    .addClass("tile-" + tile.tileType)
             })
         });
         oController.playerOne.gladiators.forEach(function(g) {
             var x = g.position.x,
-                y = g.position.y,
-                type = g.type;
+                y = g.position.y;
             $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]")
             .data("gladiator", g)
-            .addClass("glad-"+type+"1");
+            .addClass("glad-"+g.gladiatorType+"1");
         });
         oController.playerTwo.gladiators.forEach(function(g) {
             var x = g.position.x,
-                y = g.position.y,
-                type = g.type;
+                y = g.position.y;
             $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]")
                 .data("gladiator", g)
-                .addClass("glad-"+type+"2");
+                .addClass("glad-"+g.gladiatorType+"2");
         });
     }
 }
@@ -189,6 +191,29 @@ function removePrefixClass(sElementClass, sRemoveClass) {
         const classes = element.className.split(" ").filter(c => !c.startsWith(sRemoveClass));
         element.className = classes.join(" ").trim();
     });
+}
+
+/**
+ * Animates the change of an integer value
+ * @param {String} sId - id of element
+ * @param {Integer} iNewValue - new value
+ * @param {Integer} iDuration - duration time of animation in ms
+ */
+function animateValue(sId, iNewValue, iDuration) {
+    var iStart = parseInt(document.getElementById(sId).innerHTML);
+    if (iStart === iNewValue) return;
+    var range = iNewValue - iStart;
+    var current = iStart;
+    var increment = iNewValue > iStart? 1 : -1;
+    var stepTime = Math.abs(Math.floor(iDuration / range));
+    var obj = document.getElementById(sId);
+    var timer = setInterval(function() {
+        current += increment;
+        obj.innerHTML = current;
+        if (current == iNewValue) {
+            clearInterval(timer);
+        }
+    }, stepTime);
 }
 
 $(document).ready(function() {
