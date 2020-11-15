@@ -6,13 +6,11 @@ var oController = {},
  */
 function onClickTile(oSource) {
     var x = oSource.getAttribute("x"),
-        y = oSource.getAttribute("y"),
-        sPath = "";
+        y = oSource.getAttribute("y");
     toggleActiveClass(oSource.children[0]);
     if (oCurrGladiator.source == "shop") {
         //buy
-        sPath = "/gladiators/buy "+(parseInt(oCurrGladiator.shopIndex)+1)+" "+x+" "+y;
-        sendRequest(sPath, function() {
+        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, x, y, function() {
             updateGame();
             oCurrGladiator = {};
             var iNewCredits1 = oController.playerOne.credits,
@@ -22,8 +20,7 @@ function onClickTile(oSource) {
         });
     } else if(oCurrGladiator.source == "board") {
         //move or attack
-        sPath = "/gladiators/move "+oCurrGladiator.x+" "+oCurrGladiator.y+" "+x+" "+y;
-        sendRequest(sPath, function() {
+        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, x, y, function() {
             updateBoard();
             oCurrGladiator = {};
         });
@@ -57,7 +54,7 @@ function onClickShopItem(oSource) {
  * Ends turn and sets new current player
  */
 function onClickEndTurn() {
-    sendRequest("/gladiators/end", updateCurrentPlayer);
+    sendRequest("POST", "/gladiators/api/command", {"type": "EndTurn"}, updateCurrentPlayer);
 }
 
 /**
@@ -152,15 +149,53 @@ function updateGame() {
     updateCurrentPlayer();
 }
 
+
+/**
+ * Sends a buy request to the server
+ * @param {int} iIndex - The request URL
+ * @param {int} iX - x-value of position
+ * @param {int} iY - y-value of position
+ * @param {function} fnSuccess - Success callback function
+ */
+function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
+    var oPayload = {
+            "type" : "BuyUnit",
+            "number": iIndex,
+            "position": {"x" : iX, "y": iY}
+        };
+    sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
+}
+
+/**
+* Sends a move request to the server
+* @param {int} iX - x-value of initial position
+* @param {int} iY - y-value of initial position
+* @param {int} iNewX - x-value of new position
+* @param {int} iNewY - y-value of new position
+* @param {function} fnSuccess - Success callback function
+*/
+function sendMoveRequest(iX, iY, iNewX, iNewY, fnSuccess) {
+   var oPayload = {
+        "type" : "Move",
+        "from": {"x" : iX, "y": iY},
+        "to": {"x" : iNewX, "y": iNewY}
+    };
+   sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
+}
+
+
 /**
  * Sends a request to the server
+ * @param {string} sMethod - The method of the HTTP request
  * @param {string} sPath - The request URL
+ * @param {object} oPayload - The request body dada
  * @param {function} fnSuccess - Callback function for success
  */
-function sendRequest(sPath, fnSuccess) {
+function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
     $.ajax({
-        method: "GET",
+        method: sMethod,
         url: sPath,
+        data: oPayload,
         dataType: "json",
         success: function (oResult) {
             oController = oResult;
@@ -225,5 +260,5 @@ function animateValue(sId, iNewValue, iDuration) {
 
 $(document).ready(function() {
     console.log("Document is ready, loading data");
-    sendRequest("/json", updateGame);
+    sendRequest("GET", "/json", {}, updateGame);
 });
