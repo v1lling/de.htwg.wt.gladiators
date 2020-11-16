@@ -8,29 +8,27 @@ function onClickTile(oSource) {
     var x = oSource.getAttribute("x"),
         y = oSource.getAttribute("y");
     toggleActiveClass(oSource.children[0]);
-    if (oCurrGladiator.source == "shop") {
+    if (oCurrGladiator.source === "shop") {
         //buy
-        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, x, y, function() {
+        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y), function() {
             updateGame();
-            oCurrGladiator = {};
             var iNewCredits1 = oController.playerOne.credits,
                 iNewCredits2 = oController.playerTwo.credits;
             animateValue("idPlayer1Credits", iNewCredits1, 1000);
             animateValue("idPlayer2Credits", iNewCredits2, 1000);
         });
-    } else if(oCurrGladiator.source == "board") {
+        oCurrGladiator = {};
+    } else if(oCurrGladiator.source === "board") {
         //move or attack
-        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, x, y, function() {
-            updateBoard();
-            oCurrGladiator = {};
-        });
+        sendMoveRequest(parseInt(oCurrGladiator.x), parseInt(oCurrGladiator.y), parseInt(x), parseInt(y), updateBoard);
+        oCurrGladiator = {};
     } else {
         //save gladiator
         oCurrGladiator = {};
         if ($(oSource).data("gladiator")) {
             //save
             oCurrGladiator = {
-                source: "shop",
+                source: "board",
                 x: x,
                 y: y
             }
@@ -54,7 +52,7 @@ function onClickShopItem(oSource) {
  * Ends turn and sets new current player
  */
 function onClickEndTurn() {
-    sendRequest("POST", "/gladiators/api/command", {"type": "EndTurn"}, updateCurrentPlayer);
+    sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateCurrentPlayer);
 }
 
 /**
@@ -159,7 +157,7 @@ function updateGame() {
  */
 function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
     var oPayload = {
-            "type" : "BuyUnit",
+            "commandType" : "BuyUnit",
             "number": iIndex,
             "position": {"x" : iX, "y": iY}
         };
@@ -176,7 +174,7 @@ function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
 */
 function sendMoveRequest(iX, iY, iNewX, iNewY, fnSuccess) {
    var oPayload = {
-        "type" : "Move",
+        "commandType" : "Move",
         "from": {"x" : iX, "y": iY},
         "to": {"x" : iNewX, "y": iNewY}
     };
@@ -205,7 +203,7 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
             }
         }.bind(this),
         error: function(oResponse) {
-            Msg.error(oResponse.responseText, 5000);
+            Msg.error(oResponse.responseJSON.message, 2000);
         }
     });
 }

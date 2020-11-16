@@ -73,8 +73,9 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
                         val event: Events = ErrorMessage(message)
                         BadRequest(Json.toJson(event))
                     }
-                    case event: Events => Ok(Json.toJson(event))
-                } // Ok(f"Parsed ${command.entryName}")
+                    //case event: Events => Ok(Json.toJson(event))
+                    case event: Events => Ok(Json.toJson(controller))
+                }
             }
         }
     }
