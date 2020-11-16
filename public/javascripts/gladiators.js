@@ -76,10 +76,10 @@ function showGladiatorStats(oSource) {
 /**
  * Updates the current player
  */
-function updateCurrentPlayer() {
+function updateCurrentPlayer(oResult) {
     if (oController) {
         $(".playerinfo").removeClass("active");
-        if (JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerOne)) {
+        if (JSON.stringify(oResult.player) === JSON.stringify(oController.playerOne)) {
             $(".player1").addClass("active");
         } else {
             $(".player2").addClass("active");
