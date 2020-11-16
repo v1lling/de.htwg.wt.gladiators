@@ -3,6 +3,7 @@ var oController = {},
 
 /**
  * Event when tile is clicked
+ * @param {Object} oSource - source element of click
  */
 function onClickTile(oSource) {
     var x = oSource.getAttribute("x"),
@@ -10,7 +11,7 @@ function onClickTile(oSource) {
     toggleActiveClass(oSource.children[0]);
     if (oCurrGladiator.source === "shop") {
         //buy
-        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y), function() {
+        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y), function(oEvent) {
             updateGame();
             var iNewCredits1 = oController.playerOne.credits,
                 iNewCredits2 = oController.playerTwo.credits;
@@ -26,7 +27,6 @@ function onClickTile(oSource) {
         //save gladiator
         oCurrGladiator = {};
         if ($(oSource).data("gladiator")) {
-            //save
             oCurrGladiator = {
                 source: "board",
                 x: x,
@@ -38,6 +38,7 @@ function onClickTile(oSource) {
 
 /**
  * Event when gladiator in shop is clicked
+ * @param {Object} oSource - source element of click
  */
 function onClickShopItem(oSource) {
     oCurrGladiator = {
@@ -197,9 +198,9 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
         dataType: "json",
         contentType: "application/json",
         success: function (oResult) {
-            oController = oResult;
+            oController = oResult[0];
             if (fnSuccess) {
-                fnSuccess();
+                fnSuccess(oResult[1]);
             }
         }.bind(this),
         error: function(oResponse) {

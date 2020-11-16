@@ -51,18 +51,8 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
         Ok(views.html.gladiators(controller))
     }
 
-    def processCommand(cmd: String) = Action {
-        var errormessage = tui.processInputLine(cmd)
-        // FIXME: check if processInputLine was successfull in SE repository
-        if (errormessage) {
-            Ok(Json.toJson(controller))
-        } else {
-            BadRequest(errormessage.toString);
-        }
-    }
-
     def controllerToJson = Action {
-        Ok(Json.toJson(controller))
+        Ok(Json.toJson(controller, None))
     }
 
     def processJsonCommand = Action(parse.json) { request: Request[JsValue] => {
@@ -74,7 +64,7 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
                         BadRequest(Json.toJson(event))
                     }
                     //case event: Events => Ok(Json.toJson(event))
-                    case event: Events => Ok(Json.toJson(controller))
+                    case event: Events => Ok(Json.toJson(controller, event))
                 }
             }
         }
