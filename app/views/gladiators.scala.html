@@ -29,8 +29,7 @@
                     <div class="board-row">
                     @for(x <- 0 until controller.board.tiles.size) {
                         <div class="board-tile"
-                            x=@{x}
-                            y=@{y}
+                            id="idTileX@{x}Y@{y}"
                             onclick="onClickTile(this)">
                         </div>
                     }

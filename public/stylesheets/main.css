@@ -222,6 +222,9 @@ body {
 .board .board-tile:hover {
   box-shadow: inset 0px 0px 0px 36px rgba(255, 255, 255, 0.5);
 }
+.board .board-tile.move-range {
+  box-shadow: inset 0px 0px 0px 36px rgba(8, 206, 50, 0.2);
+}
 .playerinfo,
 .gladiatorinfo {
   border: 1px solid black;

@@ -28,7 +28,7 @@ function onClickTile(oSource) {
             if (oEvent.eventType === "Moved") {
                 // moved animation
                 oCurrGladiator.gladiatorDiv.data("gladiator", oEvent.gladiator)
-                animateAppendTo(oCurrGladiator.gladiatorDiv, $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]"), 1500);
+                animateAppendTo(oCurrGladiator.gladiatorDiv, $("#idTileX"+x+"Y"+y), 1500);
             } else if (oEvent.eventType === "Mined") {
                 // mined animation
             }
@@ -45,11 +45,11 @@ function onClickTile(oSource) {
  */
 function onClickGladiator(e) {
     e.stopPropagation();
+    var oClickedGladiator = $(e.target).data("gladiator");
     if(oCurrGladiator.source === "board") {
         //attack
         var oSrcGladiator = oCurrGladiator.gladiatorDiv.data("gladiator");
-            oDestGladiator = $(e.target).data("gladiator");
-        sendMoveRequest(oSrcGladiator.position.x, oSrcGladiator.position.y, oDestGladiator.position.x, oDestGladiator.position.y, function(oEvent) {
+        sendMoveRequest(oSrcGladiator.position.x, oSrcGladiator.position.y, oClickedGladiator.position.x, oClickedGladiator.position.y, function(oEvent) {
             if (oEvent.killed) {
                 //kill animation
                 $(e.target).remove();
@@ -60,6 +60,9 @@ function onClickGladiator(e) {
         });
     } else {
         toggleActiveClass(e.target);
+        sendRequest("POST","/gladiators/api/gladiatorSelect", {"x": oClickedGladiator.position.x, "y": oClickedGladiator.position.y}, function(oResult) {
+            highlightMoveTiles(oResult.tilesMove);
+        });
         oCurrGladiator = { 
             gladiatorDiv: $(e.target),
             source: "board"
@@ -88,6 +91,18 @@ function onClickEndTurn() {
 }
 
 /**
+ * Highlights the tiles where a Gladiator can move
+ * @param {Arry} aTiles - list of tiles 
+ */
+function highlightMoveTiles(aTiles) {
+    if (aTiles && aTiles.length) {
+        aTiles.forEach(function(oTile) {
+            $("#idTileX"+oTile.x+"Y"+oTile.y).addClass("move-range");
+        });
+    }  
+}
+
+/**
  * Shows the stats of a gladiator
  * @param {object} oGladiator - the Gladiator
  */
@@ -112,6 +127,7 @@ function showGladiatorStats(oSource) {
 function resetCurrGladiator() {
     oCurrGladiator = {};
     toggleActiveClass();
+    $(".board-tile").removeClass("move-range");
 }
 
 /**
@@ -159,8 +175,7 @@ function updateBoard() {
                         tile.tileType += "2";
                     }
                 }
-                $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]")
-                    .addClass("tile-" + tile.tileType)
+                $("#idTileX"+x+"Y"+y).addClass("tile-" + tile.tileType)
             })
         });
         oController.playerOne.gladiators.forEach(function(g) {
@@ -251,7 +266,7 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
 function createGladiatorDiv(oGladiator, iPlayer) {
     var x = oGladiator.position.x,
         y = oGladiator.position.y,
-        parent = $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]");
+        parent = $("#idTileX"+x+"Y"+y);
     $('<div/>',{}).data("gladiator", oGladiator)
         .attr('class','gladiator glad-'+oGladiator.gladiatorType+' glad-player' + iPlayer)
         .click(onClickGladiator)

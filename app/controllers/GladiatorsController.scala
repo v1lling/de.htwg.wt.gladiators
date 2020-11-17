@@ -74,11 +74,12 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
     def gladiatorSelect = Action(parse.json) { position: Request[JsValue] =>
         Try(Coordinate((position.body \ "x").as[Int], (position.body \ "y").as[Int])) match {
             case Success(coordinate) => {
-                Ok(Json.obj(
+                val gladiatorInfo = Json.obj(
                     "gladiatorAtCoordinate" -> controller.tileOccupiedByCurrentPlayer(coordinate),
                     "tilesAttack" -> controller.attackTiles(coordinate),
                     "tilesMove" -> controller.moveTiles(coordinate)
-                ))
+                )
+                Ok(Json.toJson(controller, gladiatorInfo))
             }
             case Failure(_) => {
                 val event: Events = jsonNotACommandError
