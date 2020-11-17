@@ -13,11 +13,9 @@ function onClickTile(oSource) {
         sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y), function(oEvent) {
             updateGame();
             if (JSON.stringify(oEvent.player) === JSON.stringify(oController.playerOne)) {
-                var iNewCredits = oController.playerOne.credits;
-                animateValue("idPlayer1Credits", iNewCredits, 1000);
+                animateValue("idPlayer1Credits", oEvent.player.credits, 1000);
             } else {
-                var iNewCredits = oController.playerTwo.credits;
-                animateValue("idPlayer2Credits", iNewCredits, 1000);
+                animateValue("idPlayer2Credits", oEvent.player.credits, 1000);
             }
         });
         resetCurrGladiator();
