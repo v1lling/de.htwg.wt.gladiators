@@ -7,7 +7,6 @@
 GET     /                               controllers.GladiatorsController.about
 GET     /about                          controllers.GladiatorsController.about
 GET     /gladiators                     controllers.GladiatorsController.gladiators
-GET     /gladiators/:cmd                controllers.GladiatorsController.processCommand(cmd)
 POST    /gladiators/api/command         controllers.GladiatorsController.processJsonCommand
 POST    /gladiators/api/gladiatorSelect controllers.GladiatorsController.gladiatorSelect
 GET     /json                           controllers.GladiatorsController.controllerToJson
