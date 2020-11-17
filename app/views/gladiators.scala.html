@@ -24,16 +24,14 @@
                     <button type="button" class="btn btn-success btn-rounded" onclick="onClickEndTurn()">End Turn</button>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-lg-8 board">
+            <div id="idBoard" class="col-xs-12 col-sm-12 col-lg-8 board">
                 @for(y <- 0 until controller.board.tiles.size) {
                     <div class="board-row">
                     @for(x <- 0 until controller.board.tiles.size) {
                         <div class="board-tile"
                             x=@{x}
                             y=@{y}
-                            onclick="onClickTile(this)"
-                            onmouseover="showGladiatorStats(this)">
-                            <div class="overlay"></div>
+                            onclick="onClickTile(this)">
                         </div>
                     }
                     </div>
@@ -52,11 +50,11 @@
                     Shop
                     @for(i <- 0 until shop.stock.length) {
                         <button class="btn btn-outline-dark shop-item"
-                            onmouseover="showGladiatorStats(this)"
+                            onmouseenter="showGladiatorStats(event)"
                             onclick="onClickShopItem(this)"
                             index=@{i}>
                             
-                            <span>$@{shop.stock(i).calculateCost.toString}</span>
+                            <span></span>
                             <div class="layer"></div>
                         </button>
                     }

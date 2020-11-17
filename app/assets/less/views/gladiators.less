@@ -18,6 +18,36 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
     border: 2px solid black;
+    position: relative;
+    .gladiator {
+        //position: absolute;
+        height: 3.5vh;
+        width: 3.5vh;
+        max-width: 60px;
+        max-height: 60px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        &.glad-Tank1 {
+            background-image: url("/assets/images/gladiators/transparent/shield_p1.png");
+        }
+        &.glad-Knight1 {
+            background-image: url("/assets/images/gladiators/transparent/sword_p1.png");
+        }
+        &.glad-Archer1 {
+            background-image: url("/assets/images/gladiators/transparent/bow_p1.png");
+        }
+        &.glad-Tank2 {
+            background-image: url("/assets/images/gladiators/transparent/shield_p2.png");
+        }
+        &.glad-Knight2 {
+            background-image: url("/assets/images/gladiators/transparent/sword_p2.png");
+        }
+        &.glad-Archer2 {
+            background-image: url("/assets/images/gladiators/transparent/bow_p2.png");
+        }
+    }
     .board-row {
         display: flex;
     }
@@ -31,7 +61,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        position: relative;
+        //position: relative;
         transition: 0.5s;
         &.tile-Sand {
             background-image: url("/assets/images/board/sand.png");
@@ -48,25 +78,8 @@
         &.tile-Mine {
             background-image: url("/assets/images/board/gold.png");
         }
-        &.glad-Tank1 {
-            background-image: url("/assets/images/gladiators/sandshield_p1.png");
-        }
-        &.glad-Knight1 {
-            background-image: url("/assets/images/gladiators/sandsword_p1.png");
-        }
-        &.glad-Archer1 {
-            background-image: url("/assets/images/gladiators/sandbow_p1.png");
-        }
-        &.glad-Tank2 {
-            background-image: url("/assets/images/gladiators/sandshield_p2.png");
-        }
-        &.glad-Knight2 {
-            background-image: url("/assets/images/gladiators/sandsword_p2.png");
-        }
-        &.glad-Archer2 {
-            background-image: url("/assets/images/gladiators/sandbow_p2.png");
-        }
         .overlay {
+            z-index: 999;
             height: 100%;
             width: 100%;
             position:absolute;
