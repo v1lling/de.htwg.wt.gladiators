@@ -55,6 +55,7 @@ function onClickGladiator(e) {
                 // attack animation
                 // update HP
             }
+            resetCurrGladiator();
         });
     } else {
         toggleActiveClass(e.target);
