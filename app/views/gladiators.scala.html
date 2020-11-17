@@ -13,13 +13,13 @@
                     <div class="playerinfo player1">
                         Name: @{controller.playerOne.get.name}
                         Credits: @{controller.playerOne.get.credits}
-                    </div>   
+                    </div>
                     <div class="playerinfo player2">
                     Name: @{controller.playerTwo.get.name}
                     Credits: @{controller.playerTwo.get.credits}
                     </div>
                 </div>
-                
+
                  <div class="panel-buttons">
                     <button type="button" class="btn btn-success btn-rounded" onclick="onClickEndTurn()">End Turn</button>
                 </div>
@@ -41,7 +41,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">
                 <div class="panel-gladiator">
-                    Gladiator 
+                    Gladiator
                     <div class="gladiatorinfo">
                         <div>AP: <span id="idGladiatorAP">-</span></div>
                         <div>HP: <span id="idGladiatorHP">-</span></div>
@@ -55,8 +55,8 @@
                             onmouseover="showGladiatorStats(this)"
                             onclick="onClickShopItem(this)"
                             index=@{i}>
-                            
-                            <span>$@{shop.stock(i).calculateCost.toString}</span>
+
+                            <span>$@{shop.stock(i).cost.toString}</span>
                             <div class="layer"></div>
                         </button>
                     }
@@ -65,4 +65,3 @@
         </div>
     </div>
 }
-
