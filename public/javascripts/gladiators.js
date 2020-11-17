@@ -60,6 +60,7 @@ function onClickGladiator(e) {
         toggleActiveClass(e.target);
         sendRequest("POST","/gladiators/api/gladiatorSelect", {"x": oClickedGladiator.position.x, "y": oClickedGladiator.position.y}, function(oResult) {
             highlightMoveTiles(oResult.tilesMove);
+            highlightAttackTiles(oResult.tilesAttack);
         });
         oCurrGladiator = { 
             gladiatorDiv: $(e.target),
@@ -85,6 +86,7 @@ function onClickShopItem(oSource) {
  * Ends turn and sets new current player
  */
 function onClickEndTurn() {
+    resetCurrGladiator();
     sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateCurrentPlayer);
 }
 
@@ -96,6 +98,18 @@ function highlightMoveTiles(aTiles) {
     if (aTiles && aTiles.length) {
         aTiles.forEach(function(oTile) {
             $("#idTileX"+oTile.x+"Y"+oTile.y).addClass("move-range");
+        });
+    }  
+}
+
+/**
+ * Highlights the tiles where a Gladiator can attack
+ * @param {Arry} aTiles - list of tiles 
+ */
+function highlightAttackTiles(aTiles) {
+    if (aTiles && aTiles.length) {
+        aTiles.forEach(function(oTile) {
+            $("#idTileX"+oTile.x+"Y"+oTile.y).addClass("attack-range");
         });
     }  
 }
@@ -125,7 +139,7 @@ function showGladiatorStats(oSource) {
 function resetCurrGladiator() {
     oCurrGladiator = {};
     toggleActiveClass();
-    $(".board-tile").removeClass("move-range");
+    $(".board-tile").removeClass("move-range").removeClass("attack-range");;
 }
 
 /**

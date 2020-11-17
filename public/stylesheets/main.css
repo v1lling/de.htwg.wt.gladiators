@@ -34,6 +34,11 @@
     transform: rotateZ(0);
   }
 }
+@keyframes blinker {
+  50% {
+    box-shadow: inset 0px 0px 0px 36px rgba(185, 10, 10, 0.5);
+  }
+}
 html {
   margin: 0px;
   min-height: 100%;
@@ -224,6 +229,9 @@ body {
 }
 .board .board-tile.move-range {
   box-shadow: inset 0px 0px 0px 36px rgba(8, 206, 50, 0.2);
+}
+.board .board-tile.attack-range {
+  animation: blinker 0.5s linear infinite;
 }
 .playerinfo,
 .gladiatorinfo {
