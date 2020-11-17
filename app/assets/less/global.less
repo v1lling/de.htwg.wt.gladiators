@@ -13,17 +13,16 @@
 
 //Animations
 @keyframes pulse {
-    0% {
-     transform: scale(1, 1);
-    }
-
-    50% {
-     transform: scale(1.05, 1.05);
-    }
-
-    100% {
-    transform: scale(1, 1);
-    }
+    0% {transform: scale(1, 1);}
+    50% {transform: scale(1.05, 1.05);}
+    100% {transform: scale(1, 1);}
+}
+@keyframes perspect {
+    0% {transform: rotateZ(0);}
+    25% {transform: rotateZ(5deg);}
+    50% {transform: rotateZ(0);}
+    75% {transform: rotateZ(-5deg);} 
+    100% {transform: rotateZ(0);}
 }
 
 // Global styles 

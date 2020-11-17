@@ -17,6 +17,23 @@
     transform: scale(1, 1);
   }
 }
+@keyframes perspect {
+  0% {
+    transform: rotateZ(0);
+  }
+  25% {
+    transform: rotateZ(5deg);
+  }
+  50% {
+    transform: rotateZ(0);
+  }
+  75% {
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
 html {
   margin: 0px;
   min-height: 100%;
@@ -149,11 +166,7 @@ body {
   position: relative;
 }
 .board .gladiator {
-  height: 3.5vh;
-  width: 3.5vh;
-  max-width: 60px;
-  max-height: 60px;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -172,6 +185,9 @@ body {
 }
 .board .gladiator.glad-player2 {
   filter: invert(47%) sepia(32%) saturate(4586%) hue-rotate(340deg) brightness(81%) contrast(88%);
+}
+.board .gladiator.active {
+  animation: perspect 1s infinite linear;
 }
 .board .board-row {
   display: flex;
@@ -203,21 +219,8 @@ body {
 .board .board-tile.tile-Mine {
   background-image: url("/assets/images/board/gold.png");
 }
-.board .board-tile .overlay {
-  z-index: 999;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  opacity: 0.5;
-  transition: 0.2s;
-}
-.board .board-tile:hover > .overlay {
-  background-color: white;
-}
-.board .board-tile .overlay.active {
-  -webkit-box-shadow: inset 0px 0px 0px 5px #f00;
-  -moz-box-shadow: inset 0px 0px 0px 5px #f00;
-  box-shadow: inset 0px 0px 0px 5px #f00;
+.board .board-tile:hover {
+  box-shadow: inset 0px 0px 0px 36px rgba(255, 255, 255, 0.5);
 }
 .playerinfo,
 .gladiatorinfo {
@@ -226,6 +229,7 @@ body {
   width: 100%;
   background-color: ivory;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  position: relative;
 }
 .playerinfo.active,
 .gladiatorinfo.active {
@@ -241,6 +245,23 @@ body {
 }
 .playerinfo:not(:last-child) {
   margin-bottom: 1rem;
+}
+.gladiatorinfo-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+.gladiatorinfo-image.glad-Tank {
+  background-image: url("/assets/images/gladiators/shield.png");
+}
+.gladiatorinfo-image.glad-Knight {
+  background-image: url("/assets/images/gladiators/sword.png");
+}
+.gladiatorinfo-image.glad-Archer {
+  background-image: url("/assets/images/gladiators/bow.png");
 }
 .panel {
   display: flex;
@@ -276,6 +297,10 @@ body {
 }
 .panel-shop .shop-item.glad-Tank .layer {
   background-image: url("/assets/images/gladiators/shield.png");
+}
+.panel-shop .shop-item:hover .layer {
+  -webkit-filter: grayscale(1) invert(0.8);
+  filter: grayscale(1) invert(0.8);
 }
 .panel-shop .shop-item .layer {
   background-position: center;

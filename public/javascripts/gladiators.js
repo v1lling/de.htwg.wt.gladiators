@@ -8,7 +8,6 @@ var oController = {},
 function onClickTile(oSource) {
     var x = oSource.getAttribute("x"),
         y = oSource.getAttribute("y");
-    toggleActiveClass(oSource.children[0]);
     if (oCurrGladiator.source === "shop") {
         //buy
         sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y), function(oEvent) {
@@ -21,7 +20,7 @@ function onClickTile(oSource) {
                 animateValue("idPlayer2Credits", iNewCredits, 1000);
             }
         });
-        oCurrGladiator = {};
+        resetCurrGladiator();
     } else if(oCurrGladiator.source === "board") {
         //move
         var oGladiator = oCurrGladiator.gladiatorDiv.data("gladiator");
@@ -33,10 +32,10 @@ function onClickTile(oSource) {
             } else if (oEvent.eventType === "Mined") {
                 // mined animation
             }
-            oCurrGladiator = {};
+            resetCurrGladiator();
         });
     } else {
-        oCurrGladiator = {};
+        resetCurrGladiator();
     }
 }
 
@@ -60,6 +59,7 @@ function onClickGladiator(e) {
             }
         });
     } else {
+        toggleActiveClass(e.target);
         oCurrGladiator = { 
             gladiatorDiv: $(e.target),
             source: "board"
@@ -93,15 +93,25 @@ function onClickEndTurn() {
  */
 function showGladiatorStats(oSource) {
     var oGladiator = $(oSource.target).data("gladiator");
+    removePrefixClass("gladiatorinfo-image","glad-");
     if (oGladiator) {
         $("#idGladiatorAP").html(oGladiator.attackPoints);
         $("#idGladiatorHP").html(oGladiator.healthPoints);
         $("#idGladiatorMP").html(oGladiator.movementPoints);
+        $(".gladiatorinfo-image").addClass("glad-"+oGladiator.gladiatorType);
     } else {
         $("#idGladiatorAP").html("-");
         $("#idGladiatorHP").html("-");
         $("#idGladiatorMP").html("-");
     }
+}
+
+/**
+ * Resets the currently selected gladiator
+ */
+function resetCurrGladiator() {
+    oCurrGladiator = {};
+    toggleActiveClass();
 }
 
 /**
@@ -123,12 +133,12 @@ function updateCurrentPlayer() {
  */
 function updateShop() {
     if (oController) {
-        removePrefixClass("shop-item","glad");
+        removePrefixClass("shop-item","glad-");
         oController.shop.stock.forEach(function(g, i) {
             $(".shop-item").filter("[index="+i+"]")
             .data("gladiator", g)
             .addClass("glad-" + g.gladiatorType)
-            .children("span").text(g.cost);
+            .children("span").text("$" + g.cost);
         });
     }
 }
@@ -138,7 +148,7 @@ function updateShop() {
  */
 function updateBoard() {
     if (oController) {
-        removePrefixClass("board-tile","tile");
+        removePrefixClass("board-tile","tile-");
         $(".gladiator").remove();
         oController.board.tiles.forEach(function(row, y) {
             row.forEach(function(tile, x) {
@@ -154,20 +164,10 @@ function updateBoard() {
             })
         });
         oController.playerOne.gladiators.forEach(function(g) {
-            var x = g.position.x,
-                y = g.position.y;
-            $('<div/>',{
-                class: 'gladiator glad-'+g.gladiatorType+' glad-player1'
-            }).data("gladiator", g).click(onClickGladiator).mouseover(showGladiatorStats)
-                .appendTo($(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]"));
+            createGladiatorDiv(g, 1);
         });
         oController.playerTwo.gladiators.forEach(function(g) {
-            var x = g.position.x,
-                y = g.position.y;
-            $('<div/>',{
-                class: 'gladiator glad-'+g.gladiatorType+' glad-player2'
-            }).data("gladiator", g).click(onClickGladiator).mouseover(showGladiatorStats)
-                .appendTo($(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]"));
+            createGladiatorDiv(g, 2);
         });
     }
 }
@@ -237,10 +237,28 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
             }
         }.bind(this),
         error: function(oResponse) {
-            oCurrGladiator = {};
+            resetCurrGladiator();
             Msg.error(oResponse.responseJSON.message, 2000);
         }
     });
+}
+
+/**
+ * Creates a div of gladiator and places it in DOM
+ * @param {Object} oGladiator - gladiator
+ * @param {int} iPlayer - player 
+ */
+function createGladiatorDiv(oGladiator, iPlayer) {
+    var x = oGladiator.position.x,
+        y = oGladiator.position.y,
+        parent = $(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]");
+    $('<div/>',{}).data("gladiator", oGladiator)
+        .attr('class','gladiator glad-'+oGladiator.gladiatorType+' glad-player' + iPlayer)
+        .click(onClickGladiator)
+        .mouseover(showGladiatorStats)
+        .css("height", parent.height())
+        .css("width", parent.width())
+        .appendTo(parent);
 }
 
 /**
@@ -249,7 +267,7 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
  * @param {Object} oElement - the new active element
  */
 function toggleActiveClass(oElement) {
-    $(".overlay").removeClass("active");
+    $(".gladiator").removeClass("active");
     $(".shop-item").removeClass("active");
     if (oElement) {
         $(oElement).addClass("active");
