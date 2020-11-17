@@ -30,6 +30,8 @@
                     @for(x <- 0 until controller.board.tiles.size) {
                         <div class="board-tile"
                             id="idTileX@{x}Y@{y}"
+                            x=@{x}
+                            y=@{y}
                             onclick="onClickTile(this)">
                         </div>
                     }
