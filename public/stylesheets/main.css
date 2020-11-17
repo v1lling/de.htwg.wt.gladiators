@@ -165,8 +165,11 @@ body {
 .board .board-tile.tile-Sand {
   background-image: url("/assets/images/board/sand.png");
 }
-.board .board-tile.tile-Base {
-  background-image: url("/assets/images/board/house.png");
+.board .board-tile.tile-Base1 {
+  background-image: url("/assets/images/board/colloseum.png");
+}
+.board .board-tile.tile-Base2 {
+  background-image: url("/assets/images/board/temple.png");
 }
 .board .board-tile.tile-Palm {
   background-image: url("/assets/images/board/palm.png");
