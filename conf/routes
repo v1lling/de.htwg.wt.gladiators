@@ -4,11 +4,12 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.GladiatorsController.about
-GET     /about                      controllers.GladiatorsController.about
-GET     /gladiators                 controllers.GladiatorsController.gladiators
-POST    /gladiators/api/command     controllers.GladiatorsController.processJsonCommand
-GET     /json                       controllers.GladiatorsController.controllerToJson
+GET     /                               controllers.GladiatorsController.about
+GET     /about                          controllers.GladiatorsController.about
+GET     /gladiators                     controllers.GladiatorsController.gladiators
+POST    /gladiators/api/command         controllers.GladiatorsController.processJsonCommand
+POST    /gladiators/api/gladiatorSelect controllers.GladiatorsController.gladiatorSelect
+GET     /json                           controllers.GladiatorsController.controllerToJson
 
 
 # Map static resources from the /public folder to the /assets URL path

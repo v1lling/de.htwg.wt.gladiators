@@ -8,9 +8,11 @@ import de.htwg.se.gladiators.aview.Tui
 import de.htwg.se.gladiators.controller.BaseImplementation.Controller
 import de.htwg.se.gladiators.controller.BaseImplementation.ControllerJson._
 import de.htwg.se.gladiators.util.Configuration
+import de.htwg.se.gladiators.util.Coordinate
 import de.htwg.se.gladiators.util.Events
 import de.htwg.se.gladiators.util.Events.ErrorMessage
 import de.htwg.se.gladiators.util.json.CommandJson._
+import de.htwg.se.gladiators.util.json.CoordinateJson._
 import de.htwg.se.gladiators.util.json.EventsJson._
 
 import akka.http.scaladsl.model.HttpHeader
@@ -63,9 +65,24 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
                         val event: Events = ErrorMessage(message)
                         BadRequest(Json.toJson(event))
                     }
-                    //case event: Events => Ok(Json.toJson(event))
                     case event: Events => Ok(Json.toJson(controller, event))
                 }
+            }
+        }
+    }
+
+    def gladiatorSelect = Action(parse.json) { position: Request[JsValue] =>
+        Try(Coordinate((position.body \ "x").as[Int], (position.body \ "y").as[Int])) match {
+            case Success(coordinate) => {
+                Ok(Json.obj(
+                    "gladiatorAtCoordinate" -> controller.tileOccupiedByCurrentPlayer(coordinate),
+                    "tilesAttack" -> controller.attackTiles(coordinate),
+                    "tilesMove" -> controller.moveTiles(coordinate)
+                ))
+            }
+            case Failure(_) => {
+                val event: Events = jsonNotACommandError
+                BadRequest(Json.toJson(event))
             }
         }
     }
