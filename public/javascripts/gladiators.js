@@ -157,7 +157,7 @@ function updateBoard() {
             var x = g.position.x,
                 y = g.position.y;
             $('<div/>',{
-                class: 'gladiator glad-'+g.gladiatorType+'1'
+                class: 'gladiator glad-'+g.gladiatorType+' glad-player1'
             }).data("gladiator", g).click(onClickGladiator).mouseover(showGladiatorStats)
                 .appendTo($(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]"));
         });
@@ -165,7 +165,7 @@ function updateBoard() {
             var x = g.position.x,
                 y = g.position.y;
             $('<div/>',{
-                class: 'gladiator glad-'+g.gladiatorType+'2'
+                class: 'gladiator glad-'+g.gladiatorType+' glad-player2'
             }).data("gladiator", g).click(onClickGladiator).mouseover(showGladiatorStats)
                 .appendTo($(".board-tile").filter("[x="+x+"]").filter("[y="+y+"]"));
         });

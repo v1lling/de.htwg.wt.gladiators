@@ -29,23 +29,20 @@
         background-position: center;
         background-repeat: no-repeat;
         cursor: pointer;
-        &.glad-Tank1 {
-            background-image: url("/assets/images/gladiators/transparent/shield_p1.png");
+        &.glad-Tank {
+            background-image: url("/assets/images/gladiators/shield.png");
         }
-        &.glad-Knight1 {
-            background-image: url("/assets/images/gladiators/transparent/sword_p1.png");
+        &.glad-Knight {
+            background-image: url("/assets/images/gladiators/sword.png");
         }
-        &.glad-Archer1 {
-            background-image: url("/assets/images/gladiators/transparent/bow_p1.png");
+        &.glad-Archer {
+            background-image: url("/assets/images/gladiators/bow.png");
         }
-        &.glad-Tank2 {
-            background-image: url("/assets/images/gladiators/transparent/shield_p2.png");
+        &.glad-player1 {
+            filter: invert(13%) sepia(95%) saturate(3384%) hue-rotate(240deg) brightness(91%) contrast(88%);
         }
-        &.glad-Knight2 {
-            background-image: url("/assets/images/gladiators/transparent/sword_p2.png");
-        }
-        &.glad-Archer2 {
-            background-image: url("/assets/images/gladiators/transparent/bow_p2.png");
+        &.glad-player2 {
+            filter: invert(47%) sepia(32%) saturate(4586%) hue-rotate(340deg) brightness(81%) contrast(88%);
         }
     }
     .board-row {
@@ -151,13 +148,13 @@
         position: relative;
         background-color: #f6c663;
         &.glad-Knight .layer{
-            background-image: url("/assets/images/sword.png");  
+            background-image: url("/assets/images/gladiators/sword.png");  
         }
         &.glad-Archer .layer {
-            background-image: url("/assets/images/bow.png");  
+            background-image: url("/assets/images/gladiators/bow.png");  
         }
         &.glad-Tank .layer {
-            background-image: url("/assets/images/shield.png");  
+            background-image: url("/assets/images/gladiators/shield.png");  
         }
         .layer {
             background-position: center;

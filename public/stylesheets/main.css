@@ -158,23 +158,20 @@ body {
   background-repeat: no-repeat;
   cursor: pointer;
 }
-.board .gladiator.glad-Tank1 {
-  background-image: url("/assets/images/gladiators/transparent/shield_p1.png");
+.board .gladiator.glad-Tank {
+  background-image: url("/assets/images/gladiators/shield.png");
 }
-.board .gladiator.glad-Knight1 {
-  background-image: url("/assets/images/gladiators/transparent/sword_p1.png");
+.board .gladiator.glad-Knight {
+  background-image: url("/assets/images/gladiators/sword.png");
 }
-.board .gladiator.glad-Archer1 {
-  background-image: url("/assets/images/gladiators/transparent/bow_p1.png");
+.board .gladiator.glad-Archer {
+  background-image: url("/assets/images/gladiators/bow.png");
 }
-.board .gladiator.glad-Tank2 {
-  background-image: url("/assets/images/gladiators/transparent/shield_p2.png");
+.board .gladiator.glad-player1 {
+  filter: invert(13%) sepia(95%) saturate(3384%) hue-rotate(240deg) brightness(91%) contrast(88%);
 }
-.board .gladiator.glad-Knight2 {
-  background-image: url("/assets/images/gladiators/transparent/sword_p2.png");
-}
-.board .gladiator.glad-Archer2 {
-  background-image: url("/assets/images/gladiators/transparent/bow_p2.png");
+.board .gladiator.glad-player2 {
+  filter: invert(47%) sepia(32%) saturate(4586%) hue-rotate(340deg) brightness(81%) contrast(88%);
 }
 .board .board-row {
   display: flex;
@@ -272,13 +269,13 @@ body {
   background-color: #f6c663;
 }
 .panel-shop .shop-item.glad-Knight .layer {
-  background-image: url("/assets/images/sword.png");
+  background-image: url("/assets/images/gladiators/sword.png");
 }
 .panel-shop .shop-item.glad-Archer .layer {
-  background-image: url("/assets/images/bow.png");
+  background-image: url("/assets/images/gladiators/bow.png");
 }
 .panel-shop .shop-item.glad-Tank .layer {
-  background-image: url("/assets/images/shield.png");
+  background-image: url("/assets/images/gladiators/shield.png");
 }
 .panel-shop .shop-item .layer {
   background-position: center;
