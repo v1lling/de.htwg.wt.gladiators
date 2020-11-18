@@ -29,6 +29,7 @@ function onClickTile(oSource) {
                 animateGladiatorMove(oCurrGladiator.gladiatorDiv.parent(), $("#idTileX"+x+"Y"+y), 1500);
             } else if (oEvent.eventType === "Mined") {
                 // mined animation
+                updateBoard();
             }
             resetCurrGladiator();
         });
@@ -67,14 +68,21 @@ function onClickGladiator(e) {
             resetCurrGladiator();
         });
     } else {
-        toggleActiveClass(e.target);
-        sendRequest("POST","/gladiators/api/gladiatorSelect", {"x": oClickedGladiator.position.x, "y": oClickedGladiator.position.y}, function(oResult) {
-            highlightMoveTiles(oResult.tilesMove);
-            highlightAttackTiles(oResult.tilesAttack);
-        });
-        oCurrGladiator = { 
-            gladiatorDiv: $(e.target),
-            source: "board"
+        if (oClickedGladiator.moved === false && 
+            ((JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerOne) && $(e.target).hasClass("glad-player1"))
+            || (JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerTwo) && $(e.target).hasClass("glad-player2")))) {
+
+            toggleActiveClass(e.target);
+            sendRequest("POST","/gladiators/api/gladiatorSelect", {"x": oClickedGladiator.position.x, "y": oClickedGladiator.position.y}, function(oResult) {
+                highlightMoveTiles(oResult.tilesMove);
+                highlightAttackTiles(oResult.tilesAttack);
+            });
+            oCurrGladiator = { 
+                gladiatorDiv: $(e.target),
+                source: "board"
+            }
+        } else {
+            animateGladiatorShake($(e.target));
         }
     }
 }
@@ -97,7 +105,7 @@ function onClickShopItem(oSource) {
  */
 function onClickEndTurn() {
     resetCurrGladiator();
-    sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateCurrentPlayer);
+    sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateGame);
 }
 
 /**
@@ -187,7 +195,7 @@ function updateShop() {
 function updateBoard() {
     if (oController) {
         removePrefixClass("board-tile","tile-");
-        $(".gladiator").remove();
+        $(".gladiatorcontainer").remove();
         oController.board.tiles.forEach(function(row, y) {
             row.forEach(function(tile, x) {
                 if (tile.tileType == "Base") {
@@ -300,7 +308,8 @@ function createGladiatorDiv(oGladiator, iPlayer) {
     var healthbarinside = $('<div/>',{})
         .attr('class','healthbar-inside')
         .appendTo(healthbar);
-    var container = $('<div/>',{});
+    var container = $('<div/>',{})
+        .attr("class", "gladiatorcontainer");
     element.appendTo(container);
     healthbar.appendTo(container);
     updateHealthBar(container);
@@ -420,6 +429,17 @@ function animateGladiatorAttack(oGladiatorContainerDiv) {
     setTimeout(function() {
         oGladiatorDiv.removeClass("attacked");
     }, 1000)
+}
+
+/**
+ * Animates a shake of a gladiator
+ * @param {Object} oGladiatorDiv - gladiator element
+ */
+function animateGladiatorShake(oGladiatorDiv) {
+    oGladiatorDiv.addClass("shake");
+    setTimeout(function() {
+        oGladiatorDiv.removeClass("shake");
+    },1000);
 }
 
 $(document).ready(function() {
