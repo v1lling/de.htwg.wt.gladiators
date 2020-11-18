@@ -26,7 +26,7 @@ function onClickTile(oSource) {
             if (oEvent.eventType === "Moved") {
                 // moved animation
                 oCurrGladiator.gladiatorDiv.data("gladiator", oEvent.gladiator)
-                animateAppendTo(oCurrGladiator.gladiatorDiv, $("#idTileX"+x+"Y"+y), 1500);
+                animateAppendTo(oCurrGladiator.gladiatorDiv.parent(), $("#idTileX"+x+"Y"+y), 1500);
             } else if (oEvent.eventType === "Mined") {
                 // mined animation
             }
@@ -313,7 +313,6 @@ function createGladiatorDiv(oGladiator, iPlayer) {
  * @param {boolean} bKilled - boolean value if gladiator is killed 
  */
 function updateHealthBar(oGladiatorContainerDiv, bKilled) {
-
     if (!bKilled) {
         var oGladiator = oGladiatorContainerDiv.find(".gladiator").data("gladiator"),
             iPercentage = oGladiator.healthPoints / oGladiator.initialHealthPoints * 100;
@@ -324,16 +323,21 @@ function updateHealthBar(oGladiatorContainerDiv, bKilled) {
         oGladiatorContainerDiv.find(".healthbar-inside").css("background", perc2color(0));
     }
 }
-function perc2color(perc) {
-    // color scale: https://gist.github.com/mlocati/7210513
+
+/**
+ * Returns a color for a percentage between green and red
+ * https://gist.github.com/mlocati/7210513
+ * @param {int} iPercentage - percentage
+ */
+function perc2color(iPercentage) {
 	var r, g, b = 0;
-	if(perc < 50) {
+	if(iPercentage < 50) {
 		r = 255;
-		g = Math.round(5.1 * perc);
+		g = Math.round(5.1 * iPercentage);
 	}
 	else {
 		g = 255;
-		r = Math.round(510 - 5.10 * perc);
+		r = Math.round(510 - 5.10 * iPercentage);
 	}
 	var h = r * 0x10000 + g * 0x100 + b * 0x1;
 	return '#' + ('000000' + h.toString(16)).slice(-6);
@@ -398,6 +402,7 @@ function animateAppendTo(oMoveElement, oNewParent, iDuration) {
     var newEle = oMoveElement.clone(true).appendTo(oNewParent),
         newPos = newEle.position();
     newEle.hide();
+    oMoveElement.find(".healthbar").hide();
     oMoveElement.css('position', 'absolute').animate(newPos, iDuration, function() {
         newEle.show();
         oMoveElement.remove();
