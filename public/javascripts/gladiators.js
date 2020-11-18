@@ -63,7 +63,7 @@ function onClickGladiator(e) {
             //if (oEvent.killed) { FIXME: oEvent.killed not working yet              
             if (!bFound) {
                 updateHealthBar(oParent, true);
-                setTimeout(function() {$(e.target).remove()}, 1000); 
+                setTimeout(function() {$(e.target).parent().remove()}, 1000); 
             }
             resetCurrGladiator();
         });
