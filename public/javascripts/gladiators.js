@@ -48,12 +48,21 @@ function onClickGladiator(e) {
         //attack
         var oSrcGladiator = oCurrGladiator.gladiatorDiv.data("gladiator");
         sendMoveRequest(oSrcGladiator.position.x, oSrcGladiator.position.y, oClickedGladiator.position.x, oClickedGladiator.position.y, function(oEvent) {
-            if (oEvent.killed) {
-                //kill animation
-                $(e.target).remove();
-            } else {
-                // attack animation
-                // update HP
+            var oParent = $(e.target).parent(),
+                bFound = false;
+            animateGladiatorAttack(oParent);
+            // get attacked gladiator FIXME: give back in event from backend
+            oController.playerOne.gladiators.concat(oController.playerTwo.gladiators).forEach(function(gladiator) {
+                if (JSON.stringify(gladiator.position) == JSON.stringify(oClickedGladiator.position)) {
+                    $("#idTileX"+gladiator.position.x+"Y"+gladiator.position.y).find(".gladiator").data("gladiator", gladiator);
+                    updateHealthBar(oParent);
+                    bFound = true;
+                }
+            });
+            //if (oEvent.killed) { FIXME: oEvent.killed not working yet              
+            if (!bFound) {
+                updateHealthBar(oParent, true);
+                setTimeout(function() {$(e.target).remove()}, 1000); 
             }
             resetCurrGladiator();
         });
@@ -280,13 +289,54 @@ function createGladiatorDiv(oGladiator, iPlayer) {
     var x = oGladiator.position.x,
         y = oGladiator.position.y,
         parent = $("#idTileX"+x+"Y"+y);
-    $('<div/>',{}).data("gladiator", oGladiator)
+    var element = $('<div/>',{}).data("gladiator", oGladiator)
         .attr('class','gladiator glad-'+oGladiator.gladiatorType+' glad-player' + iPlayer)
         .click(onClickGladiator)
         .mouseover(showGladiatorStats)
-        .css("height", parent.height())
-        .css("width", parent.width())
-        .appendTo(parent);
+        .css("height", parent.height() * 0.8)
+        .css("width", parent.width());
+    var healthbar = $('<div/>',{})
+        .attr('class','healthbar');
+    var healthbarinside = $('<div/>',{})
+        .attr('class','healthbar-inside')
+        .appendTo(healthbar);
+    var container = $('<div/>',{});
+    element.appendTo(container);
+    healthbar.appendTo(container);
+    updateHealthBar(container);
+    container.appendTo(parent);
+}
+
+/**
+ * Updates the healthbar of a gladiator
+ * @param {Object} oGladiatorContainerDiv - div that contains gladiator and healthbar
+ * @param {boolean} bKilled - boolean value if gladiator is killed 
+ */
+function updateHealthBar(oGladiatorContainerDiv, bKilled) {
+
+    if (!bKilled) {
+        var oGladiator = oGladiatorContainerDiv.find(".gladiator").data("gladiator"),
+            iPercentage = oGladiator.healthPoints / oGladiator.initialHealthPoints * 100;
+        oGladiatorContainerDiv.find(".healthbar-inside").css("width", iPercentage+"%");
+        oGladiatorContainerDiv.find(".healthbar-inside").css("background", perc2color(iPercentage));
+    } else {
+        oGladiatorContainerDiv.find(".healthbar-inside").css("width", 0);
+        oGladiatorContainerDiv.find(".healthbar-inside").css("background", perc2color(0));
+    }
+}
+function perc2color(perc) {
+    // color scale: https://gist.github.com/mlocati/7210513
+	var r, g, b = 0;
+	if(perc < 50) {
+		r = 255;
+		g = Math.round(5.1 * perc);
+	}
+	else {
+		g = 255;
+		r = Math.round(510 - 5.10 * perc);
+	}
+	var h = r * 0x10000 + g * 0x100 + b * 0x1;
+	return '#' + ('000000' + h.toString(16)).slice(-6);
 }
 
 /**
@@ -354,6 +404,18 @@ function animateAppendTo(oMoveElement, oNewParent, iDuration) {
     });
     return newEle;
 };
+
+/**
+ * Shows attack animation of gladiator
+ * @param {Object} oGladiatorContainerDiv - div that contains gladiator and healthbar
+ */
+function animateGladiatorAttack(oGladiatorContainerDiv) {
+    var oGladiatorDiv = oGladiatorContainerDiv.find(".gladiator");
+    oGladiatorDiv.addClass("attacked");
+    setTimeout(function() {
+        oGladiatorDiv.removeClass("attacked");
+    }, 1000)
+}
 
 $(document).ready(function() {
     console.log("Document is ready, loading data");
