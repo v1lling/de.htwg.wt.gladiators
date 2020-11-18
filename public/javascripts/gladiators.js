@@ -26,7 +26,7 @@ function onClickTile(oSource) {
             if (oEvent.eventType === "Moved") {
                 // moved animation
                 oCurrGladiator.gladiatorDiv.data("gladiator", oEvent.gladiator)
-                animateAppendTo(oCurrGladiator.gladiatorDiv.parent(), $("#idTileX"+x+"Y"+y), 1500);
+                animateGladiatorMove(oCurrGladiator.gladiatorDiv.parent(), $("#idTileX"+x+"Y"+y), 1500);
             } else if (oEvent.eventType === "Mined") {
                 // mined animation
             }
@@ -398,7 +398,7 @@ function animateValue(sId, iNewValue, iDuration) {
  * @param {Integer} oNewParent - new value
  * @param {Integer} iDuration - duration time of animation in ms
  */
-function animateAppendTo(oMoveElement, oNewParent, iDuration) {
+function animateGladiatorMove(oMoveElement, oNewParent, iDuration) {
     var newEle = oMoveElement.clone(true).appendTo(oNewParent),
         newPos = newEle.position();
     newEle.hide();
