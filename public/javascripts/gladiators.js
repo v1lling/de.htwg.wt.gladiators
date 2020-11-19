@@ -6,7 +6,7 @@ var oController = {},
  * @param {Object} oSource - source element of click
  */
 function onClickTile(oSource) {
-    var x = oSource.getAttribute("x"),
+    let x = oSource.getAttribute("x"),
         y = oSource.getAttribute("y");
     if (oCurrGladiator.source === "shop") {
         //buy
@@ -21,7 +21,7 @@ function onClickTile(oSource) {
         resetCurrGladiator();
     } else if(oCurrGladiator.source === "board") {
         //move
-        var oGladiator = oCurrGladiator.gladiatorDiv.data("gladiator");
+        let oGladiator = oCurrGladiator.gladiatorDiv.data("gladiator");
         sendMoveRequest(oGladiator.position.x, oGladiator.position.y, parseInt(x), parseInt(y), function(oEvent) {
             if (oEvent.eventType === "Moved") {
                 // moved animation
@@ -50,12 +50,12 @@ function onClickTile(oSource) {
  */
 function onClickGladiator(e) {
     e.stopPropagation();
-    var oClickedGladiator = $(e.target).data("gladiator");
+    let oClickedGladiator = $(e.target).data("gladiator");
     if(oCurrGladiator.source === "board") {
         //attack
-        var oSrcGladiator = oCurrGladiator.gladiatorDiv.data("gladiator");
+        let oSrcGladiator = oCurrGladiator.gladiatorDiv.data("gladiator");
         sendMoveRequest(oSrcGladiator.position.x, oSrcGladiator.position.y, oClickedGladiator.position.x, oClickedGladiator.position.y, function(oEvent) {
-            var oParent = $(e.target).parent(),
+            let oParent = $(e.target).parent(),
                 bFound = false;
             animateGladiatorAttack(oParent);
             // get attacked gladiator FIXME: give back in event from backend
@@ -143,7 +143,7 @@ function highlightAttackTiles(aTiles) {
  * @param {object} oGladiator - the Gladiator
  */
 function showGladiatorStats(oSource) {
-    var oGladiator = $(oSource.target).data("gladiator");
+    let oGladiator = $(oSource.target).data("gladiator");
     removePrefixClass("gladiatorinfo-image","glad-");
     if (oGladiator) {
         $("#idGladiatorAP").html(oGladiator.attackPoints);
@@ -241,7 +241,7 @@ function updateGame() {
  * @param {function} fnSuccess - Success callback function
  */
 function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
-    var oPayload = {
+    let oPayload = {
             "commandType" : "BuyUnit",
             "number": iIndex,
             "position": {"x" : iX, "y": iY}
@@ -258,7 +258,7 @@ function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
 * @param {function} fnSuccess - Success callback function
 */
 function sendMoveRequest(iX, iY, iNewX, iNewY, fnSuccess) {
-   var oPayload = {
+   let oPayload = {
         "commandType" : "Move",
         "from": {"x" : iX, "y": iY},
         "to": {"x" : iNewX, "y": iNewY}
@@ -300,21 +300,21 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
  * @param {int} iPlayer - player 
  */
 function createGladiatorDiv(oGladiator, iPlayer) {
-    var x = oGladiator.position.x,
+    let x = oGladiator.position.x,
         y = oGladiator.position.y,
         parent = $("#idTileX"+x+"Y"+y);
-    var element = $('<div/>',{}).data("gladiator", oGladiator)
+    let element = $('<div/>',{}).data("gladiator", oGladiator)
         .attr('class','gladiator glad-'+oGladiator.gladiatorType+' glad-player' + iPlayer)
         .click(onClickGladiator)
         .mouseover(showGladiatorStats)
         .css("height", parent.height() * 0.8)
         .css("width", parent.width());
-    var healthbar = $('<div/>',{})
+    let healthbar = $('<div/>',{})
         .attr('class','healthbar');
-    var healthbarinside = $('<div/>',{})
+    let healthbarinside = $('<div/>',{})
         .attr('class','healthbar-inside')
         .appendTo(healthbar);
-    var container = $('<div/>',{})
+    let container = $('<div/>',{})
         .attr("class", "gladiatorcontainer");
     element.appendTo(container);
     healthbar.appendTo(container);
@@ -329,7 +329,7 @@ function createGladiatorDiv(oGladiator, iPlayer) {
  */
 function updateHealthBar(oGladiatorContainerDiv, bKilled) {
     if (!bKilled) {
-        var oGladiator = oGladiatorContainerDiv.find(".gladiator").data("gladiator"),
+        let oGladiator = oGladiatorContainerDiv.find(".gladiator").data("gladiator"),
             iPercentage = oGladiator.healthPoints / oGladiator.initialHealthPoints * 100;
         oGladiatorContainerDiv.find(".healthbar-inside").css("width", iPercentage+"%");
         oGladiatorContainerDiv.find(".healthbar-inside").css("background", perc2color(iPercentage));
@@ -345,7 +345,7 @@ function updateHealthBar(oGladiatorContainerDiv, bKilled) {
  * @param {int} iPercentage - percentage
  */
 function perc2color(iPercentage) {
-	var r, g, b = 0;
+	let r, g, b = 0;
 	if(iPercentage < 50) {
 		r = 255;
 		g = Math.round(5.1 * iPercentage);
@@ -354,7 +354,7 @@ function perc2color(iPercentage) {
 		g = 255;
 		r = Math.round(510 - 5.10 * iPercentage);
 	}
-	var h = r * 0x10000 + g * 0x100 + b * 0x1;
+	let h = r * 0x10000 + g * 0x100 + b * 0x1;
 	return '#' + ('000000' + h.toString(16)).slice(-6);
 }
 
@@ -378,7 +378,7 @@ function toggleActiveClass(oElement) {
  */
 function removePrefixClass(sElementClass, sRemoveClass) {
     $("."+sElementClass).each(function() {
-        var element = $(this)[0];
+        let element = $(this)[0];
         const classes = element.className.split(" ").filter(c => !c.startsWith(sRemoveClass));
         element.className = classes.join(" ").trim();
     });
@@ -391,14 +391,14 @@ function removePrefixClass(sElementClass, sRemoveClass) {
  * @param {Integer} iDuration - duration time of animation in ms
  */
 function animateValue(sId, iNewValue, iDuration) {
-    var iStart = parseInt(document.getElementById(sId).innerHTML);
+    let iStart = parseInt(document.getElementById(sId).innerHTML);
     if (iStart === iNewValue) return;
-    var range = iNewValue - iStart;
-    var current = iStart;
-    var increment = iNewValue > iStart? 1 : -1;
-    var stepTime = Math.abs(Math.floor(iDuration / range));
-    var obj = document.getElementById(sId);
-    var timer = setInterval(function() {
+    let range = iNewValue - iStart;
+    let current = iStart;
+    let increment = iNewValue > iStart? 1 : -1;
+    let stepTime = Math.abs(Math.floor(iDuration / range));
+    let obj = document.getElementById(sId);
+    let timer = setInterval(function() {
         current += increment;
         obj.innerHTML = current;
         if (current == iNewValue) {
@@ -414,7 +414,7 @@ function animateValue(sId, iNewValue, iDuration) {
  * @param {Integer} iDuration - duration time of animation in ms
  */
 function animateGladiatorMove(oMoveElement, oNewParent, iDuration) {
-    var newEle = oMoveElement.clone(true).appendTo(oNewParent),
+    let newEle = oMoveElement.clone(true).appendTo(oNewParent),
         newPos = newEle.position();
     newEle.hide();
     oMoveElement.find(".healthbar").hide();
@@ -430,7 +430,7 @@ function animateGladiatorMove(oMoveElement, oNewParent, iDuration) {
  * @param {Object} oGladiatorContainerDiv - div that contains gladiator and healthbar
  */
 function animateGladiatorAttack(oGladiatorContainerDiv) {
-    var oGladiatorDiv = oGladiatorContainerDiv.find(".gladiator");
+    let oGladiatorDiv = oGladiatorContainerDiv.find(".gladiator");
     oGladiatorDiv.addClass("attacked");
     setTimeout(function() {
         oGladiatorDiv.removeClass("attacked");
