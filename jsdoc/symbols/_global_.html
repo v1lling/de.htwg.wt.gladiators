@@ -236,10 +236,63 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#loadJson">loadJson</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#animateGladiatorAttack">animateGladiatorAttack</a></b>(oGladiatorContainerDiv)
 								</div>
-								<div class="description">Loads the controller as json
-Initializes the game</div>
+								<div class="description">Shows attack animation of gladiator</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#animateGladiatorMove">animateGladiatorMove</a></b>(oMoveElement, oNewParent, iDuration)
+								</div>
+								<div class="description">Animates the movement of an element</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#animateGladiatorShake">animateGladiatorShake</a></b>(oGladiatorDiv)
+								</div>
+								<div class="description">Animates a shake of a gladiator</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#animateValue">animateValue</a></b>(sId, iNewValue, iDuration)
+								</div>
+								<div class="description">Animates the change of an integer value</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#createGladiatorDiv">createGladiatorDiv</a></b>(oGladiator, iPlayer)
+								</div>
+								<div class="description">Creates a div of gladiator and places it in DOM</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#highlightAttackTiles">highlightAttackTiles</a></b>(aTiles)
+								</div>
+								<div class="description">Highlights the tiles where a Gladiator can attack</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#highlightMoveTiles">highlightMoveTiles</a></b>(aTiles)
+								</div>
+								<div class="description">Highlights the tiles where a Gladiator can move</div>
 							</td>
 						</tr>
 					
@@ -250,6 +303,15 @@ Initializes the game</div>
 								</div>
 								<div class="description">Event when "End Turn" button is clicked
 Ends turn and sets new current player</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#onClickGladiator">onClickGladiator</a></b>(e)
+								</div>
+								<div class="description">Event when gladiator is clicked</div>
 							</td>
 						</tr>
 					
@@ -274,7 +336,35 @@ Ends turn and sets new current player</div>
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#removeClass">removeClass</a></b>(sElementClass, sRemoveClass)
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#onSubmitModal">onSubmitModal</a></b>()
+								</div>
+								<div class="description">Event when "OK" button of modal is clicked</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#openModal">openModal</a></b>(sHeader, sInputLabel)
+								</div>
+								<div class="description">Opens the modal</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#perc2color">perc2color</a></b>(iPercentage)
+								</div>
+								<div class="description">Returns a color for a percentage between green and red
+https://gist.github.com/mlocati/7210513</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#removePrefixClass">removePrefixClass</a></b>(sElementClass, sRemoveClass)
 								</div>
 								<div class="description">Removes a class from elements</div>
 							</td>
@@ -283,7 +373,34 @@ Ends turn and sets new current player</div>
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#sendRequest">sendRequest</a></b>(sPath, fnSuccess)
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#resetCurrGladiator">resetCurrGladiator</a></b>()
+								</div>
+								<div class="description">Resets the currently selected gladiator</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#sendBuyRequest">sendBuyRequest</a></b>(iIndex, iX, iY, fnSuccess)
+								</div>
+								<div class="description">Sends a buy request to the server</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#sendMoveRequest">sendMoveRequest</a></b>(iX, iY, iNewX, iNewY, fnSuccess)
+								</div>
+								<div class="description">Sends a move request to the server</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#sendRequest">sendRequest</a></b>(sMethod, sPath, oPayload, fnSuccess)
 								</div>
 								<div class="description">Sends a request to the server</div>
 							</td>
@@ -313,16 +430,34 @@ Removes active class from the rest</div>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/_global_.html#updateBoard">updateBoard</a></b>()
 								</div>
-								<div class="description">Updates the board</div>
+								<div class="description">Updates the board (tiles + gladiators)</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#updateGladiators">updateGladiators</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#updateCurrentPlayer">updateCurrentPlayer</a></b>()
 								</div>
-								<div class="description">Updates the gladiator</div>
+								<div class="description">Updates the current player</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#updateGame">updateGame</a></b>()
+								</div>
+								<div class="description">Updates the game</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#updateHealthBar">updateHealthBar</a></b>(oGladiatorContainerDiv, bKilled)
+								</div>
+								<div class="description">Updates the healthbar of a gladiator</div>
 							</td>
 						</tr>
 					
@@ -356,16 +491,15 @@ Removes active class from the rest</div>
 					Method Detail
 				</div>
 				
-					<a name="loadJson"> </a>
+					<a name="animateGladiatorAttack"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>loadJson</b>()
+					<b>animateGladiatorAttack</b>(oGladiatorContainerDiv)
 					
 					</div>
 					<div class="description">
-						Loads the controller as json
-Initializes the game
+						Shows attack animation of gladiator
 						
 							<br />
 							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
@@ -375,6 +509,281 @@ Initializes the game
 					
 					
 					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>oGladiatorContainerDiv</b>
+									
+								</dt>
+								<dd>- div that contains gladiator and healthbar</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="animateGladiatorMove"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>animateGladiatorMove</b>(oMoveElement, oNewParent, iDuration)
+					
+					</div>
+					<div class="description">
+						Animates the movement of an element
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>oMoveElement</b>
+									
+								</dt>
+								<dd>- Element to be moved</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Integer}</span> <b>oNewParent</b>
+									
+								</dt>
+								<dd>- new value</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Integer}</span> <b>iDuration</b>
+									
+								</dt>
+								<dd>- duration time of animation in ms</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="animateGladiatorShake"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>animateGladiatorShake</b>(oGladiatorDiv)
+					
+					</div>
+					<div class="description">
+						Animates a shake of a gladiator
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>oGladiatorDiv</b>
+									
+								</dt>
+								<dd>- gladiator element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="animateValue"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>animateValue</b>(sId, iNewValue, iDuration)
+					
+					</div>
+					<div class="description">
+						Animates the change of an integer value
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>sId</b>
+									
+								</dt>
+								<dd>- id of element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Integer}</span> <b>iNewValue</b>
+									
+								</dt>
+								<dd>- new value</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Integer}</span> <b>iDuration</b>
+									
+								</dt>
+								<dd>- duration time of animation in ms</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="createGladiatorDiv"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>createGladiatorDiv</b>(oGladiator, iPlayer)
+					
+					</div>
+					<div class="description">
+						Creates a div of gladiator and places it in DOM
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>oGladiator</b>
+									
+								</dt>
+								<dd>- gladiator</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>iPlayer</b>
+									
+								</dt>
+								<dd>- player</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="highlightAttackTiles"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>highlightAttackTiles</b>(aTiles)
+					
+					</div>
+					<div class="description">
+						Highlights the tiles where a Gladiator can attack
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Arry}</span> <b>aTiles</b>
+									
+								</dt>
+								<dd>- list of tiles</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="highlightMoveTiles"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>highlightMoveTiles</b>(aTiles)
+					
+					</div>
+					<div class="description">
+						Highlights the tiles where a Gladiator can move
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Arry}</span> <b>aTiles</b>
+									
+								</dt>
+								<dd>- list of tiles</dd>
+							
+							</dl>
 						
 						
 						
@@ -414,6 +823,45 @@ Ends turn and sets new current player
 
 					<hr />
 				
+					<a name="onClickGladiator"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onClickGladiator</b>(e)
+					
+					</div>
+					<div class="description">
+						Event when gladiator is clicked
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>e</b>
+									
+								</dt>
+								<dd>- click event</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
 					<a name="onClickShopItem"> </a>
 					<div class="fixedFont">
 					
@@ -437,10 +885,10 @@ Ends turn and sets new current player
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>oSource</b>
+									<span class="light fixedFont">{Object}</span> <b>oSource</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>- source element of click</dd>
 							
 							</dl>
 						
@@ -476,10 +924,10 @@ Ends turn and sets new current player
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>oSource</b>
+									<span class="light fixedFont">{Object}</span> <b>oSource</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>- source element of click</dd>
 							
 							</dl>
 						
@@ -492,11 +940,124 @@ Ends turn and sets new current player
 
 					<hr />
 				
-					<a name="removeClass"> </a>
+					<a name="onSubmitModal"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>removeClass</b>(sElementClass, sRemoveClass)
+					<b>onSubmitModal</b>()
+					
+					</div>
+					<div class="description">
+						Event when "OK" button of modal is clicked
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="openModal"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>openModal</b>(sHeader, sInputLabel)
+					
+					</div>
+					<div class="description">
+						Opens the modal
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>sHeader</b>
+									
+								</dt>
+								<dd>- header label</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>sInputLabel</b>
+									
+								</dt>
+								<dd>- input label</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="perc2color"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>perc2color</b>(iPercentage)
+					
+					</div>
+					<div class="description">
+						Returns a color for a percentage between green and red
+https://gist.github.com/mlocati/7210513
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>iPercentage</b>
+									
+								</dt>
+								<dd>- percentage</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removePrefixClass"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removePrefixClass</b>(sElementClass, sRemoveClass)
 					
 					</div>
 					<div class="description">
@@ -524,7 +1085,155 @@ Ends turn and sets new current player
 									<span class="light fixedFont">{String}</span> <b>sRemoveClass</b>
 									
 								</dt>
-								<dd>- to be removed class-prefix</dd>
+								<dd>- prefix of to be removed class</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resetCurrGladiator"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetCurrGladiator</b>()
+					
+					</div>
+					<div class="description">
+						Resets the currently selected gladiator
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sendBuyRequest"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sendBuyRequest</b>(iIndex, iX, iY, fnSuccess)
+					
+					</div>
+					<div class="description">
+						Sends a buy request to the server
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>iIndex</b>
+									
+								</dt>
+								<dd>- The request URL</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>iX</b>
+									
+								</dt>
+								<dd>- x-value of position</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>iY</b>
+									
+								</dt>
+								<dd>- y-value of position</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>fnSuccess</b>
+									
+								</dt>
+								<dd>- Success callback function</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sendMoveRequest"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sendMoveRequest</b>(iX, iY, iNewX, iNewY, fnSuccess)
+					
+					</div>
+					<div class="description">
+						Sends a move request to the server
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>iX</b>
+									
+								</dt>
+								<dd>- x-value of initial position</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>iY</b>
+									
+								</dt>
+								<dd>- y-value of initial position</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>iNewX</b>
+									
+								</dt>
+								<dd>- x-value of new position</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>iNewY</b>
+									
+								</dt>
+								<dd>- y-value of new position</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>fnSuccess</b>
+									
+								</dt>
+								<dd>- Success callback function</dd>
 							
 							</dl>
 						
@@ -541,7 +1250,7 @@ Ends turn and sets new current player
 					<div class="fixedFont">
 					
 					
-					<b>sendRequest</b>(sPath, fnSuccess)
+					<b>sendRequest</b>(sMethod, sPath, oPayload, fnSuccess)
 					
 					</div>
 					<div class="description">
@@ -560,10 +1269,22 @@ Ends turn and sets new current player
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
+									<span class="light fixedFont">{string}</span> <b>sMethod</b>
+									
+								</dt>
+								<dd>- The method of the HTTP request</dd>
+							
+								<dt>
 									<span class="light fixedFont">{string}</span> <b>sPath</b>
 									
 								</dt>
 								<dd>- The request URL</dd>
+							
+								<dt>
+									<span class="light fixedFont">{object}</span> <b>oPayload</b>
+									
+								</dt>
+								<dd>- The request body dada</dd>
 							
 								<dt>
 									<span class="light fixedFont">{function}</span> <b>fnSuccess</b>
@@ -669,7 +1390,7 @@ Removes active class from the rest
 					
 					</div>
 					<div class="description">
-						Updates the board
+						Updates the board (tiles + gladiators)
 						
 							<br />
 							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
@@ -689,15 +1410,15 @@ Removes active class from the rest
 
 					<hr />
 				
-					<a name="updateGladiators"> </a>
+					<a name="updateCurrentPlayer"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>updateGladiators</b>()
+					<b>updateCurrentPlayer</b>()
 					
 					</div>
 					<div class="description">
-						Updates the gladiator
+						Updates the current player
 						
 							<br />
 							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
@@ -707,6 +1428,79 @@ Removes active class from the rest
 					
 					
 					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateGame"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>updateGame</b>()
+					
+					</div>
+					<div class="description">
+						Updates the game
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateHealthBar"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>updateHealthBar</b>(oGladiatorContainerDiv, bKilled)
+					
+					</div>
+					<div class="description">
+						Updates the healthbar of a gladiator
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/public_javascripts_gladiators.js.html">gladiators.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>oGladiatorContainerDiv</b>
+									
+								</dt>
+								<dd>- div that contains gladiator and healthbar</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>bKilled</b>
+									
+								</dt>
+								<dd>- boolean value if gladiator is killed</dd>
+							
+							</dl>
 						
 						
 						
@@ -757,7 +1551,7 @@ Removes active class from the rest
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Nov 14 2020 11:50:45 GMT+0100 (MEZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Nov 19 2020 11:36:24 GMT+0100 (MEZ)
 		</div>
 	</body>
 </html>
