@@ -286,6 +286,14 @@ body {
   background-color: ivory;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.playerinfo .playerinfo-row,
+.gladiatorinfo .playerinfo-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .playerinfo.active,
 .gladiatorinfo.active {
@@ -298,6 +306,9 @@ body {
 .playerinfo.active.player2,
 .gladiatorinfo.active.player2 {
   border: 2px solid #f13737;
+}
+.playerinfo {
+  padding: 1rem;
 }
 .playerinfo:not(:last-child) {
   margin-bottom: 1rem;

@@ -11,12 +11,32 @@
                 <div class="panel-player">
                     Player
                     <div class="playerinfo player1">
-                        Name: @{controller.playerOne.get.name}
-                        Credits: <span id="idPlayer1Credits">@{controller.playerOne.get.credits}</span>
+                        <div class="playerinfo-row">
+                            <div>Name:</div>
+                            <div>@{controller.playerOne.get.name}</div>
+                        </div>
+                        <div class="playerinfo-row">
+                            <div>Base:</div>
+                            <div id="idPlayer1Health">@{controller.playerOne.get.health}</div>
+                        </div>
+                        <div class="playerinfo-row">
+                            <div>Credits:</div>
+                            <div id="idPlayer1Credits">@{controller.playerOne.get.credits}</div>
+                        </div>   
                     </div>
                     <div class="playerinfo player2">
-                        Name: @{controller.playerTwo.get.name}
-                        Credits: <span id="idPlayer2Credits">@{controller.playerTwo.get.credits}</span>
+                        <div class="playerinfo-row">
+                            <div>Name:</div>
+                            <div>@{controller.playerTwo.get.name}</div>
+                        </div>
+                        <div class="playerinfo-row">
+                            <div>Base:</div>
+                            <div id="idPlayer2Health">@{controller.playerTwo.get.health}</div>
+                        </div>
+                        <div class="playerinfo-row">
+                            <div>Credits:</div>
+                            <div id="idPlayer2Credits">@{controller.playerTwo.get.credits}</div>
+                        </div> 
                     </div>
                 </div>
 

@@ -30,6 +30,12 @@ function onClickTile(oSource) {
             } else if (oEvent.eventType === "Mined") {
                 // mined animation
                 updateBoard();
+            } else if (oEvent.eventType === "BaseAttacked" || oEvent.eventType === "Won") {
+                if (JSON.stringify(oEvent.currentPlayer) === JSON.stringify(oController.playerTwo)) {
+                    animateValue("idPlayer1Health", oController.playerOne.health, 1000);
+                } else {
+                    animateValue("idPlayer2Health", oController.playerTwo.health, 1000);
+                }
             }
             resetCurrGladiator();
         });
