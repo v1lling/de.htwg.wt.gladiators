@@ -1,3 +1,14 @@
+$(document).ready(function() {
+    console.log("Document is ready, loading data");
+    sendRequest("GET", "/json", {}, function() {
+        updateGame();
+        if (oController.gameState == "NamePlayerOne") {
+            openModal("Player 1", "Enter name");
+        }
+    });
+});
+
+// Global variables
 var oController = {},
     oCurrGladiator = {};
 
@@ -112,6 +123,15 @@ function onClickShopItem(oSource) {
 function onClickEndTurn() {
     resetCurrGladiator();
     sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateGame);
+}
+
+/**
+ * Event when "OK" button of modal is clicked
+ */
+function onSubmitModal() {
+    let oModal = $("#idModal");
+    console.log(oModal.val());
+    oModal.modal("hide");
 }
 
 /**
@@ -448,7 +468,13 @@ function animateGladiatorShake(oGladiatorDiv) {
     },1000);
 }
 
-$(document).ready(function() {
-    console.log("Document is ready, loading data");
-    sendRequest("GET", "/json", {}, updateGame);
-});
+/**
+ * Opens the modal
+ * @param {String} sHeader - header label
+ * @param {String} sInputLabel - input label
+ */
+function openModal(sHeader, sInputLabel) {
+    $("#idModalHeader").text(sHeader);
+    $("#idInputLabel").text(sInputLabel);
+    $("#idModal").modal();
+}
