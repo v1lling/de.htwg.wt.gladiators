@@ -113,7 +113,6 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
     }
 
     class GladiatorWebSocketActor(out: ActorRef) extends Actor with Reactor{
-        //listenTo(controller)
 
         def receive = {
             case msg: JsValue =>
@@ -121,17 +120,19 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
                 out ! (json)
                 println("Received message "+ msg)
         }
-        
-        /*
-        reactions += {
-            case event: NamePlayerOne => sendJsonToClient
-            //case event: CandidatesChanged => sendJsonToClient
-        }
 
-        def sendJsonToClient = {
-            println("Received event from Controller")
-            out ! (JSON.toJson(controller))
-        }
-        */
+        // TODO:
+    
+        // BACKEND:
+        // receive json commands, extract them
+        // check if controller can handle them
+        // send back event and controller json to every open socket
+
+        // FRONTEND
+        // send commands to websocket instead of http paths
+        // receive websocket messages, read them and act them out
+        // block websocket calls for player who is not currentPlayer
+        // create a timeout for a turn like 100s (add countdown like a bar), after timeout change currentPlayer
+        
     }
 }
