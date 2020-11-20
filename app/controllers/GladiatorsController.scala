@@ -23,16 +23,23 @@ import akka.http.scaladsl.model.headers.RawHeader
 import com.softwaremill.macwire._
 import javax.inject._
 import play.api._
-import play.api.libs.json.JsValue
-import play.api.libs.json.Json
+import play.api.libs.json._
+
 import play.api.mvc._
+
+import play.api.libs.streams.ActorFlow
+import akka.actor.ActorSystem
+import akka.stream.Materializer
+import akka.actor._
+import scala.swing.Reactor
+import play.api.mvc.WebSocket.MessageFlowTransformer
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
  */
 @Singleton
-class GladiatorsController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
+class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
     // Calling Gladiators.controller does not work because Gladiators extends
     // App don't ask me why ¯\_(ツ)_/¯
     val configuration = Configuration(5, 15)
@@ -86,5 +93,45 @@ class GladiatorsController @Inject()(val controllerComponents: ControllerCompone
                 BadRequest(Json.toJson(event))
             }
         }
+    }
+
+  /*  implicit val inEventFormat  = Json.format[InEvent]
+    implicit val outEventFormat = Json.format[OutEvent]
+    implicit val messageFlowTransformer = MessageFlowTransformer.jsonMessageFlowTransformer[InEvent, OutEvent]
+*/
+    def socket = WebSocket.accept[JsValue, JsValue] { request =>
+        ActorFlow.actorRef { out =>
+            println("Connect received")
+            GladiatorsWebSocketActorFactory.create(out)
+        }
+    }
+
+    object GladiatorsWebSocketActorFactory {
+        def create(out: ActorRef) = {
+            Props(new GladiatorWebSocketActor(out))
+        }
+    }
+
+    class GladiatorWebSocketActor(out: ActorRef) extends Actor with Reactor{
+        //listenTo(controller)
+
+        def receive = {
+            case msg: JsValue =>
+                val json: JsValue = Json.toJson(controller)
+                out ! (json)
+                println("Received message "+ msg)
+        }
+        
+        /*
+        reactions += {
+            case event: NamePlayerOne => sendJsonToClient
+            //case event: CandidatesChanged => sendJsonToClient
+        }
+
+        def sendJsonToClient = {
+            println("Received event from Controller")
+            out ! (JSON.toJson(controller))
+        }
+        */
     }
 }

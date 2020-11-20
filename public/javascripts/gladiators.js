@@ -1,5 +1,6 @@
 $(document).ready(function() {
     console.log("Document is ready, loading data");
+    connectWebSocket();
     sendRequest("GET", "/json", {}, function() {
         updateGame();
         if (oController.gameState == "NamePlayerOne") {
@@ -254,67 +255,6 @@ function updateGame() {
 
 
 /**
- * Sends a buy request to the server
- * @param {int} iIndex - The request URL
- * @param {int} iX - x-value of position
- * @param {int} iY - y-value of position
- * @param {function} fnSuccess - Success callback function
- */
-function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
-    let oPayload = {
-            "commandType" : "BuyUnit",
-            "number": iIndex,
-            "position": {"x" : iX, "y": iY}
-        };
-    sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
-}
-
-/**
-* Sends a move request to the server
-* @param {int} iX - x-value of initial position
-* @param {int} iY - y-value of initial position
-* @param {int} iNewX - x-value of new position
-* @param {int} iNewY - y-value of new position
-* @param {function} fnSuccess - Success callback function
-*/
-function sendMoveRequest(iX, iY, iNewX, iNewY, fnSuccess) {
-   let oPayload = {
-        "commandType" : "Move",
-        "from": {"x" : iX, "y": iY},
-        "to": {"x" : iNewX, "y": iNewY}
-    };
-   sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
-}
-
-
-/**
- * Sends a request to the server
- * @param {string} sMethod - The method of the HTTP request
- * @param {string} sPath - The request URL
- * @param {object} oPayload - The request body dada
- * @param {function} fnSuccess - Callback function for success
- */
-function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
-    $.ajax({
-        method: sMethod,
-        url: sPath,
-        data: JSON.stringify(oPayload),
-        dataType: "json",
-        contentType: "application/json",
-        success: function (oResult) {
-            oController = oResult[0];
-            if (fnSuccess) {
-                fnSuccess(oResult[1]);
-            }
-        }.bind(this),
-        error: function(oResponse) {
-            resetCurrGladiator();
-            Msg.error(oResponse.responseJSON.message, 2000);
-        }
-    });
-}
-
-/**
  * Creates a div of gladiator and places it in DOM
  * @param {Object} oGladiator - gladiator
  * @param {int} iPlayer - player 
@@ -477,4 +417,96 @@ function openModal(sHeader, sInputLabel) {
     $("#idModalHeader").text(sHeader);
     $("#idInputLabel").text(sInputLabel);
     $("#idModal").modal();
+}
+
+
+/**
+ * Sends a buy request to the server
+ * @param {int} iIndex - The request URL
+ * @param {int} iX - x-value of position
+ * @param {int} iY - y-value of position
+ * @param {function} fnSuccess - Success callback function
+ */
+function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
+    let oPayload = {
+            "commandType" : "BuyUnit",
+            "number": iIndex,
+            "position": {"x" : iX, "y": iY}
+        };
+    sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
+}
+
+/**
+* Sends a move request to the server
+* @param {int} iX - x-value of initial position
+* @param {int} iY - y-value of initial position
+* @param {int} iNewX - x-value of new position
+* @param {int} iNewY - y-value of new position
+* @param {function} fnSuccess - Success callback function
+*/
+function sendMoveRequest(iX, iY, iNewX, iNewY, fnSuccess) {
+   let oPayload = {
+        "commandType" : "Move",
+        "from": {"x" : iX, "y": iY},
+        "to": {"x" : iNewX, "y": iNewY}
+    };
+   sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
+}
+
+
+/**
+ * Sends a request to the server
+ * @param {string} sMethod - The method of the HTTP request
+ * @param {string} sPath - The request URL
+ * @param {object} oPayload - The request body dada
+ * @param {function} fnSuccess - Callback function for success
+ */
+function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
+    $.ajax({
+        method: sMethod,
+        url: sPath,
+        data: JSON.stringify(oPayload),
+        dataType: "json",
+        contentType: "application/json",
+        success: function (oResult) {
+            oController = oResult[0];
+            if (fnSuccess) {
+                fnSuccess(oResult[1]);
+            }
+        }.bind(this),
+        error: function(oResponse) {
+            resetCurrGladiator();
+            Msg.error(oResponse.responseJSON.message, 2000);
+        }
+    });
+}
+
+/**
+ * Initializes a websocket
+ */
+function connectWebSocket() {
+    console.log("Connecting to Websocket");
+    var websocket = new WebSocket("ws://localhost:9000/websocket");
+    console.log("Connected to Websocket");
+
+    websocket.onopen = function(event) {
+        console.log("Trying to connect to Server");
+        let jsonMessage = {
+            message: "Opening Websocket Connection"
+        };
+        websocket.send(JSON.stringify(jsonMessage));
+    }
+
+    websocket.onclose = function () {
+        console.log('Connection Closed!');
+    };
+
+    websocket.onerror = function (error) {
+        console.log('Error Occured: ' + error);
+    };
+
+    websocket.onmessage = function (e) {
+        let oResponse = JSON.parse(e.data);
+        console.log(oResponse);
+    };
 }
