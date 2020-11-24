@@ -28,7 +28,6 @@ import akka.http.scaladsl.model.ResponseEntity
 import akka.http.scaladsl.model.StatusCode
 import akka.http.scaladsl.model.headers.RawHeader
 import akka.stream.Materializer
-import com.softwaremill.macwire._
 import javax.inject._
 import play.api._
 import play.api.libs.json._
@@ -36,18 +35,11 @@ import play.api.libs.streams.ActorFlow
 import play.api.mvc.WebSocket.MessageFlowTransformer
 import play.api.mvc._
 
-/**
- * This controller creates an `Action` to handle HTTP requests to the
- * application's home page.
- */
 @Singleton
 class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
-    // Calling Gladiators.controller does not work because Gladiators extends
-    // App don't ask me why ¯\_(ツ)_/¯
     val configuration = Configuration(5, 15)
     val controller = Controller(configuration)
-    val tui = wire[Tui]
-    // FIXME: We need to initialize players to call boardToString
+    // todo: We need to initialize players to call boardToString
     controller.namePlayerOne("one")
     controller.namePlayerTwo("two")
 
