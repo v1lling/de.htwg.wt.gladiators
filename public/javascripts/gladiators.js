@@ -24,33 +24,12 @@ function onClickTile(oSource) {
         y = oSource.getAttribute("y");
     if (oCurrGladiator.source === "shop") {
         //buy
-        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y), function(oEvent) {
-            updateGame();
-            if (JSON.stringify(oEvent.player) === JSON.stringify(oController.playerOne)) {
-                animateValue("idPlayer1Credits", oEvent.player.credits, 1000);
-            } else {
-                animateValue("idPlayer2Credits", oEvent.player.credits, 1000);
-            }
+        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y), function() {
+            resetCurrGladiator();
         });
-        resetCurrGladiator();
     } else if(oCurrGladiator.source === "board") {
         //move
-        let oGladiator = oCurrGladiator.gladiatorDiv.data("gladiator");
-        sendMoveRequest(oGladiator.position.x, oGladiator.position.y, parseInt(x), parseInt(y), function(oEvent) {
-            if (oEvent.eventType === "Moved") {
-                // moved animation
-                oCurrGladiator.gladiatorDiv.data("gladiator", oEvent.gladiator)
-                animateGladiatorMove(oCurrGladiator.gladiatorDiv.parent(), $("#idTileX"+x+"Y"+y), 1500);
-            } else if (oEvent.eventType === "Mined") {
-                // mined animation
-                updateBoard();
-            } else if (oEvent.eventType === "BaseAttacked" || oEvent.eventType === "Won") {
-                if (JSON.stringify(oEvent.currentPlayer) === JSON.stringify(oController.playerTwo)) {
-                    animateValue("idPlayer1Health", oController.playerOne.health, 1000);
-                } else {
-                    animateValue("idPlayer2Health", oController.playerTwo.health, 1000);
-                }
-            }
+        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, parseInt(x), parseInt(y), function() {
             resetCurrGladiator();
         });
     } else {
@@ -67,24 +46,7 @@ function onClickGladiator(e) {
     let oClickedGladiator = $(e.target).data("gladiator");
     if(oCurrGladiator.source === "board") {
         //attack
-        let oSrcGladiator = oCurrGladiator.gladiatorDiv.data("gladiator");
-        sendMoveRequest(oSrcGladiator.position.x, oSrcGladiator.position.y, oClickedGladiator.position.x, oClickedGladiator.position.y, function(oEvent) {
-            let oParent = $(e.target).parent(),
-                bFound = false;
-            animateGladiatorAttack(oParent);
-            // get attacked gladiator FIXME: give back in event from backend
-            oController.playerOne.gladiators.concat(oController.playerTwo.gladiators).forEach(function(gladiator) {
-                if (JSON.stringify(gladiator.position) == JSON.stringify(oClickedGladiator.position)) {
-                    $("#idTileX"+gladiator.position.x+"Y"+gladiator.position.y).find(".gladiator").data("gladiator", gladiator);
-                    updateHealthBar(oParent);
-                    bFound = true;
-                }
-            });
-            //if (oEvent.killed) { FIXME: oEvent.killed not working yet              
-            if (!bFound) {
-                updateHealthBar(oParent, true);
-                setTimeout(function() {$(e.target).parent().remove()}, 1000); 
-            }
+        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, oClickedGladiator.position.x, oClickedGladiator.position.y, function() {
             resetCurrGladiator();
         });
     } else {
@@ -92,16 +54,19 @@ function onClickGladiator(e) {
             ((JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerOne) && $(e.target).hasClass("glad-player1"))
             || (JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerTwo) && $(e.target).hasClass("glad-player2")))) {
 
+            // cache gladiator
             toggleActiveClass(e.target);
             sendRequest("POST","/gladiators/api/gladiatorSelect", {"x": oClickedGladiator.position.x, "y": oClickedGladiator.position.y}, function(oResult) {
                 highlightMoveTiles(oResult.tilesMove);
                 highlightAttackTiles(oResult.tilesAttack);
             });
             oCurrGladiator = { 
-                gladiatorDiv: $(e.target),
-                source: "board"
+                source: "board",
+                x: oClickedGladiator.position.x,
+                y: oClickedGladiator.position.y
             }
         } else {
+            // invalid
             animateGladiatorShake($(e.target));
         }
     }
@@ -277,7 +242,8 @@ function createGladiatorDiv(oGladiator, iPlayer) {
         .attr('class','healthbar-inside')
         .appendTo(healthbar);
     let container = $('<div/>',{})
-        .attr("class", "gladiatorcontainer");
+        .attr("class", "gladiatorcontainer")
+        .attr("id", "idGladX" + x + "Y" + y);
     element.appendTo(container);
     healthbar.appendTo(container);
     updateHealthBar(container);
@@ -372,7 +338,7 @@ function animateValue(sId, iNewValue, iDuration) {
 /**
  * Animates the movement of an element
  * @param {String} oMoveElement - Element to be moved
- * @param {Integer} oNewParent - new value
+ * @param {Integer} oNewParent - new parent element
  * @param {Integer} iDuration - duration time of animation in ms
  */
 function animateGladiatorMove(oMoveElement, oNewParent, iDuration) {
@@ -391,7 +357,7 @@ function animateGladiatorMove(oMoveElement, oNewParent, iDuration) {
  * Shows attack animation of gladiator
  * @param {Object} oGladiatorContainerDiv - div that contains gladiator and healthbar
  */
-function animateGladiatorAttack(oGladiatorContainerDiv) {
+function animateGladiatorAttacked(oGladiatorContainerDiv) {
     let oGladiatorDiv = oGladiatorContainerDiv.find(".gladiator");
     oGladiatorDiv.addClass("attacked");
     setTimeout(function() {
@@ -504,6 +470,57 @@ function connectWebSocket() {
 
     websocket.onmessage = function (e) {
         let oResponse = JSON.parse(e.data);
-        console.log(oResponse);
-    };
+
+        oController = oResponse[0];
+        let oEvent = oResponse[1];
+
+        switch(oEvent.eventType) {
+            case "Turn":
+                updateCurrentPlayer();
+                break;
+            case "SuccessfullyBoughtGladiator":
+                updateGame();
+                if (JSON.stringify(oEvent.player) === JSON.stringify(oController.playerOne)) {
+                    animateValue("idPlayer1Credits", oEvent.player.credits, 1000);
+                } else {
+                    animateValue("idPlayer2Credits", oEvent.player.credits, 1000);
+                }
+                break;
+            case "Moved":
+                // moved animation
+                let oCurrGladiator = $("#idGladX" + oEvent.from.x + "Y" + oEvent.from.y).attr("id", "#idGladX" + oEvent.to.x + "Y" + oEvent.to.y)
+                animateGladiatorMove(oCurrGladiator, $("#idTileX"+oEvent.to.x+"Y"+oEvent.to.y), 1500); // remove curr gladiator
+                break;
+            case "Mined":
+                // mined animation
+                updateBoard();
+                break;
+            case "BaseAttacked":
+            case "Won":
+                if (JSON.stringify(oEvent.currentPlayer) === JSON.stringify(oController.playerTwo)) {
+                    animateValue("idPlayer1Health", oController.playerOne.health, 1000);
+                } else {
+                    animateValue("idPlayer2Health", oController.playerTwo.health, 1000);
+                }
+            case "Attacked":
+                let bFound = false,
+                    oToGladiator = $("#idGladX" + oEvent.to.x + "Y" + oEvent.to.y);
+
+                animateGladiatorAttacked(oToGladiator);
+                //TODO: give back attacked gladiator in event from backend
+                oToGladiator.data("gladiator", )
+                oController.playerOne.gladiators.concat(oController.playerTwo.gladiators).forEach(function(gladiator) {
+                    if (JSON.stringify(gladiator.position) == JSON.stringify(oEvent.to)) {
+                        $("#idTileX"+gladiator.position.x+"Y"+gladiator.position.y).find(".gladiator").data("gladiator", gladiator);
+                        updateHealthBar(oToGladiator);
+                        bFound = true;
+                    }
+                });
+                //TODO: oEvent.killed not working yet              
+                if (!bFound) {
+                    updateHealthBar(oToGladiator, true);
+                    setTimeout(function() {oToGladiator.remove()}, 1000); 
+                }
+        }
+    }.bind(this);
 }
