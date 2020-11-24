@@ -1,39 +1,40 @@
 package controllers
 
+import scala.collection.mutable.HashSet
+import scala.collection.mutable.ListBuffer
+import scala.swing.Reactor
 import scala.util.Failure
 import scala.util.Success
 import scala.util.Try
-import scala.collection.mutable.ListBuffer
 
 import de.htwg.se.gladiators.aview.Tui
 import de.htwg.se.gladiators.controller.BaseImplementation.Controller
 import de.htwg.se.gladiators.controller.BaseImplementation.ControllerJson._
+import de.htwg.se.gladiators.controller.GameState.TurnPlayerOne
+import de.htwg.se.gladiators.controller.GameState.TurnPlayerTwo
 import de.htwg.se.gladiators.util.Configuration
 import de.htwg.se.gladiators.util.Coordinate
 import de.htwg.se.gladiators.util.Events
-import de.htwg.se.gladiators.util.Events.ErrorMessage
+import de.htwg.se.gladiators.util.Events._
 import de.htwg.se.gladiators.util.json.CommandJson._
 import de.htwg.se.gladiators.util.json.CoordinateJson._
 import de.htwg.se.gladiators.util.json.EventsJson._
 
+import akka.actor.ActorSystem
+import akka.actor._
 import akka.http.scaladsl.model.HttpHeader
 import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.model.ResponseEntity
 import akka.http.scaladsl.model.StatusCode
 import akka.http.scaladsl.model.headers.RawHeader
+import akka.stream.Materializer
 import com.softwaremill.macwire._
 import javax.inject._
 import play.api._
 import play.api.libs.json._
-
-import play.api.mvc._
-
 import play.api.libs.streams.ActorFlow
-import akka.actor.ActorSystem
-import akka.stream.Materializer
-import akka.actor._
-import scala.swing.Reactor
 import play.api.mvc.WebSocket.MessageFlowTransformer
+import play.api.mvc._
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -74,15 +75,8 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
                         BadRequest(Json.toJson(event))
                     }
                     case event: Events => {
-                        
-                        // send response to every open socket
-                        for (socket <- sockets.listSockets) {
-                            socket.sendJson
-                        }
-                        
-                        //Ok(Json.toJson(controller, event))
-                        Ok
-                    } 
+                        Ok(Json.toJson(controller, event))
+                    }
                 }
             }
         }
@@ -107,34 +101,23 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
 
     def socket = WebSocket.accept[JsValue, JsValue] { request =>
         ActorFlow.actorRef { out =>
-            println("Connect received")
-            GladiatorsWebSocketActorFactory.create(out)
-        }
-    }
-    object sockets {
-        // list of open sockets
-        var listSockets = ListBuffer[Props]()
-    }
-
-    object GladiatorsWebSocketActorFactory {
-        def create(out: ActorRef) = {
-            val newSocket = Props(new GladiatorWebSocketActor(out))
-            sockets.listSockets += newSocket
-            newSocket
+            Props(new GladiatorWebSocketActor(out))
         }
     }
 
-    class GladiatorWebSocketActor(out: ActorRef) extends Actor with Reactor{
+    case class GladiatorWebSocketActor(out: ActorRef) extends Actor with Reactor {
+        listenTo(controller)
+        reactions += { case event: Events => sendJson(controller, event) }
 
         def receive = {
             case msg: JsValue =>
                 val json: JsValue = Json.toJson(controller)
                 out ! (json)
         }
-        def sendJson = {
-            val json: JsValue = Json.toJson(controller)
+        def sendJson(controller: Controller, event: Events) = {
+            val json: JsValue = Json.toJson(controller, event)
             out ! (json)
         }
     }
-    
+
 }
