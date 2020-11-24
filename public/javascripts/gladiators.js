@@ -13,6 +13,8 @@ $(document).ready(function() {
 var oController = {},
     oCurrGladiator = {};
 
+var websocket = new WebSocket("ws://localhost:9000/websocket");
+
 /**
  * Event when tile is clicked
  * @param {Object} oSource - source element of click
@@ -486,15 +488,10 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
  */
 function connectWebSocket() {
     console.log("Connecting to Websocket");
-    var websocket = new WebSocket("ws://localhost:9000/websocket");
     console.log("Connected to Websocket");
 
     websocket.onopen = function(event) {
         console.log("Trying to connect to Server");
-        let jsonMessage = {
-            message: "Opening Websocket Connection"
-        };
-        websocket.send(JSON.stringify(jsonMessage));
     }
 
     websocket.onclose = function () {

@@ -3,6 +3,7 @@ package controllers
 import scala.util.Failure
 import scala.util.Success
 import scala.util.Try
+import scala.collection.mutable.ListBuffer
 
 import de.htwg.se.gladiators.aview.Tui
 import de.htwg.se.gladiators.controller.BaseImplementation.Controller
@@ -72,7 +73,16 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
                         val event: Events = ErrorMessage(message)
                         BadRequest(Json.toJson(event))
                     }
-                    case event: Events => Ok(Json.toJson(controller, event))
+                    case event: Events => {
+                        
+                        // send response to every open socket
+                        for (socket <- sockets.listSockets) {
+                            socket.sendJson
+                        }
+                        
+                        //Ok(Json.toJson(controller, event))
+                        Ok
+                    } 
                 }
             }
         }
@@ -95,20 +105,22 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
         }
     }
 
-  /*  implicit val inEventFormat  = Json.format[InEvent]
-    implicit val outEventFormat = Json.format[OutEvent]
-    implicit val messageFlowTransformer = MessageFlowTransformer.jsonMessageFlowTransformer[InEvent, OutEvent]
-*/
     def socket = WebSocket.accept[JsValue, JsValue] { request =>
         ActorFlow.actorRef { out =>
             println("Connect received")
             GladiatorsWebSocketActorFactory.create(out)
         }
     }
+    object sockets {
+        // list of open sockets
+        var listSockets = ListBuffer[Props]()
+    }
 
     object GladiatorsWebSocketActorFactory {
         def create(out: ActorRef) = {
-            Props(new GladiatorWebSocketActor(out))
+            val newSocket = Props(new GladiatorWebSocketActor(out))
+            sockets.listSockets += newSocket
+            newSocket
         }
     }
 
@@ -118,21 +130,11 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
             case msg: JsValue =>
                 val json: JsValue = Json.toJson(controller)
                 out ! (json)
-                println("Received message "+ msg)
         }
-
-        // TODO:
-    
-        // BACKEND:
-        // receive json commands, extract them
-        // check if controller can handle them
-        // send back event and controller json to every open socket
-
-        // FRONTEND
-        // send commands to websocket instead of http paths
-        // receive websocket messages, read them and act them out
-        // block websocket calls for player who is not currentPlayer
-        // create a timeout for a turn like 100s (add countdown like a bar), after timeout change currentPlayer
-        
+        def sendJson = {
+            val json: JsValue = Json.toJson(controller)
+            out ! (json)
+        }
     }
+    
 }
