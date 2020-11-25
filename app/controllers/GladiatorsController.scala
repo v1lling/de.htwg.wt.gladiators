@@ -34,6 +34,10 @@ import play.api.libs.json._
 import play.api.libs.streams.ActorFlow
 import play.api.mvc.WebSocket.MessageFlowTransformer
 import play.api.mvc._
+import _root_.controllers.WebSockets.SpectatorWebSocketActor
+import _root_.controllers.WebSockets.GladiatorWebSocketActor
+import de.htwg.se.gladiators.controller.GameState.NamingPlayerOne
+import de.htwg.se.gladiators.controller.GameState.NamingPlayerTwo
 
 @Singleton
 class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
@@ -93,23 +97,10 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
 
     def socket = WebSocket.accept[JsValue, JsValue] { request =>
         ActorFlow.actorRef { out =>
-            Props(new GladiatorWebSocketActor(out))
+            controller.gameState match {
+                case NamingPlayerOne | NamingPlayerTwo => Props(GladiatorWebSocketActor(out, controller))
+                case _ => Props(SpectatorWebSocketActor(out, controller))
+            }
         }
     }
-
-    case class GladiatorWebSocketActor(out: ActorRef) extends Actor with Reactor {
-        listenTo(controller)
-        reactions += { case event: Events => sendJson(controller, event) }
-
-        def receive = {
-            case msg: JsValue =>
-                val json: JsValue = Json.toJson(controller)
-                out ! (json)
-        }
-        def sendJson(controller: Controller, event: Events) = {
-            val json: JsValue = Json.toJson(controller, event)
-            out ! (json)
-        }
-    }
-
 }
