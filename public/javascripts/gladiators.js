@@ -464,9 +464,6 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
         }.bind(this),
         error: function(oResponse) {
             Msg.error(oResponse.responseJSON.message, 2000);
-        },
-        complete: function() {
-            resetCurrGladiator();
         }
     });
 }
@@ -504,6 +501,7 @@ function connectWebSocket() {
                 updatePlayers();
                 $("#idModal").modal("hide");
             case "Turn":
+                updateGame();
                 updateCurrentPlayer();
                 break;
             case "SuccessfullyBoughtGladiator":
