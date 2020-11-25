@@ -4,10 +4,10 @@ $(document).ready(function() {
     sendRequest("GET", "/json", {}, function() {
         if (oController.gameState == "NamingPlayerOne") {
             $("#idModal").data("player", "One");
-            openModal("Player 1", "Enter name");
+            openModal("Player 1", "Enter name", "player-one");
         } else if(oController.gameState =="NamingPlayerTwo") {
             $("#idModal").data("player", "Two");
-            openModal("Player 2", "Enter name");
+            openModal("Player 2", "Enter name", "player-two");
         }
         updateGame();
     });
@@ -406,11 +406,14 @@ function animateGladiatorShake(oGladiatorDiv) {
  * Opens the modal
  * @param {String} sHeader - header label
  * @param {String} sInputLabel - input label
+ * @param {String} sClass - class for modal
  */
-function openModal(sHeader, sInputLabel) {
+function openModal(sHeader, sInputLabel, sClass) {
+    removePrefixClass("modal","player-");
+
     $("#idModalHeader").text(sHeader);
     $("#idInputLabel").text(sInputLabel);
-    $("#idModal").modal();
+    $("#idModal").addClass(sClass).modal();
 }
 
 
