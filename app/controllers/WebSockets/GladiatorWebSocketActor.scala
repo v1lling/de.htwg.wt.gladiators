@@ -60,4 +60,8 @@ case class GladiatorWebSocketActor(out: ActorRef, controller: Controller) extend
         }
     }
     override def sendJson(controller: Controller, event: Events): Unit = out ! (Json.toJson(controller, event))
+    @throws[Exception](classOf[Exception])
+    override def postStop(): Unit = {
+        println("Quitting game")
+    }
 }
