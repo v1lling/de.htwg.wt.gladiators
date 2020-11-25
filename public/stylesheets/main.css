@@ -382,6 +382,9 @@ body {
 .modal .modal-header {
   justify-content: center;
 }
+.modal .modal-dialog {
+  top: 30%;
+}
 .modal .avatar {
   height: 5rem;
   width: 5rem;

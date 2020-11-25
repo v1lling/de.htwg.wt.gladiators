@@ -28,14 +28,10 @@ function onClickTile(oSource) {
         y = oSource.getAttribute("y");
     if (oCurrGladiator.source === "shop") {
         //buy
-        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y), function() {
-            resetCurrGladiator();
-        });
+        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y));
     } else if(oCurrGladiator.source === "board") {
         //move
-        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, parseInt(x), parseInt(y), function() {
-            resetCurrGladiator();
-        });
+        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, parseInt(x), parseInt(y));
     } else {
         resetCurrGladiator();
     }
@@ -50,15 +46,13 @@ function onClickGladiator(e) {
     let oClickedGladiator = $(e.target).data("gladiator");
     if(oCurrGladiator.source === "board") {
         //attack
-        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, oClickedGladiator.position.x, oClickedGladiator.position.y, function() {
-            resetCurrGladiator();
-        });
+        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, oClickedGladiator.position.x, oClickedGladiator.position.y);
     } else {
         if (oClickedGladiator.moved === false && 
             ((JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerOne) && $(e.target).hasClass("glad-player1"))
             || (JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerTwo) && $(e.target).hasClass("glad-player2")))) {
 
-            // cache gladiator
+            // save gladiator in cache
             toggleActiveClass(e.target);
             sendRequest("POST","/gladiators/api/gladiatorSelect", {"x": oClickedGladiator.position.x, "y": oClickedGladiator.position.y}, function(oResult) {
                 highlightMoveTiles(oResult.tilesMove);
@@ -93,7 +87,6 @@ function onClickShopItem(oSource) {
  * Ends turn and sets new current player
  */
 function onClickEndTurn() {
-    resetCurrGladiator();
     //sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateGame);
     websocket.send(JSON.stringify({"commandType": "EndTurn"}));
 }
@@ -219,11 +212,7 @@ function updateBoard() {
         oController.board.tiles.forEach(function(row, y) {
             row.forEach(function(tile, x) {
                 if (tile.tileType == "Base") {
-                    if (y == 0) {
-                        tile.tileType += "1";
-                    } else {
-                        tile.tileType += "2";
-                    }
+                    y == 0 ? tile.tileType += "1": tile.tileType += "2";
                 }
                 $("#idTileX"+x+"Y"+y).addClass("tile-" + tile.tileType)
             })
@@ -474,8 +463,10 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
             }
         }.bind(this),
         error: function(oResponse) {
-            resetCurrGladiator();
             Msg.error(oResponse.responseJSON.message, 2000);
+        },
+        complete: function() {
+            resetCurrGladiator();
         }
     });
 }
@@ -505,6 +496,8 @@ function connectWebSocket() {
         oController = oResponse[0];
         let oEvent = oResponse[1];
 
+        resetCurrGladiator();
+        
         switch(oEvent.eventType) {
             case "PlayerOneNamed":
             case "PlayerTwoNamed":
@@ -522,12 +515,10 @@ function connectWebSocket() {
                 }
                 break;
             case "Moved":
-                // moved animation
                 let oCurrGladiator = $("#idGladX" + oEvent.from.x + "Y" + oEvent.from.y).attr("id", "#idGladX" + oEvent.to.x + "Y" + oEvent.to.y)
                 animateGladiatorMove(oCurrGladiator, $("#idTileX"+oEvent.to.x+"Y"+oEvent.to.y), 1500); // remove curr gladiator
                 break;
             case "Mined":
-                // mined animation
                 updateBoard();
                 break;
             case "BaseAttacked":
