@@ -10,6 +10,8 @@ import scala.util.Try
 import de.htwg.se.gladiators.aview.Tui
 import de.htwg.se.gladiators.controller.BaseImplementation.Controller
 import de.htwg.se.gladiators.controller.BaseImplementation.ControllerJson._
+import de.htwg.se.gladiators.controller.GameState.NamingPlayerOne
+import de.htwg.se.gladiators.controller.GameState.NamingPlayerTwo
 import de.htwg.se.gladiators.controller.GameState.TurnPlayerOne
 import de.htwg.se.gladiators.controller.GameState.TurnPlayerTwo
 import de.htwg.se.gladiators.util.Configuration
@@ -20,6 +22,8 @@ import de.htwg.se.gladiators.util.json.CommandJson._
 import de.htwg.se.gladiators.util.json.CoordinateJson._
 import de.htwg.se.gladiators.util.json.EventsJson._
 
+import _root_.controllers.WebSockets.GladiatorWebSocketActor
+import _root_.controllers.WebSockets.SpectatorWebSocketActor
 import akka.actor.ActorSystem
 import akka.actor._
 import akka.http.scaladsl.model.HttpHeader
@@ -34,10 +38,6 @@ import play.api.libs.json._
 import play.api.libs.streams.ActorFlow
 import play.api.mvc.WebSocket.MessageFlowTransformer
 import play.api.mvc._
-import _root_.controllers.WebSockets.SpectatorWebSocketActor
-import _root_.controllers.WebSockets.GladiatorWebSocketActor
-import de.htwg.se.gladiators.controller.GameState.NamingPlayerOne
-import de.htwg.se.gladiators.controller.GameState.NamingPlayerTwo
 
 @Singleton
 class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {

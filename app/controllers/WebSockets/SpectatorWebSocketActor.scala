@@ -7,8 +7,8 @@ import de.htwg.se.gladiators.util.Events.ErrorMessage
 import de.htwg.se.gladiators.util.json.EventsJson._
 
 import akka.actor.Actor
-import play.api.libs.json.Json
 import akka.actor.ActorRef
+import play.api.libs.json.Json
 
 case class SpectatorWebSocketActor(out: ActorRef, controller: Controller) extends WebSocketsTrait {
     listenTo(controller)

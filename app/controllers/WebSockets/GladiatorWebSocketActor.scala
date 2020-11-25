@@ -1,25 +1,25 @@
 package controllers.WebSockets
 
+import scala.util.Failure
+import scala.util.Success
+
 import de.htwg.se.gladiators.controller.BaseImplementation.Controller
 import de.htwg.se.gladiators.controller.BaseImplementation.ControllerJson._
+import de.htwg.se.gladiators.model.Player
+import de.htwg.se.gladiators.util.Command
+import de.htwg.se.gladiators.util.Command._
 import de.htwg.se.gladiators.util.Events
+import de.htwg.se.gladiators.util.Events._
+import de.htwg.se.gladiators.util.json.CommandJson._
 import de.htwg.se.gladiators.util.json.CommandJson._
 import de.htwg.se.gladiators.util.json.CoordinateJson._
 import de.htwg.se.gladiators.util.json.EventsJson._
-import de.htwg.se.gladiators.util.json.CommandJson._
 
 import akka.actor.Actor
 import akka.actor.ActorRef
-import play.api.libs.json._
-import scala.util.Failure
-import de.htwg.se.gladiators.util.Events
-import de.htwg.se.gladiators.util.Events._
-import scala.util.Success
-import de.htwg.se.gladiators.util.Command._
-import de.htwg.se.gladiators.util.Command
-import de.htwg.se.gladiators.model.Player
 import java.util.concurrent.atomic.AtomicReference
-
+import play.api.libs.json._
+import play.api.mvc.Results.BadRequest
 case class GladiatorWebSocketActor(out: ActorRef, controller: Controller) extends WebSocketsTrait {
     listenTo(controller)
     reactions += { case event: Events => sendJson(controller, event) }
