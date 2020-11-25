@@ -47,7 +47,6 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
     controller.namePlayerOne("one")
     controller.namePlayerTwo("two")
 
-    val couldNotParseJsonError: Events = Events.ErrorMessage("Body does not contain valid json")
     val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
 
     def about = Action {
@@ -66,13 +65,8 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
             readCommand(request.body) match {
                 case Failure(exception) => BadRequest(Json.toJson(jsonNotACommandError))
                 case Success(command) => controller.inputCommand(command) match {
-                    case ErrorMessage(message) => {
-                        val event: Events = ErrorMessage(message)
-                        BadRequest(Json.toJson(event))
-                    }
-                    case event: Events => {
-                        Ok(Json.toJson(controller, event))
-                    }
+                    case message: ErrorMessage => BadRequest(Json.toJson(message: Events))
+                    case event: Events => Ok(Json.toJson(controller, event))
                 }
             }
         }
@@ -88,10 +82,7 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
                 )
                 Ok(Json.toJson(controller, gladiatorInfo))
             }
-            case Failure(_) => {
-                val event: Events = jsonNotACommandError
-                BadRequest(Json.toJson(event))
-            }
+            case Failure(_) => BadRequest(Json.toJson(jsonNotACommandError))
         }
     }
 
