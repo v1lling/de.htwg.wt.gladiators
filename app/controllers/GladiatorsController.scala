@@ -44,8 +44,8 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
     val configuration = Configuration(5, 15)
     val controller = Controller(configuration)
     // todo: We need to initialize players to call boardToString
-    controller.namePlayerOne("one")
-    controller.namePlayerTwo("two")
+   // controller.namePlayerOne("one")
+   // controller.namePlayerTwo("two")
 
     val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
 
@@ -89,8 +89,14 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system
     def socket = WebSocket.accept[JsValue, JsValue] { request =>
         ActorFlow.actorRef { out =>
             controller.gameState match {
-                case NamingPlayerOne | NamingPlayerTwo => Props(GladiatorWebSocketActor(out, controller))
-                case _ => Props(SpectatorWebSocketActor(out, controller))
+                case NamingPlayerOne | NamingPlayerTwo => {
+                    println("connecting player")
+                    Props(GladiatorWebSocketActor(out, controller))
+                }
+                case _ => {
+                    println("connecting spectator")
+                    Props(SpectatorWebSocketActor(out, controller))
+                }
             }
         }
     }

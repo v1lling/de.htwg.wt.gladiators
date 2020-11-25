@@ -2,10 +2,14 @@ $(document).ready(function() {
     console.log("Document is ready, loading data");
     connectWebSocket();
     sendRequest("GET", "/json", {}, function() {
-        updateGame();
-        if (oController.gameState == "NamePlayerOne") {
+        if (oController.gameState == "NamingPlayerOne") {
+            $("#idModal").data("player", "One");
             openModal("Player 1", "Enter name");
+        } else if(oController.gameState =="NamingPlayerTwo") {
+            $("#idModal").data("player", "Two");
+            openModal("Player 2", "Enter name");
         }
+        updateGame();
     });
 });
 
@@ -90,16 +94,20 @@ function onClickShopItem(oSource) {
  */
 function onClickEndTurn() {
     resetCurrGladiator();
-    sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateGame);
+    //sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateGame);
+    websocket.send(JSON.stringify({"commandType": "EndTurn"}));
 }
 
 /**
  * Event when "OK" button of modal is clicked
  */
 function onSubmitModal() {
-    let oModal = $("#idModal");
-    console.log(oModal.val());
-    oModal.modal("hide");
+    let oModal = $("#idModal"),
+        oPayload = {
+            "commandType" : "NamePlayer" + oModal.data("player"),
+            "name": $("#idModalInput").val()
+        };
+    websocket.send(JSON.stringify(oPayload));
 }
 
 /**
@@ -152,6 +160,24 @@ function resetCurrGladiator() {
     oCurrGladiator = {};
     toggleActiveClass();
     $(".board-tile").removeClass("move-range").removeClass("attack-range");;
+}
+
+/**
+ * Updates player information panel
+ */
+function updatePlayers() {
+    if (oController) {
+        if (oController.playerOne) {
+            $("#idPlayer1Name").html(oController.playerOne.name);
+            $("#idPlayer1Health").html(oController.playerOne.health);
+            $("#idPlayer1Credits").html(oController.playerOne.credits);
+        }
+        if (oController.playerTwo) {
+            $("#idPlayer2Name").html(oController.playerTwo.name);
+            $("#idPlayer2Health").html(oController.playerTwo.health);
+            $("#idPlayer2Credits").html(oController.playerTwo.credits);
+        }
+    }
 }
 
 /**
@@ -401,7 +427,8 @@ function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
             "number": iIndex,
             "position": {"x" : iX, "y": iY}
         };
-    sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
+    websocket.send(JSON.stringify(oPayload));
+    //sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
 }
 
 /**
@@ -418,7 +445,8 @@ function sendMoveRequest(iX, iY, iNewX, iNewY, fnSuccess) {
         "from": {"x" : iX, "y": iY},
         "to": {"x" : iNewX, "y": iNewY}
     };
-   sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
+    websocket.send(JSON.stringify(oPayload));
+    //sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
 }
 
 
@@ -475,6 +503,10 @@ function connectWebSocket() {
         let oEvent = oResponse[1];
 
         switch(oEvent.eventType) {
+            case "PlayerOneNamed":
+            case "PlayerTwoNamed":
+                updatePlayers();
+                $("#idModal").modal("hide");
             case "Turn":
                 updateCurrentPlayer();
                 break;
