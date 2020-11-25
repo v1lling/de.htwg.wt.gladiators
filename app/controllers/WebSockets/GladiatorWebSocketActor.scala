@@ -57,6 +57,6 @@ case class GladiatorWebSocketActor(out: ActorRef, controller: Controller) extend
 
     @throws[Exception](classOf[Exception])
     override def postStop(): Unit = {
-        println("Connection closed")
+        println("Player disconnected")
     }
 }

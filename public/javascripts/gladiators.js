@@ -500,6 +500,7 @@ function connectWebSocket() {
             case "PlayerTwoNamed":
                 updatePlayers();
                 $("#idModal").modal("hide");
+                break;
             case "Turn":
                 updateGame();
                 updateCurrentPlayer();
@@ -526,6 +527,7 @@ function connectWebSocket() {
                 } else {
                     animateValue("idPlayer2Health", oController.playerTwo.health, 1000);
                 }
+                break;
             case "Attacked":
                 let bFound = false,
                     oToGladiator = $("#idGladX" + oEvent.to.x + "Y" + oEvent.to.y);
@@ -545,6 +547,10 @@ function connectWebSocket() {
                     updateHealthBar(oToGladiator, true);
                     setTimeout(function() {oToGladiator.remove()}, 1000); 
                 }
+                break;
+            case "ErrorMessage":
+                Msg.error(oEvent.message, 2000);
+                break;
         }
     }.bind(this);
 }
