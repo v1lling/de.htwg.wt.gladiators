@@ -37,18 +37,17 @@ case class GladiatorWebSocketActor(out: ActorRef, controller: Controller) extend
                         case _ => out ! Json.toJson(controller, ErrorMessage("Internal Server Error"): Events)
                     }
                     case (NamePlayerTwo(name), None) => controller.namePlayerTwo(name) match {
-                        case named: PlayerTwoNamed => player = controller.playerTwo
+                        case named: Turn => { player = controller.playerTwo }
                         case message: ErrorMessage => out ! Json.toJson(controller, message: Events)
                         case _ => out ! Json.toJson(controller, ErrorMessage("Internal Server Error"): Events)
                     }
-                    
-                    case (move: Move, player: Option[Player]) if controller.currentPlayer == player => Json.toJson(controller, controller.inputCommand(move): Events)
-                    case (Move(_, _), None) => Json.toJson(controller, ErrorMessage("It is not your turn"): Events)
-
-                    case (buyUnit: BuyUnit, player: Option[Player]) if controller.currentPlayer == player => Json.toJson(controller.inputCommand(buyUnit))
-                    case (BuyUnit(_, _), None) => Json.toJson(controller, ErrorMessage("It is not your turn"): Events)
-
-                    case (command: Command, _) => Json.toJson(controller, controller.inputCommand(command))
+                    case (command: Command, player: Option[Player]) => {
+                        if (controller.currentPlayer.get.id == player.get.id) {
+                            out ! Json.toJson(controller, controller.inputCommand(command))
+                        } else {
+                            out ! Json.toJson(controller, ErrorMessage("It is not your turn"): Events)
+                        }
+                    }
                 }
             }
         }
