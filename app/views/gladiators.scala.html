@@ -9,39 +9,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">
                 <div class="panel-player">
-                    Player
-                    <div class="playerinfo player1">
-                        <div class="playerinfo-row">
-                            <div>Name:</div>
-                            <div id="idPlayer1Name">
-                                @{if (controller.playerOne) {
-                                    controller.playerOne.get.name
-                                } else {
-                                    "-"
-                                }
-                            }</div>
-                        </div>
-                        <div class="playerinfo-row">
-                            <div>Base:</div>
-                            <div id="idPlayer1Health">
-                                @{if (controller.playerOne) {
-                                    controller.playerOne.get.health
-                                } else {
-                                    "-"
-                                }
-                            }</div>
-                        </div>
-                        <div class="playerinfo-row">
-                            <div>Credits:</div>
-                            <div id="idPlayer1Credits">
-                                @{if (controller.playerOne) {
-                                    controller.playerOne.get.credits
-                                } else {
-                                    "-"
-                                }
-                            }</div>
-                        </div>   
-                    </div>
+                    Player 2
                     <div class="playerinfo player2">
                         <div class="playerinfo-row">
                             <div>Name:</div>
@@ -77,7 +45,46 @@
                 </div>
 
                  <div class="panel-buttons">
-                    <button type="button" class="btn btn-success btn-rounded" onclick="onClickEndTurn()">End Turn</button>
+                    <button disabled id="idTurnButton" type="button" class="btn btn-rounded turnbutton" onclick="onClickEndTurn()">
+                        Lobby
+                        <span class="turnbutton-png"></span>
+                    </button>
+                </div>
+
+                <div class="panel-player">
+                    Player 1
+                    <div class="playerinfo player1">
+                        <div class="playerinfo-row">
+                            <div>Name:</div>
+                            <div id="idPlayer1Name">
+                                @{if (controller.playerOne) {
+                                    controller.playerOne.get.name
+                                } else {
+                                    "-"
+                                }
+                            }</div>
+                        </div>
+                        <div class="playerinfo-row">
+                            <div>Base:</div>
+                            <div id="idPlayer1Health">
+                                @{if (controller.playerOne) {
+                                    controller.playerOne.get.health
+                                } else {
+                                    "-"
+                                }
+                            }</div>
+                        </div>
+                        <div class="playerinfo-row">
+                            <div>Credits:</div>
+                            <div id="idPlayer1Credits">
+                                @{if (controller.playerOne) {
+                                    controller.playerOne.get.credits
+                                } else {
+                                    "-"
+                                }
+                            }</div>
+                        </div>   
+                    </div>
                 </div>
             </div>
             <div id="idBoard" class="col-xs-12 col-sm-12 col-lg-8 board">

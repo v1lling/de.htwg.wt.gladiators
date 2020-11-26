@@ -24,6 +24,10 @@
     75% {transform: rotateZ(-5deg);} 
     100% {transform: rotateZ(0);}
 }
+@keyframes animatedBackground {
+    0% { background-position: 0 0;}
+    100% { background-position: 1000% 0;}
+  }
 @keyframes blinker {
     50% { box-shadow: inset 0px 0px 0px 36px rgba(185, 10, 10, 0.5);}
 }
@@ -35,6 +39,16 @@
     20%, 80% { transform: translate3d(2px, 0, 0);}
     30%, 50%, 70% { transform: translate3d(-3px, 0, 0);}
     40%, 60% { transform: translate3d(3px, 0, 0); }
+}
+@keyframes spectating {
+    50% { background: #c54527;}
+}
+
+//Bootstrap changes
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px !important;
+    }
 }
 
 // Global styles 

@@ -28,28 +28,34 @@ case class GladiatorWebSocketActor(out: ActorRef, controller: Controller) extend
 
     override def receive: Actor.Receive = {
         case msg: JsValue => {
-            readCommand(msg) match {
-                case Failure(exception) => out ! (Json.toJson(controller, ErrorMessage("Could not parse command"): Events))
+            out ! (readCommand(msg) match {
+                case Failure(exception) => (Json.toJson(controller, ErrorMessage("Could not parse command"): Events))
                 case Success(parsedCommand) => (parsedCommand, player) match {
                     case (NamePlayerOne(name), None) => controller.namePlayerOne(name) match {
-                        case named: PlayerOneNamed => player = controller.playerOne
-                        case message: ErrorMessage => out ! Json.toJson(controller, message: Events)
-                        case _ => out ! Json.toJson(controller, ErrorMessage("Internal Server Error"): Events)
+                        case named: PlayerOneNamed => {
+                            player = controller.playerOne
+                            Json.toJson(controller, Json.parse("""{ "eventType":"Connected", "player": 1}""""))
+                        }
+                        case message: ErrorMessage => Json.toJson(controller, message: Events)
+                        case _ => Json.toJson(controller, ErrorMessage("Internal Server Error"): Events)
                     }
                     case (NamePlayerTwo(name), None) => controller.namePlayerTwo(name) match {
-                        case named: Turn => { player = controller.playerTwo }
-                        case message: ErrorMessage => out ! Json.toJson(controller, message: Events)
-                        case _ => out ! Json.toJson(controller, ErrorMessage("Internal Server Error"): Events)
+                        case named: Turn => { 
+                            player = controller.playerTwo
+                            Json.toJson(controller, Json.parse("""{ "eventType":"Connected", "player": 2}""""))
+                        }
+                        case message: ErrorMessage => Json.toJson(controller, message: Events)
+                        case _ => Json.toJson(controller, ErrorMessage("Internal Server Error"): Events)
                     }
                     case (command: Command, player: Option[Player]) => {
                         if (controller.currentPlayer.get.id == player.get.id) {
-                            out ! Json.toJson(controller, controller.inputCommand(command))
+                            Json.toJson(controller, controller.inputCommand(command))
                         } else {
-                            out ! Json.toJson(controller, ErrorMessage("It is not your turn"): Events)
+                            Json.toJson(controller, ErrorMessage("It is not your turn"): Events)
                         }
                     }
                 }
-            }
+            })
         }
     }
     override def sendJson(controller: Controller, event: Events): Unit = out ! (Json.toJson(controller, event))

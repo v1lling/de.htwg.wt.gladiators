@@ -6,6 +6,7 @@
 @png-sword: url("/assets/images/gladiators/sword.png");  
 @png-bow: url("/assets/images/gladiators/bow.png");  
 @png-shield: url("/assets/images/gladiators/shield.png");  
+@png-shield-transparent: url("/assets/images/shield_transparent.png");  
 
 // Layout
 .row {
@@ -149,6 +150,27 @@
     }
 }
 
+.turnbutton.btn {
+    background: #d3b0a8;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    background-color: #d89755;
+    background-image: @png-shield-transparent;
+    animation: animatedBackground 30s ease-in infinite;
+    &:disabled {
+        opacity: 1;
+        cursor: default;
+    }
+    &.button-turn {
+        background: #28a745;
+    }
+    &.button-spec {
+        background-image: none;
+        animation: spectating 1s linear infinite;
+    }
+}
+
 .gladiatorinfo-image {
     background-position: center;
     background-repeat: no-repeat;
@@ -208,9 +230,12 @@
         &.glad-Tank .layer {
             background-image: @png-shield;
         }
-        &:hover .layer {
-            -webkit-filter: grayscale(1) invert(.8);
-            filter: grayscale(1) invert(.8);
+        &:hover {
+            background-color: #8c6413;
+            .layer {
+                -webkit-filter: grayscale(1) invert(.8);
+                filter: grayscale(1) invert(.8);
+            }
         }
         .layer {
             background-position: center;

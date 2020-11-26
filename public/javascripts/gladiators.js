@@ -8,6 +8,8 @@ $(document).ready(function() {
         } else if(oController.gameState =="NamingPlayerTwo") {
             $("#idModal").data("player", "Two");
             openModal("Player 2", "Enter name", "player-two");
+        } else {
+            updateTurnButton("spec");
         }
         updateGame();
     });
@@ -15,7 +17,8 @@ $(document).ready(function() {
 
 // Global variables
 var oController = {},
-    oCurrGladiator = {};
+    oCurrGladiator = {},
+    iPlayerId;
 
 var websocket = new WebSocket("ws://localhost:9000/websocket");
 
@@ -217,12 +220,12 @@ function updateBoard() {
                 $("#idTileX"+x+"Y"+y).addClass("tile-" + tile.tileType)
             })
         });
-        if (oController.playerOne.gladiators) {
+        if (oController.playerOne && oController.playerOne.gladiators) {
             oController.playerOne.gladiators.forEach(function(g) {
                 createGladiatorDiv(g, 1);
             });
         }
-        if (oController.playerTwo.gladiators) {
+        if (oController.playerTwo && oController.playerTwo.gladiators) {
             oController.playerTwo.gladiators.forEach(function(g) {
                 createGladiatorDiv(g, 2);
             });
@@ -239,6 +242,33 @@ function updateGame() {
     updateCurrentPlayer();
 }
 
+/**
+ * Updates the turn button
+ * @param {String} sMode - mode for button
+ */
+function updateTurnButton(sMode) {
+    let oButton = $("#idTurnButton"),
+        sText = "";
+
+    removePrefixClass("turnbutton","button-");
+
+    switch (sMode) {
+        case "turn":
+            sText = "End Turn";
+            break;
+        case "spec":
+            sText = "Spectating";
+            break;
+        case "wait":
+            sText = "Waiting";
+            break;
+    }
+
+    oButton
+        .html(sText)
+        .prop("disabled", sMode != "turn")
+        .addClass("button-" + sMode);
+}
 
 /**
  * Creates a div of gladiator and places it in DOM
@@ -491,6 +521,11 @@ function connectWebSocket() {
         console.log('Error Occured: ' + error);
     };
 
+    /**
+     * Event when message is received from websocket
+     * Updates the game
+     * @param {*} e : received event
+     */
     websocket.onmessage = function (e) {
         let oResponse = JSON.parse(e.data);
 
@@ -500,22 +535,24 @@ function connectWebSocket() {
         resetCurrGladiator();
         
         switch(oEvent.eventType) {
+            case "Connected":
+                iPlayerId = oEvent.player;
+                updateTurnButton(iPlayerId ? (oController.currentPlayer.id == iPlayerId ? "turn" : "wait") :"spec");
+                break;
             case "PlayerOneNamed":
             case "PlayerTwoNamed":
+                Msg.success(oEvent.name + " connected");
                 updatePlayers();
                 $("#idModal").modal("hide");
                 break;
             case "Turn":
                 updateGame();
                 updateCurrentPlayer();
+                updateTurnButton(iPlayerId ? (oEvent.player.id == iPlayerId ? "turn" : "wait") :"spec");
                 break;
             case "SuccessfullyBoughtGladiator":
                 updateGame();
-                if (JSON.stringify(oEvent.player) === JSON.stringify(oController.playerOne)) {
-                    animateValue("idPlayer1Credits", oEvent.player.credits, 1000);
-                } else {
-                    animateValue("idPlayer2Credits", oEvent.player.credits, 1000);
-                }
+                animateValue("idPlayer" + oEvent.player.id + "Credits", oEvent.player.credits, 1000);
                 break;
             case "Moved":
                 let oCurrGladiator = $("#idGladX" + oEvent.from.x + "Y" + oEvent.from.y).attr("id", "#idGladX" + oEvent.to.x + "Y" + oEvent.to.y)
@@ -526,7 +563,7 @@ function connectWebSocket() {
                 break;
             case "BaseAttacked":
             case "Won":
-                if (JSON.stringify(oEvent.currentPlayer) === JSON.stringify(oController.playerTwo)) {
+                if (oEvent.currentPlayer.id == 2) {
                     animateValue("idPlayer1Health", oController.playerOne.health, 1000);
                 } else {
                     animateValue("idPlayer2Health", oController.playerTwo.health, 1000);

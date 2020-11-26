@@ -34,6 +34,14 @@
     transform: rotateZ(0);
   }
 }
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000% 0;
+  }
+}
 @keyframes blinker {
   50% {
     box-shadow: inset 0px 0px 0px 36px rgba(185, 10, 10, 0.5);
@@ -61,6 +69,16 @@
   40%,
   60% {
     transform: translate3d(3px, 0, 0);
+  }
+}
+@keyframes spectating {
+  50% {
+    background: #c54527;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px !important;
   }
 }
 html {
@@ -313,6 +331,26 @@ body {
 .playerinfo:not(:last-child) {
   margin-bottom: 1rem;
 }
+.turnbutton.btn {
+  background: #d3b0a8;
+  height: 100%;
+  background-position: center;
+  background-size: contain;
+  background-color: #d89755;
+  background-image: url("/assets/images/shield_transparent.png");
+  animation: animatedBackground 30s ease-in infinite;
+}
+.turnbutton.btn:disabled {
+  opacity: 1;
+  cursor: default;
+}
+.turnbutton.btn.button-turn {
+  background: #28a745;
+}
+.turnbutton.btn.button-spec {
+  background-image: none;
+  animation: spectating 1s linear infinite;
+}
 .gladiatorinfo-image {
   background-position: center;
   background-repeat: no-repeat;
@@ -364,6 +402,9 @@ body {
 }
 .panel-shop .shop-item.glad-Tank .layer {
   background-image: url("/assets/images/gladiators/shield.png");
+}
+.panel-shop .shop-item:hover {
+  background-color: #8c6413;
 }
 .panel-shop .shop-item:hover .layer {
   -webkit-filter: grayscale(1) invert(0.8);
