@@ -465,7 +465,7 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
             if (fnSuccess) {
                 fnSuccess(oResult[1]);
             }
-        }.bind(this),
+        },
         error: function(oResponse) {
             Msg.error(oResponse.responseJSON.message, 2000);
         }
@@ -538,7 +538,6 @@ function connectWebSocket() {
 
                 animateGladiatorAttacked(oToGladiator);
                 //TODO: give back attacked gladiator in event from backend
-                oToGladiator.data("gladiator", )
                 oController.playerOne.gladiators.concat(oController.playerTwo.gladiators).forEach(function(gladiator) {
                     if (JSON.stringify(gladiator.position) == JSON.stringify(oEvent.to)) {
                         $("#idTileX"+gladiator.position.x+"Y"+gladiator.position.y).find(".gladiator").data("gladiator", gladiator);
@@ -556,5 +555,5 @@ function connectWebSocket() {
                 Msg.error(oEvent.message, 2000);
                 break;
         }
-    }.bind(this);
+    };
 }
