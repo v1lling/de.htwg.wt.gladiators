@@ -19,6 +19,9 @@
     font-size: 2rem;
     line-height: normal;
     background-image: url(/assets/images/sand.png);
+    &.blurred {
+        filter: blur(3px);
+    }
 }
 
 // Board
@@ -29,6 +32,7 @@
     padding-right: 0 !important;
     border: 2px solid black;
     position: relative;
+    filter: drop-shadow(0px 0px 9px black);
     .board-row {
         display: flex;
     }
@@ -157,7 +161,7 @@
     background-size: contain;
     background-color: #d89755;
     background-image: @png-shield-transparent;
-    animation: animatedBackground 30s ease-in infinite;
+    animation: animatedBackground 30s linear infinite;
     &:disabled {
         opacity: 1;
         cursor: default;
@@ -166,8 +170,7 @@
         background: #28a745;
     }
     &.button-spec {
-        background-image: none;
-        animation: spectating 1s linear infinite;
+        background-size: auto;
     }
 }
 

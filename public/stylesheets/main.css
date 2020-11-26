@@ -39,7 +39,7 @@
     background-position: 0 0;
   }
   100% {
-    background-position: 1000% 0;
+    background-position: 1000% 1000%;
   }
 }
 @keyframes blinker {
@@ -204,6 +204,9 @@ body {
   line-height: normal;
   background-image: url(/assets/images/sand.png);
 }
+.game.blurred {
+  filter: blur(3px);
+}
 .board {
   display: flex;
   flex-direction: column;
@@ -211,6 +214,7 @@ body {
   padding-right: 0 !important;
   border: 2px solid black;
   position: relative;
+  filter: drop-shadow(0px 0px 9px black);
 }
 .board .board-row {
   display: flex;
@@ -338,7 +342,7 @@ body {
   background-size: contain;
   background-color: #d89755;
   background-image: url("/assets/images/shield_transparent.png");
-  animation: animatedBackground 30s ease-in infinite;
+  animation: animatedBackground 30s linear infinite;
 }
 .turnbutton.btn:disabled {
   opacity: 1;
@@ -348,8 +352,7 @@ body {
   background: #28a745;
 }
 .turnbutton.btn.button-spec {
-  background-image: none;
-  animation: spectating 1s linear infinite;
+  background-size: auto;
 }
 .gladiatorinfo-image {
   background-position: center;

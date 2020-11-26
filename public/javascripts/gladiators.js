@@ -182,9 +182,9 @@ function updatePlayers() {
 function updateCurrentPlayer() {
     if (oController) {
         $(".playerinfo").removeClass("active");
-        if (oController.currentPlayer.id === oController.playerOne.id) {
+        if (oController.currentPlayer && oController.currentPlayer.id === 1) {
             $(".player1").addClass("active");
-        } else {
+        } else if (oController.currentPlayer && oController.currentPlayer.id === 2) {
             $(".player2").addClass("active");
         }
     }
@@ -515,6 +515,7 @@ function connectWebSocket() {
 
     websocket.onclose = function () {
         console.log('Connection Closed!');
+        $(".game").addClass("blurred");
     };
 
     websocket.onerror = function (error) {
