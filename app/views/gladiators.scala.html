@@ -13,29 +13,65 @@
                     <div class="playerinfo player1">
                         <div class="playerinfo-row">
                             <div>Name:</div>
-                            <div>@{controller.playerOne.get.name}</div>
+                            <div id="idPlayer1Name">
+                                @{if (controller.playerOne) {
+                                    controller.playerOne.get.name
+                                } else {
+                                    "-"
+                                }
+                            }</div>
                         </div>
                         <div class="playerinfo-row">
                             <div>Base:</div>
-                            <div id="idPlayer1Health">@{controller.playerOne.get.health}</div>
+                            <div id="idPlayer1Health">
+                                @{if (controller.playerOne) {
+                                    controller.playerOne.get.health
+                                } else {
+                                    "-"
+                                }
+                            }</div>
                         </div>
                         <div class="playerinfo-row">
                             <div>Credits:</div>
-                            <div id="idPlayer1Credits">@{controller.playerOne.get.credits}</div>
+                            <div id="idPlayer1Credits">
+                                @{if (controller.playerOne) {
+                                    controller.playerOne.get.credits
+                                } else {
+                                    "-"
+                                }
+                            }</div>
                         </div>   
                     </div>
                     <div class="playerinfo player2">
                         <div class="playerinfo-row">
                             <div>Name:</div>
-                            <div>@{controller.playerTwo.get.name}</div>
+                            <div id="idPlayer2Name">
+                                @{if (controller.playerTwo) {
+                                    controller.playerTwo.get.name
+                                } else {
+                                    "-"
+                                }
+                            }</div>
                         </div>
                         <div class="playerinfo-row">
                             <div>Base:</div>
-                            <div id="idPlayer2Health">@{controller.playerTwo.get.health}</div>
+                            <div id="idPlayer2Health">
+                                @{if (controller.playerTwo) {
+                                    controller.playerTwo.get.health
+                                } else {
+                                    "-"
+                                }
+                            }</div>
                         </div>
                         <div class="playerinfo-row">
                             <div>Credits:</div>
-                            <div id="idPlayer2Credits">@{controller.playerTwo.get.credits}</div>
+                            <div id="idPlayer2Credits">
+                                @{if (controller.playerTwo) {
+                                    controller.playerTwo.get.credits
+                                } else {
+                                    "-"
+                                }
+                            }</div>
                         </div> 
                     </div>
                 </div>

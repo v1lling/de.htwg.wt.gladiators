@@ -2,10 +2,14 @@ $(document).ready(function() {
     console.log("Document is ready, loading data");
     connectWebSocket();
     sendRequest("GET", "/json", {}, function() {
-        updateGame();
-        if (oController.gameState == "NamePlayerOne") {
-            openModal("Player 1", "Enter name");
+        if (oController.gameState == "NamingPlayerOne") {
+            $("#idModal").data("player", "One");
+            openModal("Player 1", "Enter name", "player-one");
+        } else if(oController.gameState =="NamingPlayerTwo") {
+            $("#idModal").data("player", "Two");
+            openModal("Player 2", "Enter name", "player-two");
         }
+        updateGame();
     });
 });
 
@@ -24,14 +28,10 @@ function onClickTile(oSource) {
         y = oSource.getAttribute("y");
     if (oCurrGladiator.source === "shop") {
         //buy
-        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y), function() {
-            resetCurrGladiator();
-        });
+        sendBuyRequest(parseInt(oCurrGladiator.shopIndex)+1, parseInt(x), parseInt(y));
     } else if(oCurrGladiator.source === "board") {
         //move
-        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, parseInt(x), parseInt(y), function() {
-            resetCurrGladiator();
-        });
+        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, parseInt(x), parseInt(y));
     } else {
         resetCurrGladiator();
     }
@@ -46,15 +46,13 @@ function onClickGladiator(e) {
     let oClickedGladiator = $(e.target).data("gladiator");
     if(oCurrGladiator.source === "board") {
         //attack
-        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, oClickedGladiator.position.x, oClickedGladiator.position.y, function() {
-            resetCurrGladiator();
-        });
+        sendMoveRequest(oCurrGladiator.x, oCurrGladiator.y, oClickedGladiator.position.x, oClickedGladiator.position.y);
     } else {
         if (oClickedGladiator.moved === false && 
-            ((JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerOne) && $(e.target).hasClass("glad-player1"))
-            || (JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerTwo) && $(e.target).hasClass("glad-player2")))) {
+            ((oController.currentPlayer.id === oController.playerOne.id && $(e.target).hasClass("glad-player1"))
+            || (oController.currentPlayer.id === oController.playerTwo.id && $(e.target).hasClass("glad-player2")))) {
 
-            // cache gladiator
+            // save gladiator in cache
             toggleActiveClass(e.target);
             sendRequest("POST","/gladiators/api/gladiatorSelect", {"x": oClickedGladiator.position.x, "y": oClickedGladiator.position.y}, function(oResult) {
                 highlightMoveTiles(oResult.tilesMove);
@@ -89,17 +87,20 @@ function onClickShopItem(oSource) {
  * Ends turn and sets new current player
  */
 function onClickEndTurn() {
-    resetCurrGladiator();
-    sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateGame);
+    //sendRequest("POST", "/gladiators/api/command", {"commandType": "EndTurn"}, updateGame);
+    websocket.send(JSON.stringify({"commandType": "EndTurn"}));
 }
 
 /**
  * Event when "OK" button of modal is clicked
  */
 function onSubmitModal() {
-    let oModal = $("#idModal");
-    console.log(oModal.val());
-    oModal.modal("hide");
+    let oModal = $("#idModal"),
+        oPayload = {
+            "commandType" : "NamePlayer" + oModal.data("player"),
+            "name": $("#idModalInput").val()
+        };
+    websocket.send(JSON.stringify(oPayload));
 }
 
 /**
@@ -155,12 +156,30 @@ function resetCurrGladiator() {
 }
 
 /**
+ * Updates player information panel
+ */
+function updatePlayers() {
+    if (oController) {
+        if (oController.playerOne) {
+            $("#idPlayer1Name").html(oController.playerOne.name);
+            $("#idPlayer1Health").html(oController.playerOne.health);
+            $("#idPlayer1Credits").html(oController.playerOne.credits);
+        }
+        if (oController.playerTwo) {
+            $("#idPlayer2Name").html(oController.playerTwo.name);
+            $("#idPlayer2Health").html(oController.playerTwo.health);
+            $("#idPlayer2Credits").html(oController.playerTwo.credits);
+        }
+    }
+}
+
+/**
  * Updates the current player
  */
 function updateCurrentPlayer() {
     if (oController) {
         $(".playerinfo").removeClass("active");
-        if (JSON.stringify(oController.currentPlayer) === JSON.stringify(oController.playerOne)) {
+        if (oController.currentPlayer.id === oController.playerOne.id) {
             $(".player1").addClass("active");
         } else {
             $(".player2").addClass("active");
@@ -193,21 +212,21 @@ function updateBoard() {
         oController.board.tiles.forEach(function(row, y) {
             row.forEach(function(tile, x) {
                 if (tile.tileType == "Base") {
-                    if (y == 0) {
-                        tile.tileType += "1";
-                    } else {
-                        tile.tileType += "2";
-                    }
+                    y == 0 ? tile.tileType += "1": tile.tileType += "2";
                 }
                 $("#idTileX"+x+"Y"+y).addClass("tile-" + tile.tileType)
             })
         });
-        oController.playerOne.gladiators.forEach(function(g) {
-            createGladiatorDiv(g, 1);
-        });
-        oController.playerTwo.gladiators.forEach(function(g) {
-            createGladiatorDiv(g, 2);
-        });
+        if (oController.playerOne.gladiators) {
+            oController.playerOne.gladiators.forEach(function(g) {
+                createGladiatorDiv(g, 1);
+            });
+        }
+        if (oController.playerTwo.gladiators) {
+            oController.playerTwo.gladiators.forEach(function(g) {
+                createGladiatorDiv(g, 2);
+            });
+        } 
     }
 }
 
@@ -380,11 +399,14 @@ function animateGladiatorShake(oGladiatorDiv) {
  * Opens the modal
  * @param {String} sHeader - header label
  * @param {String} sInputLabel - input label
+ * @param {String} sClass - class for modal
  */
-function openModal(sHeader, sInputLabel) {
+function openModal(sHeader, sInputLabel, sClass) {
+    removePrefixClass("modal","player-");
+
     $("#idModalHeader").text(sHeader);
     $("#idInputLabel").text(sInputLabel);
-    $("#idModal").modal();
+    $("#idModal").addClass(sClass).modal();
 }
 
 
@@ -401,7 +423,8 @@ function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
             "number": iIndex,
             "position": {"x" : iX, "y": iY}
         };
-    sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
+    websocket.send(JSON.stringify(oPayload));
+    //sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
 }
 
 /**
@@ -418,7 +441,8 @@ function sendMoveRequest(iX, iY, iNewX, iNewY, fnSuccess) {
         "from": {"x" : iX, "y": iY},
         "to": {"x" : iNewX, "y": iNewY}
     };
-   sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
+    websocket.send(JSON.stringify(oPayload));
+    //sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
 }
 
 
@@ -443,7 +467,6 @@ function sendRequest(sMethod, sPath, oPayload, fnSuccess) {
             }
         }.bind(this),
         error: function(oResponse) {
-            resetCurrGladiator();
             Msg.error(oResponse.responseJSON.message, 2000);
         }
     });
@@ -474,8 +497,16 @@ function connectWebSocket() {
         oController = oResponse[0];
         let oEvent = oResponse[1];
 
+        resetCurrGladiator();
+        
         switch(oEvent.eventType) {
+            case "PlayerOneNamed":
+            case "PlayerTwoNamed":
+                updatePlayers();
+                $("#idModal").modal("hide");
+                break;
             case "Turn":
+                updateGame();
                 updateCurrentPlayer();
                 break;
             case "SuccessfullyBoughtGladiator":
@@ -487,12 +518,10 @@ function connectWebSocket() {
                 }
                 break;
             case "Moved":
-                // moved animation
                 let oCurrGladiator = $("#idGladX" + oEvent.from.x + "Y" + oEvent.from.y).attr("id", "#idGladX" + oEvent.to.x + "Y" + oEvent.to.y)
                 animateGladiatorMove(oCurrGladiator, $("#idTileX"+oEvent.to.x+"Y"+oEvent.to.y), 1500); // remove curr gladiator
                 break;
             case "Mined":
-                // mined animation
                 updateBoard();
                 break;
             case "BaseAttacked":
@@ -502,6 +531,7 @@ function connectWebSocket() {
                 } else {
                     animateValue("idPlayer2Health", oController.playerTwo.health, 1000);
                 }
+                break;
             case "Attacked":
                 let bFound = false,
                     oToGladiator = $("#idGladX" + oEvent.to.x + "Y" + oEvent.to.y);
@@ -521,6 +551,10 @@ function connectWebSocket() {
                     updateHealthBar(oToGladiator, true);
                     setTimeout(function() {oToGladiator.remove()}, 1000); 
                 }
+                break;
+            case "ErrorMessage":
+                Msg.error(oEvent.message, 2000);
+                break;
         }
     }.bind(this);
 }
