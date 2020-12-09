@@ -4,7 +4,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                               controllers.GladiatorsController.about
+GET     /                               controllers.GladiatorsController.gladiators
 GET     /about                          controllers.GladiatorsController.about
 GET     /gladiators                     controllers.GladiatorsController.gladiators
 POST    /gladiators/api/command         controllers.GladiatorsController.processJsonCommand
