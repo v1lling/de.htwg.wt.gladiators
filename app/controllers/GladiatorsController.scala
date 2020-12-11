@@ -38,23 +38,25 @@ import play.api.libs.json._
 import play.api.libs.streams.ActorFlow
 import play.api.mvc.WebSocket.MessageFlowTransformer
 import play.api.mvc._
+import scala.concurrent.{ ExecutionContext, Future }
 
 @Singleton
-class GladiatorsController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
+class GladiatorsController @Inject() (cc: ControllerComponents) (implicit ec: ExecutionContext, system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
     val configuration = Configuration(5, 15)
     val controller = Controller(configuration)
-    // todo: We need to initialize players to call boardToString
-   // controller.namePlayerOne("one")
-   // controller.namePlayerTwo("two")
 
     val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
 
+    def app = Action.async {
+        Future(Ok(views.html.app("Welcome")))
+    }
+
     def about = Action {
-        Ok(views.html.about())
+        Ok(views.html.old.about())
     }
 
     def gladiators = Action {
-        Ok(views.html.gladiators(controller))
+        Ok(views.html.old.gladiators(controller))
     }
 
     def controllerToJson = Action {
