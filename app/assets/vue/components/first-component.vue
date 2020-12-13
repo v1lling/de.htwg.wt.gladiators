@@ -8,7 +8,7 @@
 
 <script>
   import Vue from 'vue';
-  export default Vue.extend({
+  export default Vue.component('FirstComponent', {
     props: {
       variable: {
         type: String,
@@ -42,5 +42,6 @@
     display: block;
     text-align: center;
     padding: 25px 0px;
+    background: white;
   }
 </style>

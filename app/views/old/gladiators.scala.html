@@ -3,10 +3,7 @@
 @gladiators = @{ controller.playerOne.get.gladiators ++ controller.playerTwo.get.gladiators}
 @shop = @{controller.shop}
 
-<script src='@routes.Assets.versioned("vue/components/player-info.js")'></script>
-
 @main("Gladiators") {
-    @navbar()
     <div class="container my-container game">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">

@@ -26,11 +26,22 @@ module.exports = {
         ],
       },
       {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        }
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       }
     ]
+  },
+  externals: {
+    // The below allows Typescript to `import Vue from 'vue'` without including Vue in the bundle.
+    vue: 'Vue'
   },
   resolve: {
     extensions: ['.ts', '.js', '.vue']

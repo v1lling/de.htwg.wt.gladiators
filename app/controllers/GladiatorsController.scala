@@ -48,7 +48,7 @@ class GladiatorsController @Inject() (cc: ControllerComponents) (implicit ec: Ex
     val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
 
     def app = Action.async {
-        Future(Ok(views.html.app("Welcome")))
+        Future(Ok(views.html.app()))
     }
 
     def about = Action {
