@@ -1,8 +1,8 @@
 import '/assets/vue/components/first-component.js';
-import '/assets/vue/components/App.js';
+import '/assets/vue/App.js';
 import '/assets/vue/components/navbar.js';
 
-const Game = {
+const About = {
     template: `
             <div class="container about my-container">
             <h1>Gladiators - The Game</h1>
@@ -71,4 +71,4 @@ const Game = {
     }
 }
 
-export default Game;
+export default About;
