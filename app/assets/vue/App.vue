@@ -1,6 +1,6 @@
 <template>
     <div>
-       <navbar></navbar>
+        <navbar></navbar>
         <transition name="swipe" mode="out-in">
             <router-view></router-view>
         </transition>

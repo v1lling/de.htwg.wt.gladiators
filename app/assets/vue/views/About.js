@@ -1,4 +1,3 @@
-import '/assets/vue/components/first-component.js';
 import '/assets/vue/App.js';
 import '/assets/vue/components/navbar.js';
 
