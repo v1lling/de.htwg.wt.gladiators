@@ -7,7 +7,8 @@ const Game = {
     <div class="container my-container game">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">
-                <player-info v-bind:player="$store.getters.player1"/>
+                <player-info v-bind:player="player1"/>
+                <player-info v-bind:player="player2"/>
             </div>
             <div id="idBoard" class="col-xs-12 col-sm-12 col-lg-8 board">
             </div>
@@ -22,7 +23,15 @@ const Game = {
         }
     },
     mounted() {
-      //  alert("gotcha");
+        this.$store.dispatch("getJson");
+    },
+    computed: {
+        player1() {
+            return this.$store.state.controller.playerOne
+        },
+        player2() {
+            return this.$store.state.controller.playerTwo
+        }
     }
 }
 

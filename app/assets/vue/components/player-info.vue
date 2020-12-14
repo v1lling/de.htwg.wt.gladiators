@@ -3,19 +3,19 @@
         <div class="playerinfo-row">
             <div>Name:</div>
             <div id="idPlayer2Name">
-                {{ player.name }}
+                {{ player && player.name || "-" }}
             </div>
         </div>
         <div class="playerinfo-row">
             <div>Base:</div>
             <div id="idPlayer2Health">
-                {{ player.base }}
+                {{ player && player.health || "-" }}
             </div>
         </div>
         <div class="playerinfo-row">
             <div>Credits:</div>
             <div id="idPlayer2Credits">
-                {{ player.credits }}
+                {{ player && player.credits || "-" }}
             </div>
         </div> 
     </div>
