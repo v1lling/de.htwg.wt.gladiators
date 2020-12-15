@@ -21,3 +21,10 @@ Start the Play server.
 Open your browser and start playing!
 
 > http://localhost:9000
+
+## Docker environment
+
+Use the command
+```sh
+docker-compose up -d
+```
