@@ -1,6 +1,6 @@
 $(document).ready(function() {
     console.log("Document is ready, loading data");
-    connectWebSocket();
+   // connectWebSocket();
     sendRequest("GET", "/json", {}, function() {
         if (oController.gameState == "NamingPlayerOne") {
             $("#idModal").data("player", "One");
@@ -20,7 +20,7 @@ var oController = {},
     oCurrGladiator = {},
     iPlayerId;
 
-var websocket = new WebSocket("ws://localhost:9000/websocket");
+//var websocket = new WebSocket("ws://localhost:9000/websocket");
 
 /**
  * Event when tile is clicked
@@ -452,7 +452,7 @@ function sendBuyRequest(iIndex, iX, iY, fnSuccess) {
             "commandType" : "BuyUnit",
             "number": iIndex,
             "position": {"x" : iX, "y": iY}
-        };
+    };
     websocket.send(JSON.stringify(oPayload));
     //sendRequest("POST", "/gladiators/api/command", oPayload, fnSuccess);
 }

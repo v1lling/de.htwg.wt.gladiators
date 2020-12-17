@@ -31,7 +31,7 @@
 </script>
 
 <style scoped lang="scss">
-    .playerinfo, .gladiatorinfo {
+    .playerinfo {
         border: 1px solid black;
         border-radius: 5px;
         width: 100%;

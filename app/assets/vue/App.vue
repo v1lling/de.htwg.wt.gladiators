@@ -1,6 +1,6 @@
 <template>
     <div>
-        <navbar></navbar>
+        <nav-bar></nav-bar>
         <transition name="swipe" mode="out-in">
             <router-view></router-view>
         </transition>
@@ -16,12 +16,12 @@
     // Transition for Vue Router
     .swipe-enter-active,
     .swipe-leave-active {
-        transition: opacity 1s, transform 1s;
+        transition: opacity 0.7s, transform 0.7s;
     }
 
     .swipe-enter,
     .swipe-leave-active {
-    opacity: 0;
-        transform: translateX(-30%);
+        opacity: 0;
+        transform: scale(0);
     }
 </style>

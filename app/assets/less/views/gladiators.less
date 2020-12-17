@@ -78,6 +78,7 @@
 
 //Gladiator
 .gladiator {
+    position: absolute;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -252,4 +253,19 @@
             height: 100%;
         }
     }
+}
+
+.board-tiles {
+    min-height: 70vh;
+    border: 2px solid black;
+    position: relative;
+    display: grid;
+    position: relative;
+    grid-gap: 0;
+    grid-template-columns: repeat(15, auto);
+    grid-template-rows: repeat(15, auto);
+    grid-auto-flow: row;
+    gap: 1px;
+    height: 100%;
+    width: 100%;
 }

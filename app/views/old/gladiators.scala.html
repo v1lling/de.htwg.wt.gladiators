@@ -4,6 +4,7 @@
 @shop = @{controller.shop}
 
 @main("Gladiators") {
+    @modal()
     <div class="container my-container game">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">
@@ -43,7 +44,7 @@
                     </div>
                 </div>
 
-                 <div class="panel-buttons">
+                <div class="panel-buttons">
                     <button disabled id="idTurnButton" type="button" class="btn btn-rounded turnbutton" onclick="onClickEndTurn()">
                         Lobby
                         <span class="turnbutton-png"></span>

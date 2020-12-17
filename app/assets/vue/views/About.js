@@ -1,5 +1,5 @@
 import '/assets/vue/App.js';
-import '/assets/vue/components/navbar.js';
+import '/assets/vue/components/nav-bar.js';
 
 const About = {
     template: `
@@ -13,12 +13,12 @@ const About = {
             for a certain amount of money (credits). One way to earn money is to attack 
             the gold mine that is randomly positioned on the board. Another way to get money
             is to kill Gladiators of your opponent.
-            Gladiators various attributes that specify their skills. Attributes are:
+            Gladiators have various attributes that specify their skills. Attributes are:
             </p>
             <ul>
                 <li>Movement Points (the amount of tiles a Gladiator can walk per turn)</li>
                 <li>Health Points (the damage a Gladiator can take until he dies)</li>
-                <li>Attach Points (the damage a Gladiator does per attack)</li>
+                <li>Attack Points (the damage a Gladiator does per attack)</li>
             </ul>
             <p>
             The shop generates random gladiators and provides them to the players.
@@ -29,7 +29,7 @@ const About = {
                 <th>Gladiator-Type</th>
                 <th>Movement-Points</th>
                 <th>Health-Points</th>
-                <th>Attach-Points</th>
+                <th>Attack-Points</th>
             </tr>
             <tr>
                 <th>Knight</th>
@@ -54,7 +54,7 @@ const About = {
             </br>
             <p>
             The goal of the game is to destroy the enemy's base by attacking it.
-            At the start of the game the base has 200 Health-Points.
+            At the start of the game each base has 200 Health-Points.
             </p>
             </br></br>
             <img src='assets/images/gladiators.gif'/>

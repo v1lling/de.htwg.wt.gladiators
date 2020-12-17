@@ -1,26 +1,56 @@
 import '/assets/vue/App.js';
-import '/assets/vue/components/navbar.js';
+import '/assets/vue/components/nav-bar.js';
 import '/assets/vue/components/player-info.js';
+import '/assets/vue/components/player-input.js';
+import '/assets/vue/components/turn-button.js';
+import '/assets/vue/components/shop-item.js';
+import '/assets/vue/components/gladiator-info.js';
+import '/assets/vue/components/board-tile.js';
+import '/assets/vue/components/gladiator.js';
 
 const Game = {
     template: `
     <div class="container my-container game">
+        
+    <player-input v-if="openPlayerSlot" :playerId="openPlayerSlot"></player-input>
+        
         <div class="row">
+
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">
                 <player-info v-bind:player="player1"/>
+                <turn-button/>
                 <player-info v-bind:player="player2"/>
             </div>
-            <div id="idBoard" class="col-xs-12 col-sm-12 col-lg-8 board">
+
+            <div class="col-xs-12 col-sm-12 col-lg-8">
+                <div class="board-tiles">
+                    <template v-for="(tileRow, y) in boardTiles">
+                        <board-tile v-for="(tile, x) in tileRow" v-bind:tileType="tile.tileType"
+                            v-bind:playerId="tile.tileType==='Base' ? (y==0 ? 1 : 2) : null"
+                            v-bind:coordinates="{x, y}"
+                            @tileClicked="clickTile"/>
+                    </template>
+
+                    <gladiator v-for="glad in gladiatorsPlayerOne" v-bind:gladiator="glad"/>
+                    <gladiator v-for="glad in gladiatorsPlayerTwo" v-bind:gladiator="glad"/>
+                </div>   
             </div>
+
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">
+                <div class="panel-gladiator">
+                    <gladiator-info v-bind:gladiator="hoveredGladiator"/>
+                </div>
+
+                <div class="panel-shop" >
+                    <shop-item v-for="(gladiator, index) in shopGladiators" v-bind:gladiator="gladiator" :shopIndex="index + 1"/>
+                </div>
             </div>
+
         </div>
     </div>
     `,   
-    data() {
-        return {
-            test: 'Test'
-        }
+    data: {
+        
     },
     mounted() {
         this.$store.dispatch("getJson");
@@ -31,6 +61,45 @@ const Game = {
         },
         player2() {
             return this.$store.state.controller.playerTwo
+        },
+        shopGladiators() {
+            return this.$store.state.controller.shop ? this.$store.state.controller.shop.stock : []
+        },
+        hoveredGladiator() {
+            return this.$store.state.myHoveredGladiator
+        },
+        selectedGladiator() {
+            return this.$store.state.mySelectedGladiator
+        },
+        boardTiles() {
+            return this.$store.state.controller.board.tiles
+        },
+        gladiatorsPlayerOne() {
+            return this.$store.state.controller.playerOne ? this.$store.state.controller.playerOne.gladiators : []
+        },
+        gladiatorsPlayerTwo() {
+            return this.$store.state.controller.playerTwo ? this.$store.state.controller.playerTwo.gladiators : []
+        },
+        openPlayerSlot() {
+            if (this.$store.state.controller.gameState == "NamingPlayerOne") {
+                return 1;
+            } else if (this.$store.state.controller.gameState == "NamingPlayerTwo") {
+                return 2;
+            } else {    
+                return null;
+            }
+        }
+    },
+    methods: {
+        clickTile: function(coordinates) {
+            if (this.selectedGladiator.source == "Shop") {
+                this.$store.dispatch("buyGladiator", coordinates);
+            } else if (this.selectedGladiator.source == "Board") {
+                this.$store.dispatch("moveGladiator", coordinates);
+            } else {
+                //resetCurrGladiator();
+                console.log("error");
+            }
         }
     }
 }

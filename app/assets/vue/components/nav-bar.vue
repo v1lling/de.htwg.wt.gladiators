@@ -6,7 +6,7 @@
                     <img id="idLogo" src="assets/images/logo.png" width="60" alt="" class="d-inline-block align-middle mr-2">
                     <span id="idTitle">Gladiators</span>
                 </a>
-                <button @click="$router.go(-1)">back</button>
+                <!--<button @click="$router.go(-1)">back</button>-->
                 <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
 
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-  import Vue from 'vue';
-  export default Vue.component('navbar', {});
+    import Vue from 'vue';
+    export default Vue.component('nav-bar', {});
 </script>
 
 <style scoped lang="scss">
