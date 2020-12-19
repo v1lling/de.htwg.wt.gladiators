@@ -1,5 +1,5 @@
 <template>
-    <div class="playerinfo player2">
+    <div class="playerinfo" :class="getClass">
         <div class="playerinfo-row">
             <div>Name:</div>
             <div id="idPlayer2Name">
@@ -25,12 +25,25 @@
     import Vue from 'vue';
     export default Vue.component('player-info', {
         props: {
-            player: Object
+            player: Object,
+            turn: Boolean
+        },
+        computed: {
+            getClass() {
+                if (this.turn) {
+                    return 'playerTurn player' + this.player.id;
+                }
+            }
         }
     });
 </script>
 
 <style scoped lang="scss">
+    @keyframes pulse {
+        0% {transform: scale(1, 1);} 
+        50% {transform: scale(1.05, 1.05);}
+        100% {transform: scale(1, 1);}
+    }
     .playerinfo {
         border: 1px solid black;
         border-radius: 5px;
@@ -40,27 +53,27 @@
         position: relative;
         display: flex;
         flex-direction: column;
+        padding: 1rem;
+        &.playerTurn {
+            border: 5px solid red;
+            animation: wiggle 2s linear infinite;
+        }
         .playerinfo-row {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
         }
-        &.active {
+        &.playerTurn {
             animation: pulse 1s linear infinite;
             &.player1 {
-                border: 2px solid #2525b5;
+                border: 4px solid #006b7b;
             }
             &.player2 {
-                border: 2px solid #f13737;;
+                border: 4px solid #be5701;;
             }
         }
-    }
-    .playerinfo {
-        padding: 1rem;
-
         &:not(:last-child) {
             margin-bottom: 1rem;
         }
     }
-
 </style>

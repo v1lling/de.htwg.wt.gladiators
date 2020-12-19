@@ -2,6 +2,7 @@
     <button class="btn btn-outline-dark shop-item" 
         :class="'glad' + gladiator.gladiatorType"
         @mouseenter="updateHoveredGladiator()"
+        @mouseleave="resetHoveredGladiator()"
         @click="updateSelectedGladiator()">
         <span>
             ${{ gladiator && gladiator.cost || "-" }}

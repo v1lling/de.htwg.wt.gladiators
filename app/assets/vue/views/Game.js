@@ -7,6 +7,7 @@ import '/assets/vue/components/shop-item.js';
 import '/assets/vue/components/gladiator-info.js';
 import '/assets/vue/components/board-tile.js';
 import '/assets/vue/components/gladiator.js';
+import '/assets/vue/components/board-highlight.js';
 
 const Game = {
     template: `
@@ -17,9 +18,9 @@ const Game = {
         <div class="row">
 
             <div class="col-xs-12 col-sm-12 col-lg-2 panel">
-                <player-info v-bind:player="player1"/>
+                <player-info v-bind:player="player2" :turn="turnPlayer == 2"/>
                 <turn-button/>
-                <player-info v-bind:player="player2"/>
+                <player-info v-bind:player="player1" :turn="turnPlayer == 1"/>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-lg-8">
@@ -31,8 +32,11 @@ const Game = {
                             @tileClicked="clickTile"/>
                     </template>
 
-                    <gladiator v-for="glad in gladiatorsPlayerOne" v-bind:gladiator="glad"/>
-                    <gladiator v-for="glad in gladiatorsPlayerTwo" v-bind:gladiator="glad"/>
+                    <board-highlight mode="Attack" v-for="highlight in highlightedAttackTiles" :coordinates="highlight"/>
+                    <board-highlight mode="Move" v-for="highlight in highlightedMoveTiles" :coordinates="highlight"/>
+
+                    <gladiator v-for="glad in gladiatorsPlayerOne" v-bind:gladiator="glad" playerId="1"/>
+                    <gladiator v-for="glad in gladiatorsPlayerTwo" v-bind:gladiator="glad" playerId="2"/>
                 </div>   
             </div>
 
@@ -88,6 +92,15 @@ const Game = {
             } else {    
                 return null;
             }
+        },
+        highlightedAttackTiles() {
+            return this.$store.state.myHighlightedTiles ? this.$store.state.myHighlightedTiles.tilesAttack : []
+        },
+        highlightedMoveTiles() {
+            return this.$store.state.myHighlightedTiles ? this.$store.state.myHighlightedTiles.tilesMove : []
+        },
+        turnPlayer() {
+            return this.$store.state.controller.currentPlayer ? this.$store.state.controller.currentPlayer.id : null;
         }
     },
     methods: {
@@ -97,8 +110,7 @@ const Game = {
             } else if (this.selectedGladiator.source == "Board") {
                 this.$store.dispatch("moveGladiator", coordinates);
             } else {
-                //resetCurrGladiator();
-                console.log("error");
+                console.log("Something went wrong here");
             }
         }
     }

@@ -47,9 +47,8 @@
 <style scoped lang="scss">
     .turnbutton.btn {
         background: #d3b0a8;
-        height: 100%;
         background-position: center;
-        background-size: contain;
+        background-size: auto;
         background-color: #d89755;
         background-image: url("/assets/images/shield_transparent.png"); 
         animation: animatedBackground 30s linear infinite;

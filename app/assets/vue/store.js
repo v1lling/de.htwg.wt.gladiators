@@ -6,6 +6,7 @@ const initialState = {
   myPlayerId: null,
   myHoveredGladiator: {},
   mySelectedGladiator: {},
+  myHighlightedTiles: {}
 };
 
 var websocket = new WebSocket("ws://localhost:9000/websocket");
@@ -14,11 +15,7 @@ const store = new Vuex.Store({
   state: initialState,
   actions: {
     getJson({commit}) {
-      $.ajax({
-        method: "GET",
-        url: "/json",
-        dataType: "json",
-        contentType: "application/json",
+      $.ajax({ method: "GET", url: "/json", dataType: "json", contentType: "application/json",
         success: function (response) {
            commit('SET_CONTROLLER', response[0])
         },
@@ -58,6 +55,16 @@ const store = new Vuex.Store({
         }
       };
       websocket.send(JSON.stringify(oPayload));
+    },
+    hightlightTiles({commit}, coordinates)  {
+      $.ajax({ method: "POST", url: "/gladiators/api/gladiatorSelect", data: JSON.stringify(coordinates), dataType: "json", contentType: "application/json",
+          success: function (response) {
+            commit('SET_HIGHLIGHTEDTILES', response[1])
+          },
+          error: function(oResponse) {
+              console.log("Something went wrong"); 
+          }
+      });
     }
   },
   mutations: {
@@ -71,10 +78,13 @@ const store = new Vuex.Store({
       state.myPlayerId = playerId
     },
     SET_HOVEREDGLADIATOR(state, gladiator) {
-      state.myHoveredGladiator = gladiator
+      state.myHoveredGladiator = gladiator;
     },
     SET_SELECTEDGLADIATOR(state, selectedGladiator) {
       state.mySelectedGladiator = selectedGladiator
+    },
+    SET_HIGHLIGHTEDTILES(state, highlightesTiles) {
+      state.myHighlightedTiles = highlightesTiles
     }
   },
   mounted() {
