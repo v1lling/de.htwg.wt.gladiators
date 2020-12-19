@@ -1,4 +1,4 @@
-name := """de.htwg.wt.Gladiators"""
+name := """de.htwg.wt.gladiators"""
 organization := "de.htwg"
 
 version := "0.1"

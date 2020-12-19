@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/app/views/old/about.scala.html:4:4: not found: value navbar[0m
+[0m[[0m[31merror[0m] [0m[0m  @navbar()[0m
+[0m[[0m[31merror[0m] [0m[0m   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/app/views/old/gladiators.scala.html:7:6: not found: value navbar[0m
+[0m[[0m[31merror[0m] [0m[0m    @navbar()[0m
+[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
