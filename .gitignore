@@ -12,3 +12,4 @@ project/metals/*
 project/project/*
 project/metals*
 project/.bloop*
+node_modules
