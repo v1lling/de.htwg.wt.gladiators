@@ -9,7 +9,7 @@ import javax.inject.Inject
 import play.api.i18n.Messages
 import play.api.mvc.{ AnyContent, Request }
 import utils.route.Calls
-
+import play.api.libs.json._
 import scala.concurrent.{ ExecutionContext, Future }
 
 /**
@@ -41,20 +41,39 @@ class SignInController @Inject() (
       form => Future.successful(BadRequest(signIn(form, socialProviderRegistry))),
       data => {
         val credentials = Credentials(data.email, data.password)
+        println("Trying to authenticate")
         credentialsProvider.authenticate(credentials).flatMap { loginInfo =>
-          userService.retrieve(loginInfo).flatMap {
-            case Some(user) if !user.activated =>
-              Future.successful(Ok(activateAccount(data.email)))
-            case Some(user) =>
-              authInfoRepository.find[GoogleTotpInfo](user.loginInfo).flatMap {
-                case Some(totpInfo) => Future.successful(Ok(totp(TotpForm.form.fill(TotpForm.Data(
-                  user.userID, totpInfo.sharedKey, data.rememberMe)))))
-                case _ => authenticateUser(user, data.rememberMe)
-              }
-            case None => Future.failed(new IdentityNotFoundException("Couldn't find user"))
+          {
+            println("see if there is a user")
+            userService.retrieve(loginInfo).flatMap {
+              case Some(user) if !user.activated =>
+                println("needs to be activated")
+                Future.successful(Ok(activateAccount(data.email)))
+              case Some(user) =>
+                println("User exists")
+                authInfoRepository.find[GoogleTotpInfo](user.loginInfo).flatMap {
+                  case Some(totfInfo) => {
+                    print(user.userID)
+                    Future.successful(Ok(Json.toJson(user)))
+                  }
+                  // case Some(totpInfo) => Future.successful(Ok(totp(TotpForm.form.fill(TotpForm.Data(
+                  // user.userID, totpInfo.sharedKey, data.rememberMe)))))
+                  case _ => {
+                    println(user)
+                    authenticateUser(user, data.rememberMe)
+                    authTokenService.create(user.userID).map { authToken =>
+                      Ok(Json.obj(
+                        "token" -> authToken.id
+                      ))
+                    }
+                  }
+                }
+              case None => Future.failed(new IdentityNotFoundException("Couldn't find user"))
+            }
           }
         }.recover {
           case _: ProviderException =>
+            println("eror")
             Redirect(Calls.signin).flashing("error" -> Messages("invalid.credentials"))
         }
       }

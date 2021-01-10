@@ -30,8 +30,8 @@ Seq[Any](_display_(/*4.2*/messages("email.sign.up.hello", user.name.getOrElse("u
 
               /*
                   -- GENERATED --
-                  DATE: 2021-01-10T10:31:38.381418
-                  SOURCE: /home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/views/emails/signUp.scala.txt
+                  DATE: 2021-01-10T11:18:33.512938
+                  SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/emails/signUp.scala.txt
                   HASH: 98e25310caa4973ebb569176afaaa73c814c2a5a
                   MATRIX: 34->1|386->33|540->96|620->156|648->159|707->198
                   LINES: 4->1|9->3|14->4|14->4|16->6|16->6

@@ -30,8 +30,8 @@ Seq[Any](_display_(/*4.2*/messages("email.activate.account.hello", user.name.get
 
               /*
                   -- GENERATED --
-                  DATE: 2021-01-10T10:31:38.449482
-                  SOURCE: /home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/views/emails/activateAccount.scala.txt
+                  DATE: 2021-01-10T11:18:33.536766
+                  SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/emails/activateAccount.scala.txt
                   HASH: e0eedfa60f45f1c06fd86c261d667b29651aed14
                   MATRIX: 34->1|395->33|549->96|638->165|666->168|734->216
                   LINES: 4->1|9->3|14->4|14->4|16->6|16->6

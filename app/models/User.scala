@@ -3,7 +3,8 @@ package models
 import java.util.UUID
 
 import com.mohiva.play.silhouette.api.{ Identity, LoginInfo }
-
+import play.api.libs.json._
+import play.api.libs.functional.syntax._
 /**
  * The user object.
  *
@@ -39,4 +40,15 @@ case class User(
       case _ => None
     }
   }
+}
+
+object User {
+  implicit val writes = new Writes[User] {
+    def writes(user: User): JsValue = {
+      Json.obj(
+        "userID" -> user.userID
+      )
+    }
+  }
+
 }

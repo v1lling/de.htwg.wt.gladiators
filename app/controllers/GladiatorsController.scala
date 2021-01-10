@@ -21,7 +21,8 @@ import de.htwg.se.gladiators.util.Events._
 import de.htwg.se.gladiators.util.json.CommandJson._
 import de.htwg.se.gladiators.util.json.CoordinateJson._
 import de.htwg.se.gladiators.util.json.EventsJson._
-
+import com.mohiva.play.silhouette.api.Silhouette
+import com.mohiva.play.silhouette.api.actions.SecuredRequest
 import _root_.controllers.WebSockets.GladiatorWebSocketActor
 import _root_.controllers.WebSockets.SpectatorWebSocketActor
 import akka.actor.ActorSystem
@@ -38,9 +39,17 @@ import play.api.libs.json._
 import play.api.libs.streams.ActorFlow
 import play.api.mvc.WebSocket.MessageFlowTransformer
 import play.api.mvc._
-
+import utils.auth.DefaultEnv
 @Singleton
-class GladiatorsController @Inject() (cc: ControllerComponents)(implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
+class GladiatorsController @Inject() (
+  cc: ControllerComponents,
+  silhouette: Silhouette[DefaultEnv]
+)(
+  implicit
+  system: ActorSystem,
+  mat: Materializer
+) extends AbstractController(cc) {
+
   val configuration = Configuration(5, 15)
   val controller = Controller(configuration)
   // todo: We need to initialize players to call boardToString
@@ -49,17 +58,7 @@ class GladiatorsController @Inject() (cc: ControllerComponents)(implicit system:
 
   val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
 
-  /*
-    def about = Action {
-        Ok(views.html.about())
-    }
-
-    def gladiators = Action {
-        Ok(views.html.gladiators(controller))
-    }
-  */
-
-  def controllerToJson = Action {
+  def controllerToJson = silhouette.SecuredAction {
     Ok(Json.toJson(controller, None))
   }
 
