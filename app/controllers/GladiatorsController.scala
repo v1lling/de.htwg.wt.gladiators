@@ -38,68 +38,69 @@ import play.api.libs.json._
 import play.api.libs.streams.ActorFlow
 import play.api.mvc.WebSocket.MessageFlowTransformer
 import play.api.mvc._
-import scala.concurrent.{ ExecutionContext, Future }
 
 @Singleton
-class GladiatorsController @Inject() (cc: ControllerComponents) (implicit ec: ExecutionContext, system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
-    val configuration = Configuration(5, 15)
-    val controller = Controller(configuration)
+class GladiatorsController @Inject() (cc: ControllerComponents)(implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
+  val configuration = Configuration(5, 15)
+  val controller = Controller(configuration)
+  // todo: We need to initialize players to call boardToString
+  // controller.namePlayerOne("one")
+  // controller.namePlayerTwo("two")
 
-    val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
+  val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
 
-    def app = Action.async {
-        Future(Ok(views.html.app()))
-    }
-
+  /*
     def about = Action {
-        Ok(views.html.old.about())
+        Ok(views.html.about())
     }
 
     def gladiators = Action {
-        Ok(views.html.old.gladiators(controller))
+        Ok(views.html.gladiators(controller))
     }
+  */
 
-    def controllerToJson = Action {
-        Ok(Json.toJson(controller, None))
-    }
+  def controllerToJson = Action {
+    Ok(Json.toJson(controller, None))
+  }
 
-    def processJsonCommand = Action(parse.json) { request: Request[JsValue] => {
-            readCommand(request.body) match {
-                case Failure(exception) => BadRequest(Json.toJson(jsonNotACommandError))
-                case Success(command) => controller.inputCommand(command) match {
-                    case message: ErrorMessage => BadRequest(Json.toJson(message: Events))
-                    case event: Events => Ok(Json.toJson(controller, event))
-                }
-            }
+  def processJsonCommand = Action(parse.json) { request: Request[JsValue] =>
+    {
+      readCommand(request.body) match {
+        case Failure(exception) => BadRequest(Json.toJson(jsonNotACommandError))
+        case Success(command) => controller.inputCommand(command) match {
+          case message: ErrorMessage => BadRequest(Json.toJson(message: Events))
+          case event: Events => Ok(Json.toJson(controller, event))
         }
+      }
     }
+  }
 
-    def gladiatorSelect = Action(parse.json) { position: Request[JsValue] =>
-        Try(Coordinate((position.body \ "x").as[Int], (position.body \ "y").as[Int])) match {
-            case Success(coordinate) => {
-                val gladiatorInfo = Json.obj(
-                    "gladiatorAtCoordinate" -> controller.tileOccupiedByCurrentPlayer(coordinate),
-                    "tilesAttack" -> controller.attackTiles(coordinate),
-                    "tilesMove" -> controller.moveTiles(coordinate)
-                )
-                Ok(Json.toJson(controller, gladiatorInfo))
-            }
-            case Failure(_) => BadRequest(Json.toJson(jsonNotACommandError))
-        }
+  def gladiatorSelect = Action(parse.json) { position: Request[JsValue] =>
+    Try(Coordinate((position.body \ "x").as[Int], (position.body \ "y").as[Int])) match {
+      case Success(coordinate) => {
+        val gladiatorInfo = Json.obj(
+          "gladiatorAtCoordinate" -> controller.tileOccupiedByCurrentPlayer(coordinate),
+          "tilesAttack" -> controller.attackTiles(coordinate),
+          "tilesMove" -> controller.moveTiles(coordinate)
+        )
+        Ok(Json.toJson(controller, gladiatorInfo))
+      }
+      case Failure(_) => BadRequest(Json.toJson(jsonNotACommandError))
     }
+  }
 
-    def socket = WebSocket.accept[JsValue, JsValue] { request =>
-        ActorFlow.actorRef { out =>
-            controller.gameState match {
-                case NamingPlayerOne | NamingPlayerTwo => {
-                    println("connecting player")
-                    Props(GladiatorWebSocketActor(out, controller))
-                }
-                case _ => {
-                    println("connecting spectator")
-                    Props(SpectatorWebSocketActor(out, controller))
-                }
-            }
+  def socket = WebSocket.accept[JsValue, JsValue] { request =>
+    ActorFlow.actorRef { out =>
+      controller.gameState match {
+        case NamingPlayerOne | NamingPlayerTwo => {
+          println("connecting player")
+          Props(GladiatorWebSocketActor(out, controller))
         }
+        case _ => {
+          println("connecting spectator")
+          Props(SpectatorWebSocketActor(out, controller))
+        }
+      }
     }
+  }
 }

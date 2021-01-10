@@ -1,4 +1,3 @@
 [debug] "not up to date. inChanged = true, force = false
-[debug] Updating ProjectRef(uri("file:/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/project/project/project/"), "de-htwg-wt-gladiators-build-build-build")...
-[debug] Done updating ProjectRef(uri("file:/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/project/project/project/"), "de-htwg-wt-gladiators-build-build-build")
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
+[debug] Updating ProjectRef(uri("file:/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/project/project/project/"), "play-silhouette-seed-build-build-build")...
+[debug] Done updating ProjectRef(uri("file:/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/project/project/project/"), "play-silhouette-seed-build-build-build")

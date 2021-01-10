@@ -1,5 +1,6 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/logback.xml,/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/application.conf,/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/routes,/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/target/scala-2.12/classes/routes)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/messages,/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/target/scala-2.12/classes/messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/conf/application.conf,/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/target/scala-2.12/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/conf/application.prod.conf,/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/target/scala-2.12/classes/application.prod.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/conf/silhouette.conf,/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/target/scala-2.12/classes/silhouette.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/conf/routes,/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/target/scala-2.12/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/conf/messages,/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/target/scala-2.12/classes/messages)[0m

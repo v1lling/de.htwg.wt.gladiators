@@ -1,7 +1,91 @@
-[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/app/views/old/about.scala.html:4:4: not found: value navbar[0m
-[0m[[0m[31merror[0m] [0m[0m  @navbar()[0m
-[0m[[0m[31merror[0m] [0m[0m   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/app/views/old/gladiators.scala.html:7:6: not found: value navbar[0m
-[0m[[0m[31merror[0m] [0m[0m    @navbar()[0m
-[0m[[0m[31merror[0m] [0m[0m     ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/GladiatorsController.scala:63:19: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, None[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, None): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, None.type))[0m
+[0m[[0m[31merror[0m] [0m[0m    Ok(Json.toJson(controller, None))[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/GladiatorsController.scala:72:47: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, event[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, event): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m          case event: Events => Ok(Json.toJson(controller, event))[0m
+[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/GladiatorsController.scala:86:23: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, gladiatorInfo[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, gladiatorInfo): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, play.api.libs.json.JsObject))[0m
+[0m[[0m[31merror[0m] [0m[0m        Ok(Json.toJson(controller, gladiatorInfo))[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:32:48: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, (ErrorMessage("Could not parse command"): Events)[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, (ErrorMessage("Could not parse command"): Events)): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m        case Failure(exception) => (Json.toJson(controller, ErrorMessage("Could not parse command"): Events))[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:37:26: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, Json.parse("{ \"eventType\":\"Connected\", \"player\": 1}\"")[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, Json.parse("{ \"eventType\":\"Connected\", \"player\": 1}\"")): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, play.api.libs.json.JsValue))[0m
+[0m[[0m[31merror[0m] [0m[0m              Json.toJson(controller, Json.parse("""{ "eventType":"Connected", "player": 1}""""))[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:39:54: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, (message: Events)[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, (message: Events)): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m            case message: ErrorMessage => Json.toJson(controller, message: Events)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:40:34: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, (ErrorMessage("Internal Server Error"): Events)[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, (ErrorMessage("Internal Server Error"): Events)): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m            case _ => Json.toJson(controller, ErrorMessage("Internal Server Error"): Events)[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:45:26: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, Json.parse("{ \"eventType\":\"Connected\", \"player\": 2}\"")[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, Json.parse("{ \"eventType\":\"Connected\", \"player\": 2}\"")): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, play.api.libs.json.JsValue))[0m
+[0m[[0m[31merror[0m] [0m[0m              Json.toJson(controller, Json.parse("""{ "eventType":"Connected", "player": 2}""""))[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:47:54: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, (message: Events)[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, (message: Events)): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m            case message: ErrorMessage => Json.toJson(controller, message: Events)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:48:34: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, (ErrorMessage("Internal Server Error"): Events)[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, (ErrorMessage("Internal Server Error"): Events)): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m            case _ => Json.toJson(controller, ErrorMessage("Internal Server Error"): Events)[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:52:26: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, controller.inputCommand(command)[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, controller.inputCommand(command)): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m              Json.toJson(controller, controller.inputCommand(command))[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:54:26: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, (ErrorMessage("It is not your turn"): Events)[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, (ErrorMessage("It is not your turn"): Events)): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m              Json.toJson(controller, ErrorMessage("It is not your turn"): Events)[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/GladiatorWebSocketActor.scala:61:90: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, event[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, event): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m  override def sendJson(controller: Controller, event: Events): Unit = out ! (Json.toJson(controller, event))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/SpectatorWebSocketActor.scala:17:70: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, (ErrorMessage("Spectators cannot enter commands"): Events)[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, (ErrorMessage("Spectators cannot enter commands"): Events)): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m  override def receive: Actor.Receive = { case _ => out ! Json.toJson(controller, ErrorMessage("Spectators cannot enter commands"): Events) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/app/controllers/WebSockets/SpectatorWebSocketActor.scala:18:89: Adapting argument list by creating a 2-tuple: this may not be what you want.[0m
+[0m[[0m[31merror[0m] [0m[0m        signature: Json.toJson[T](o: T)(implicit tjs: play.api.libs.json.Writes[T]): play.api.libs.json.JsValue[0m
+[0m[[0m[31merror[0m] [0m[0m  given arguments: controller, event[0m
+[0m[[0m[31merror[0m] [0m[0m after adaptation: Json.toJson((controller, event): (de.htwg.se.gladiators.controller.BaseImplementation.Controller, de.htwg.se.gladiators.util.Events))[0m
+[0m[[0m[31merror[0m] [0m[0m  override def sendJson(controller: Controller, event: Events): Unit = out ! Json.toJson(controller, event)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m15 errors found[0m
