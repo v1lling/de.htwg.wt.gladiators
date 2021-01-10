@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/sascha/FH/Web-Technologien/silhouette-seed/play-silhouette-seed/conf/routes
-// @DATE:Sun Jan 10 10:37:27 CET 2021
+// @SOURCE:/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/routes
+// @DATE:Sun Jan 10 10:49:14 CET 2021
 
 package controllers;
 
