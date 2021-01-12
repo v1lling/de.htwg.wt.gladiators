@@ -2,15 +2,15 @@
     "version": "1.4.0",
     "project": {
         "name": "root-test",
-        "directory": "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators",
-        "workspaceDir": "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators",
+        "directory": "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators",
+        "workspaceDir": "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators",
         "sources": [
-            "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/test-2.12",
-            "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/test",
-            "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/test",
-            "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/target/scala-2.12/src_managed/test",
-            "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/target/scala-2.12/twirl/test",
-            "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/target/scala-2.12/routes/test"
+            "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/test-2.12",
+            "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/test",
+            "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/test",
+            "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/target/scala-2.12/src_managed/test",
+            "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/target/scala-2.12/twirl/test",
+            "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/target/scala-2.12/routes/test"
         ],
         "dependencies": [
             "gladiatorsBase",
@@ -18,7 +18,7 @@
             "gladiatorsBase-test"
         ],
         "classpath": [
-            "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/.bloop/root/scala-2.12/classes",
+            "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/.bloop/root/scala-2.12/classes",
             "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.12/scala-library-2.12.12.jar",
             "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/twirl-api_2.12/1.5.0/twirl-api_2.12-1.5.0.jar",
             "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-server_2.12/2.8.2/play-server_2.12-2.8.2.jar",
@@ -149,11 +149,11 @@
             "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/9.4.20.v20190813/jetty-http-9.4.20.v20190813.jar",
             "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/eclipse/jetty/websocket/websocket-api/9.4.20.v20190813/websocket-api-9.4.20.v20190813.jar"
         ],
-        "out": "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/.bloop/root",
-        "classesDir": "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/.bloop/root/scala-2.12/test-classes",
+        "out": "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/.bloop/root",
+        "classesDir": "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/.bloop/root/scala-2.12/test-classes",
         "resources": [
-            "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/test/resources",
-            "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/target/scala-2.12/resource_managed/test"
+            "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/test/resources",
+            "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/target/scala-2.12/resource_managed/test"
         ],
         "scala": {
             "organization": "org.scala-lang",
@@ -173,7 +173,7 @@
                 "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.jar",
                 "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.12/jansi-1.12.jar"
             ],
-            "analysis": "/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/target/streams/test/bloopAnalysisOut/_global/streams/inc_compile_2.12.zip",
+            "analysis": "/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/target/streams/test/bloopAnalysisOut/_global/streams/inc_compile_2.12.zip",
             "setup": {
                 "order": "mixed",
                 "addLibraryToBootClasspath": true,
@@ -257,7 +257,7 @@
             "config": {
                 "home": "/home/sascha/.sdkman/candidates/java/11.0.8.hs-adpt",
                 "options": [
-                    "-Duser.dir=/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators"
+                    "-Duser.dir=/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators"
                 ]
             },
             "mainClass": [

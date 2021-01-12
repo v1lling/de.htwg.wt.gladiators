@@ -97,7 +97,7 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2020-12-19T14:10:53.497458
+                  DATE: 2021-01-12T10:24:11.212796
                   SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/about.scala.html
                   HASH: 0141e0fb29fd915437270e8cbde69e899b34010b
                   MATRIX: 726->1|822->4|849->6|875->24|914->26|943->29|2712->1771|2727->1777|2790->1819

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/routes
-// @DATE:Sat Dec 19 14:10:53 CET 2020
+// @DATE:Tue Jan 12 10:24:11 CET 2021
 
 import play.api.routing.JavaScriptReverseRoute
 

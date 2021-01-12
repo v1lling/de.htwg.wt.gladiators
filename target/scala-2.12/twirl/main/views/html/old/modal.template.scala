@@ -68,7 +68,7 @@ Seq[Any](format.raw/*1.1*/("""<!--Modal: Login with Avatar Form-->
 
               /*
                   -- GENERATED --
-                  DATE: 2020-12-19T14:10:53.501433
+                  DATE: 2021-01-12T10:24:11.225590
                   SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/modal.scala.html
                   HASH: d47b5815e0602298528ef092d5c708bbe5181788
                   MATRIX: 815->0

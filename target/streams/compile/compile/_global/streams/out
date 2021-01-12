@@ -1,7 +1,76 @@
-[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/app/views/old/about.scala.html:4:4: not found: value navbar[0m
-[0m[[0m[31merror[0m] [0m[0m  @navbar()[0m
-[0m[[0m[31merror[0m] [0m[0m   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.Gladiators/app/views/old/gladiators.scala.html:7:6: not found: value navbar[0m
-[0m[[0m[31merror[0m] [0m[0m    @navbar()[0m
-[0m[[0m[31merror[0m] [0m[0m     ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/routes: object utils is not a member of package <root>[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/routes: object utils is not a member of package <root>[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/routes: object utils is not a member of package <root>[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:1:1: not found: type Html[0m
+[0m[[0m[31merror[0m] [0m[0m@(title: String)(content: Html)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:1:27: not found: type Html[0m
+[0m[[0m[31merror[0m] [0m[0m@(title: String)(content: Html)[0m
+[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:8:59: not found: value routes[0m
+[0m[[0m[31merror[0m] [0m[0m        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/logo.png")">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:11:54: not found: value routes[0m
+[0m[[0m[31merror[0m] [0m[0m        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("less/main.css")"> [0m
+[0m[[0m[31merror[0m] [0m[0m                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:16:23: not found: value routes[0m
+[0m[[0m[31merror[0m] [0m[0m        <script src="@routes.Assets.versioned("javascripts/jquery-3.2.1.min.js")" type="text/javascript"></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:18:23: not found: value routes[0m
+[0m[[0m[31merror[0m] [0m[0m        <script src="@routes.Assets.versioned("javascripts/popper.js")" type="text/javascript"></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:19:23: not found: value routes[0m
+[0m[[0m[31merror[0m] [0m[0m        <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")" ></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:25:23: not found: value routes[0m
+[0m[[0m[31merror[0m] [0m[0m        <script src="@routes.Assets.versioned("javascripts/bootstrap-msg.min.js")" ></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:27:23: not found: value routes[0m
+[0m[[0m[31merror[0m] [0m[0m        <script src="@routes.Assets.versioned("vue/main.js")" type="module"></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:29:23: not found: value routes[0m
+[0m[[0m[31merror[0m] [0m[0m        <script src="@routes.Assets.versioned("javascripts/gladiators.js")" ></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/main.scala.html:35:8: not found: type Html[0m
+[0m[[0m[31merror[0m] [0m[0m</html>[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/about.scala.html:3:2: not found: value main[0m
+[0m[[0m[31merror[0m] [0m[0m@main("Gladiators") {[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/about.scala.html:58:16: not found: value routes[0m
+[0m[[0m[31merror[0m] [0m[0m    <img src="@routes.Assets.versioned("images/gladiators.gif")"/>[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/gladiators.scala.html:6:2: not found: value main[0m
+[0m[[0m[31merror[0m] [0m[0m@main("Gladiators") {[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/gladiators.scala.html:17:50: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Option[de.htwg.se.gladiators.model.Player][0m
+[0m[[0m[31merror[0m] [0m[0m required: Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m                                @{if (controller.playerTwo) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/gladiators.scala.html:27:50: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Option[de.htwg.se.gladiators.model.Player][0m
+[0m[[0m[31merror[0m] [0m[0m required: Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m                                @{if (controller.playerTwo) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/gladiators.scala.html:37:50: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Option[de.htwg.se.gladiators.model.Player][0m
+[0m[[0m[31merror[0m] [0m[0m required: Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m                                @{if (controller.playerTwo) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/gladiators.scala.html:60:50: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Option[de.htwg.se.gladiators.model.Player][0m
+[0m[[0m[31merror[0m] [0m[0m required: Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m                                @{if (controller.playerOne) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/gladiators.scala.html:70:50: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Option[de.htwg.se.gladiators.model.Player][0m
+[0m[[0m[31merror[0m] [0m[0m required: Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m                                @{if (controller.playerOne) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/old/gladiators.scala.html:80:50: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Option[de.htwg.se.gladiators.model.Player][0m
+[0m[[0m[31merror[0m] [0m[0m required: Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m                                @{if (controller.playerOne) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m23 errors found[0m
