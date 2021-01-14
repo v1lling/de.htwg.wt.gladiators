@@ -52,21 +52,9 @@ class SignInController @Inject() (
               case Some(user) =>
                 println("User exists")
                 authInfoRepository.find[GoogleTotpInfo](user.loginInfo).flatMap {
-                  case Some(totfInfo) => {
-                    print(user.userID)
-                    Future.successful(Ok(Json.toJson(user)))
-                  }
-                  // case Some(totpInfo) => Future.successful(Ok(totp(TotpForm.form.fill(TotpForm.Data(
-                  // user.userID, totpInfo.sharedKey, data.rememberMe)))))
-                  case _ => {
-                    println(user)
-                    authenticateUser(user, data.rememberMe)
-                    authTokenService.create(user.userID).map { authToken =>
-                      Ok(Json.obj(
-                        "token" -> authToken.id
-                      ))
-                    }
-                  }
+                  case Some(totpInfo) => Future.successful(Ok(totp(TotpForm.form.fill(TotpForm.Data(
+                    user.userID, totpInfo.sharedKey, data.rememberMe)))))
+                  case _ => authenticateUser(user, data.rememberMe)
                 }
               case None => Future.failed(new IdentityNotFoundException("Couldn't find user"))
             }

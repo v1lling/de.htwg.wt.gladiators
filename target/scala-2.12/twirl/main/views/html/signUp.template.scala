@@ -24,22 +24,21 @@ Seq[Any](format.raw/*10.1*/("""
     """),format.raw/*14.5*/("""<fieldset class="col-md-6 col-md-offset-3">
         <legend>"""),_display_(/*15.18*/messages("sign.up.account")),format.raw/*15.45*/("""</legend>
         """),_display_(/*16.10*/helper/*16.16*/.form(action = controllers.routes.SignUpController.submit())/*16.76*/ {_display_(Seq[Any](format.raw/*16.78*/("""
-            """),_display_(/*17.14*/helper/*17.20*/.CSRF.formField),format.raw/*17.35*/("""
-            """),_display_(/*18.14*/b4/*18.16*/.text(signUpForm("firstName"), Symbol("_hiddenLabel") -> messages("first.name"), Symbol("placeholder") -> messages("first.name"), Symbol("class") -> "form-control input-lg")),format.raw/*18.189*/("""
-            """),_display_(/*19.14*/b4/*19.16*/.text(signUpForm("lastName"), Symbol("_hiddenLabel") -> messages("last.name"), Symbol("placeholder") -> messages("last.name"), Symbol("class") -> "form-control input-lg")),format.raw/*19.186*/("""
-            """),_display_(/*20.14*/b4/*20.16*/.text(signUpForm("email"), Symbol("_hiddenLabel") -> messages("email"), Symbol("placeholder") -> messages("email"), Symbol("class") -> "form-control input-lg")),format.raw/*20.175*/("""
-            """),_display_(/*21.14*/passwordStrength(signUpForm("password"), Symbol("_hiddenLabel") -> messages("password"), Symbol("placeholder") -> messages("password"), Symbol("class") -> "form-control input-lg")),format.raw/*21.193*/("""
-            """),format.raw/*22.13*/("""<div class="form-group">
+            """),_display_(/*17.14*/b4/*17.16*/.text(signUpForm("firstName"), Symbol("_hiddenLabel") -> messages("first.name"), Symbol("placeholder") -> messages("first.name"), Symbol("class") -> "form-control input-lg")),format.raw/*17.189*/("""
+            """),_display_(/*18.14*/b4/*18.16*/.text(signUpForm("lastName"), Symbol("_hiddenLabel") -> messages("last.name"), Symbol("placeholder") -> messages("last.name"), Symbol("class") -> "form-control input-lg")),format.raw/*18.186*/("""
+            """),_display_(/*19.14*/b4/*19.16*/.text(signUpForm("email"), Symbol("_hiddenLabel") -> messages("email"), Symbol("placeholder") -> messages("email"), Symbol("class") -> "form-control input-lg")),format.raw/*19.175*/("""
+            """),_display_(/*20.14*/passwordStrength(signUpForm("password"), Symbol("_hiddenLabel") -> messages("password"), Symbol("placeholder") -> messages("password"), Symbol("class") -> "form-control input-lg")),format.raw/*20.193*/("""
+            """),format.raw/*21.13*/("""<div class="form-group">
                 <div>
-                    <button id="submit" type="submit" value="submit" class="btn btn-lg btn-primary btn-block">"""),_display_(/*24.112*/messages("sign.up")),format.raw/*24.131*/("""</button>
+                    <button id="submit" type="submit" value="submit" class="btn btn-lg btn-primary btn-block">"""),_display_(/*23.112*/messages("sign.up")),format.raw/*23.131*/("""</button>
                 </div>
             </div>
             <div class="sign-in-now">
-                <p>"""),_display_(/*28.21*/messages("already.a.member")),format.raw/*28.49*/(""" """),format.raw/*28.50*/("""<a href=""""),_display_(/*28.60*/controllers/*28.71*/.routes.SignInController.view),format.raw/*28.100*/("""">"""),_display_(/*28.103*/messages("sign.in.now")),format.raw/*28.126*/("""</a></p>
+                <p>"""),_display_(/*27.21*/messages("already.a.member")),format.raw/*27.49*/(""" """),format.raw/*27.50*/("""<a href=""""),_display_(/*27.60*/controllers/*27.71*/.routes.SignInController.view),format.raw/*27.100*/("""">"""),_display_(/*27.103*/messages("sign.in.now")),format.raw/*27.126*/("""</a></p>
             </div>
-        """)))}),format.raw/*30.10*/("""
-    """),format.raw/*31.5*/("""</fieldset>
-""")))}),format.raw/*32.2*/("""
+        """)))}),format.raw/*29.10*/("""
+    """),format.raw/*30.5*/("""</fieldset>
+""")))}),format.raw/*31.2*/("""
 """))
       }
     }
@@ -56,11 +55,11 @@ Seq[Any](format.raw/*10.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-01-10T11:18:33.460736
+                  DATE: 2021-01-14T12:38:04.868121
                   SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/signUp.scala.html
-                  HASH: db264a567d6f9a6221266439851c7a66192997b8
-                  MATRIX: 28->1|61->28|98->59|139->94|182->131|221->164|299->199|676->260|841->340|874->364|942->338|971->402|1000->405|1040->436|1080->438|1112->443|1200->504|1248->531|1294->550|1309->556|1378->616|1418->618|1459->632|1474->638|1510->653|1551->667|1562->669|1757->842|1798->856|1809->858|2001->1028|2042->1042|2053->1044|2234->1203|2275->1217|2476->1396|2517->1409|2703->1567|2744->1586|2881->1696|2930->1724|2959->1725|2996->1735|3016->1746|3067->1775|3098->1778|3143->1801|3211->1838|3243->1843|3286->1856
-                  LINES: 4->1|5->2|6->3|7->4|8->5|9->6|12->8|15->9|19->11|19->11|20->10|21->11|23->13|23->13|23->13|24->14|25->15|25->15|26->16|26->16|26->16|26->16|27->17|27->17|27->17|28->18|28->18|28->18|29->19|29->19|29->19|30->20|30->20|30->20|31->21|31->21|32->22|34->24|34->24|38->28|38->28|38->28|38->28|38->28|38->28|38->28|38->28|40->30|41->31|42->32
+                  HASH: 272f34c277dc91353ad644671c02a88cdb3b263c
+                  MATRIX: 28->1|61->28|98->59|139->94|182->131|221->164|299->199|676->260|841->340|874->364|942->338|971->402|1000->405|1040->436|1080->438|1112->443|1200->504|1248->531|1294->550|1309->556|1378->616|1418->618|1459->632|1470->634|1665->807|1706->821|1717->823|1909->993|1950->1007|1961->1009|2142->1168|2183->1182|2384->1361|2425->1374|2611->1532|2652->1551|2789->1661|2838->1689|2867->1690|2904->1700|2924->1711|2975->1740|3006->1743|3051->1766|3119->1803|3151->1808|3194->1821
+                  LINES: 4->1|5->2|6->3|7->4|8->5|9->6|12->8|15->9|19->11|19->11|20->10|21->11|23->13|23->13|23->13|24->14|25->15|25->15|26->16|26->16|26->16|26->16|27->17|27->17|27->17|28->18|28->18|28->18|29->19|29->19|29->19|30->20|30->20|31->21|33->23|33->23|37->27|37->27|37->27|37->27|37->27|37->27|37->27|37->27|39->29|40->30|41->31
                   -- GENERATED --
               */
           
