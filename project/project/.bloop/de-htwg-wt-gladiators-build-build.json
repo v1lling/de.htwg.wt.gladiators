@@ -214,10 +214,6 @@
                         },
                         {
                             "name": "jna",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/4.5.0/jna-4.5.0.jar"
-                        },
-                        {
-                            "name": "jna",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/4.5.0/jna-4.5.0-sources.jar"
                         }
@@ -244,10 +240,6 @@
                         {
                             "name": "jna-platform",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna-platform/4.5.0/jna-platform-4.5.0.jar"
-                        },
-                        {
-                            "name": "jna-platform",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna-platform/4.5.0/jna-platform-4.5.0.jar"
                         },
                         {
                             "name": "jna-platform",
@@ -292,10 +284,6 @@
                         },
                         {
                             "name": "test-interface",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar"
-                        },
-                        {
-                            "name": "test-interface",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0-sources.jar"
                         }
@@ -310,10 +298,6 @@
                         {
                             "name": "io_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/io_2.12/1.3.1/io_2.12-1.3.1.jar"
-                        },
-                        {
-                            "name": "io_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/io_2.12/1.3.1/io_2.12-1.3.1.jar"
                         },
                         {
                             "name": "io_2.12",
@@ -334,10 +318,6 @@
                         },
                         {
                             "name": "ssl-config-core_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.4.0/ssl-config-core_2.12-0.4.0.jar"
-                        },
-                        {
-                            "name": "ssl-config-core_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.4.0/ssl-config-core_2.12-0.4.0-sources.jar"
                         }
@@ -352,10 +332,6 @@
                         {
                             "name": "command_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/command_2.12/1.3.7/command_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "command_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/command_2.12/1.3.7/command_2.12-1.3.7.jar"
                         },
                         {
                             "name": "command_2.12",
@@ -376,10 +352,6 @@
                         },
                         {
                             "name": "lenses_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/trueaccord/lenses/lenses_2.12/0.4.12/lenses_2.12-0.4.12.jar"
-                        },
-                        {
-                            "name": "lenses_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/trueaccord/lenses/lenses_2.12/0.4.12/lenses_2.12-0.4.12-sources.jar"
                         }
@@ -394,10 +366,6 @@
                         {
                             "name": "zinc-classpath_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-classpath_2.12/1.3.2/zinc-classpath_2.12-1.3.2.jar"
-                        },
-                        {
-                            "name": "zinc-classpath_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-classpath_2.12/1.3.2/zinc-classpath_2.12-1.3.2.jar"
                         },
                         {
                             "name": "zinc-classpath_2.12",
@@ -418,10 +386,6 @@
                         },
                         {
                             "name": "completion_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/completion_2.12/1.3.7/completion_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "completion_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/completion_2.12/1.3.7/completion_2.12-1.3.7-sources.jar"
                         }
@@ -436,10 +400,6 @@
                         {
                             "name": "caffeine",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/ben-manes/caffeine/caffeine/2.5.6/caffeine-2.5.6.jar"
-                        },
-                        {
-                            "name": "caffeine",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/ben-manes/caffeine/caffeine/2.5.6/caffeine-2.5.6.jar"
                         },
                         {
                             "name": "caffeine",
@@ -460,10 +420,6 @@
                         },
                         {
                             "name": "protocol_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/protocol_2.12/1.3.7/protocol_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "protocol_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/protocol_2.12/1.3.7/protocol_2.12-1.3.7-sources.jar"
                         }
@@ -478,10 +434,6 @@
                         {
                             "name": "gigahorse-core_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/gigahorse-core_2.12/0.5.0/gigahorse-core_2.12-0.5.0.jar"
-                        },
-                        {
-                            "name": "gigahorse-core_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/gigahorse-core_2.12/0.5.0/gigahorse-core_2.12-0.5.0.jar"
                         },
                         {
                             "name": "gigahorse-core_2.12",
@@ -502,10 +454,6 @@
                         },
                         {
                             "name": "protobuf-java",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.7.0/protobuf-java-3.7.0.jar"
-                        },
-                        {
-                            "name": "protobuf-java",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.7.0/protobuf-java-3.7.0-sources.jar"
                         }
@@ -520,10 +468,6 @@
                         {
                             "name": "gigahorse-okhttp_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/gigahorse-okhttp_2.12/0.5.0/gigahorse-okhttp_2.12-0.5.0.jar"
-                        },
-                        {
-                            "name": "gigahorse-okhttp_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/gigahorse-okhttp_2.12/0.5.0/gigahorse-okhttp_2.12-0.5.0.jar"
                         },
                         {
                             "name": "gigahorse-okhttp_2.12",
@@ -544,10 +488,6 @@
                         },
                         {
                             "name": "core-macros_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/core-macros_2.12/1.3.7/core-macros_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "core-macros_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/core-macros_2.12/1.3.7/core-macros_2.12-1.3.7-sources.jar"
                         }
@@ -562,10 +502,6 @@
                         {
                             "name": "sjson-new-scalajson_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/sjson-new-scalajson_2.12/0.8.3/sjson-new-scalajson_2.12-0.8.3.jar"
-                        },
-                        {
-                            "name": "sjson-new-scalajson_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/sjson-new-scalajson_2.12/0.8.3/sjson-new-scalajson_2.12-0.8.3.jar"
                         },
                         {
                             "name": "sjson-new-scalajson_2.12",
@@ -586,10 +522,6 @@
                         },
                         {
                             "name": "util-relation_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-relation_2.12/1.3.3/util-relation_2.12-1.3.3.jar"
-                        },
-                        {
-                            "name": "util-relation_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-relation_2.12/1.3.3/util-relation_2.12-1.3.3-sources.jar"
                         }
@@ -604,10 +536,6 @@
                         {
                             "name": "scala-xml_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.2.0/scala-xml_2.12-1.2.0.jar"
-                        },
-                        {
-                            "name": "scala-xml_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.2.0/scala-xml_2.12-1.2.0.jar"
                         },
                         {
                             "name": "scala-xml_2.12",
@@ -628,10 +556,6 @@
                         },
                         {
                             "name": "jawn-parser_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/spire-math/jawn-parser_2.12/0.10.4/jawn-parser_2.12-0.10.4.jar"
-                        },
-                        {
-                            "name": "jawn-parser_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/spire-math/jawn-parser_2.12/0.10.4/jawn-parser_2.12-0.10.4-sources.jar"
                         }
@@ -646,10 +570,6 @@
                         {
                             "name": "scala-compiler",
                             "path": "/home/sascha/.sbt/boot/scala-2.12.10/lib/scala-compiler.jar"
-                        },
-                        {
-                            "name": "scala-compiler",
-                            "path": "/root/.sbt/boot/scala-2.12.10/lib/scala-compiler.jar"
                         },
                         {
                             "name": "scala-compiler",
@@ -670,10 +590,6 @@
                         },
                         {
                             "name": "fastparse-utils_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse-utils_2.12/0.4.2/fastparse-utils_2.12-0.4.2.jar"
-                        },
-                        {
-                            "name": "fastparse-utils_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse-utils_2.12/0.4.2/fastparse-utils_2.12-0.4.2-sources.jar"
                         }
@@ -688,10 +604,6 @@
                         {
                             "name": "disruptor",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lmax/disruptor/3.4.2/disruptor-3.4.2.jar"
-                        },
-                        {
-                            "name": "disruptor",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lmax/disruptor/3.4.2/disruptor-3.4.2.jar"
                         },
                         {
                             "name": "disruptor",
@@ -712,10 +624,6 @@
                         },
                         {
                             "name": "zinc-lm-integration_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-lm-integration_2.12/1.3.7/zinc-lm-integration_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "zinc-lm-integration_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-lm-integration_2.12/1.3.7/zinc-lm-integration_2.12-1.3.7-sources.jar"
                         }
@@ -730,10 +638,6 @@
                         {
                             "name": "reactive-streams",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.2/reactive-streams-1.0.2.jar"
-                        },
-                        {
-                            "name": "reactive-streams",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.2/reactive-streams-1.0.2.jar"
                         },
                         {
                             "name": "reactive-streams",
@@ -754,10 +658,6 @@
                         },
                         {
                             "name": "slf4j-api",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar"
-                        },
-                        {
-                            "name": "slf4j-api",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26-sources.jar"
                         }
@@ -772,10 +672,6 @@
                         {
                             "name": "file-tree-views",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/swoval/file-tree-views/2.1.3/file-tree-views-2.1.3.jar"
-                        },
-                        {
-                            "name": "file-tree-views",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/swoval/file-tree-views/2.1.3/file-tree-views-2.1.3.jar"
                         },
                         {
                             "name": "file-tree-views",
@@ -796,10 +692,6 @@
                         },
                         {
                             "name": "compiler-bridge_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-bridge_2.12/1.3.2/compiler-bridge_2.12-1.3.2.jar"
-                        },
-                        {
-                            "name": "compiler-bridge_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-bridge_2.12/1.3.2/compiler-bridge_2.12-1.3.2-sources.jar"
                         }
@@ -814,10 +706,6 @@
                         {
                             "name": "okhttp",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/squareup/okhttp3/okhttp/3.14.2/okhttp-3.14.2.jar"
-                        },
-                        {
-                            "name": "okhttp",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/squareup/okhttp3/okhttp/3.14.2/okhttp-3.14.2.jar"
                         },
                         {
                             "name": "okhttp",
@@ -838,10 +726,6 @@
                         },
                         {
                             "name": "sourcecode_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.12/0.1.3/sourcecode_2.12-0.1.3.jar"
-                        },
-                        {
-                            "name": "sourcecode_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.12/0.1.3/sourcecode_2.12-0.1.3-sources.jar"
                         }
@@ -856,10 +740,6 @@
                         {
                             "name": "jsch",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/jcraft/jsch/0.1.54/jsch-0.1.54.jar"
-                        },
-                        {
-                            "name": "jsch",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/jcraft/jsch/0.1.54/jsch-0.1.54.jar"
                         },
                         {
                             "name": "jsch",
@@ -880,10 +760,6 @@
                         },
                         {
                             "name": "util-scripted_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-scripted_2.12/1.3.3/util-scripted_2.12-1.3.3.jar"
-                        },
-                        {
-                            "name": "util-scripted_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-scripted_2.12/1.3.3/util-scripted_2.12-1.3.3-sources.jar"
                         }
@@ -898,10 +774,6 @@
                         {
                             "name": "zinc-compile_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-compile_2.12/1.3.2/zinc-compile_2.12-1.3.2.jar"
-                        },
-                        {
-                            "name": "zinc-compile_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-compile_2.12/1.3.2/zinc-compile_2.12-1.3.2.jar"
                         },
                         {
                             "name": "zinc-compile_2.12",
@@ -922,10 +794,6 @@
                         },
                         {
                             "name": "util-cache_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-cache_2.12/1.3.3/util-cache_2.12-1.3.3.jar"
-                        },
-                        {
-                            "name": "util-cache_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-cache_2.12/1.3.3/util-cache_2.12-1.3.3-sources.jar"
                         }
@@ -940,10 +808,6 @@
                         {
                             "name": "zinc-classfile_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-classfile_2.12/1.3.2/zinc-classfile_2.12-1.3.2.jar"
-                        },
-                        {
-                            "name": "zinc-classfile_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-classfile_2.12/1.3.2/zinc-classfile_2.12-1.3.2.jar"
                         },
                         {
                             "name": "zinc-classfile_2.12",
@@ -964,10 +828,6 @@
                         },
                         {
                             "name": "log4j-slf4j-impl",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.11.2/log4j-slf4j-impl-2.11.2.jar"
-                        },
-                        {
-                            "name": "log4j-slf4j-impl",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.11.2/log4j-slf4j-impl-2.11.2-sources.jar"
                         }
@@ -982,10 +842,6 @@
                         {
                             "name": "jline",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.jar"
-                        },
-                        {
-                            "name": "jline",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.jar"
                         },
                         {
                             "name": "jline",
@@ -1006,10 +862,6 @@
                         },
                         {
                             "name": "collections_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/collections_2.12/1.3.7/collections_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "collections_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/collections_2.12/1.3.7/collections_2.12-1.3.7-sources.jar"
                         }
@@ -1024,10 +876,6 @@
                         {
                             "name": "scala-reflect",
                             "path": "/home/sascha/.sbt/boot/scala-2.12.10/lib/scala-reflect.jar"
-                        },
-                        {
-                            "name": "scala-reflect",
-                            "path": "/root/.sbt/boot/scala-2.12.10/lib/scala-reflect.jar"
                         },
                         {
                             "name": "scala-reflect",
@@ -1048,10 +896,6 @@
                         },
                         {
                             "name": "fastparse_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_2.12/0.4.2/fastparse_2.12-0.4.2.jar"
-                        },
-                        {
-                            "name": "fastparse_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_2.12/0.4.2/fastparse_2.12-0.4.2-sources.jar"
                         }
@@ -1066,10 +910,6 @@
                         {
                             "name": "scala-parser-combinators_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.1.2/scala-parser-combinators_2.12-1.1.2.jar"
-                        },
-                        {
-                            "name": "scala-parser-combinators_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.1.2/scala-parser-combinators_2.12-1.1.2.jar"
                         },
                         {
                             "name": "scala-parser-combinators_2.12",
@@ -1090,10 +930,6 @@
                         },
                         {
                             "name": "scripted-sbt-redux_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/scripted-sbt-redux_2.12/1.3.7/scripted-sbt-redux_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "scripted-sbt-redux_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/scripted-sbt-redux_2.12/1.3.7/scripted-sbt-redux_2.12-1.3.7-sources.jar"
                         }
@@ -1108,10 +944,6 @@
                         {
                             "name": "zinc-apiinfo_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-apiinfo_2.12/1.3.2/zinc-apiinfo_2.12-1.3.2.jar"
-                        },
-                        {
-                            "name": "zinc-apiinfo_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-apiinfo_2.12/1.3.2/zinc-apiinfo_2.12-1.3.2.jar"
                         },
                         {
                             "name": "zinc-apiinfo_2.12",
@@ -1132,10 +964,6 @@
                         },
                         {
                             "name": "testing_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/testing_2.12/1.3.7/testing_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "testing_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/testing_2.12/1.3.7/testing_2.12-1.3.7-sources.jar"
                         }
@@ -1150,10 +978,6 @@
                         {
                             "name": "zinc-persist_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-persist_2.12/1.3.2/zinc-persist_2.12-1.3.2.jar"
-                        },
-                        {
-                            "name": "zinc-persist_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-persist_2.12/1.3.2/zinc-persist_2.12-1.3.2.jar"
                         },
                         {
                             "name": "zinc-persist_2.12",
@@ -1174,10 +998,6 @@
                         },
                         {
                             "name": "scalacache-caffeine_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/cb372/scalacache-caffeine_2.12/0.20.0/scalacache-caffeine_2.12-0.20.0.jar"
-                        },
-                        {
-                            "name": "scalacache-caffeine_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/cb372/scalacache-caffeine_2.12/0.20.0/scalacache-caffeine_2.12-0.20.0-sources.jar"
                         }
@@ -1192,10 +1012,6 @@
                         {
                             "name": "ivy",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/ivy/ivy/2.3.0-sbt-88d6a93d15f9b029958c1c289a8859e8dfe31a19/ivy-2.3.0-sbt-88d6a93d15f9b029958c1c289a8859e8dfe31a19.jar"
-                        },
-                        {
-                            "name": "ivy",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/ivy/ivy/2.3.0-sbt-88d6a93d15f9b029958c1c289a8859e8dfe31a19/ivy-2.3.0-sbt-88d6a93d15f9b029958c1c289a8859e8dfe31a19.jar"
                         },
                         {
                             "name": "ivy",
@@ -1216,10 +1032,6 @@
                         },
                         {
                             "name": "zinc-compile-core_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-compile-core_2.12/1.3.2/zinc-compile-core_2.12-1.3.2.jar"
-                        },
-                        {
-                            "name": "zinc-compile-core_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-compile-core_2.12/1.3.2/zinc-compile-core_2.12-1.3.2-sources.jar"
                         }
@@ -1234,10 +1046,6 @@
                         {
                             "name": "ipcsocket",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/ipcsocket/ipcsocket/1.0.0/ipcsocket-1.0.0.jar"
-                        },
-                        {
-                            "name": "ipcsocket",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/ipcsocket/ipcsocket/1.0.0/ipcsocket-1.0.0.jar"
                         },
                         {
                             "name": "ipcsocket",
@@ -1258,10 +1066,6 @@
                         },
                         {
                             "name": "shaded-scalajson_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/shaded-scalajson_2.12/1.0.0-M4/shaded-scalajson_2.12-1.0.0-M4.jar"
-                        },
-                        {
-                            "name": "shaded-scalajson_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/shaded-scalajson_2.12/1.0.0-M4/shaded-scalajson_2.12-1.0.0-M4-sources.jar"
                         }
@@ -1276,10 +1080,6 @@
                         {
                             "name": "sbt",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/sbt/1.3.7/sbt-1.3.7.jar"
-                        },
-                        {
-                            "name": "sbt",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/sbt/1.3.7/sbt-1.3.7.jar"
                         },
                         {
                             "name": "sbt",
@@ -1300,10 +1100,6 @@
                         },
                         {
                             "name": "launcher-interface",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/launcher-interface/1.1.3/launcher-interface-1.1.3.jar"
-                        },
-                        {
-                            "name": "launcher-interface",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/launcher-interface/1.1.3/launcher-interface-1.1.3-sources.jar"
                         }
@@ -1318,10 +1114,6 @@
                         {
                             "name": "scalapb-runtime_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/trueaccord/scalapb/scalapb-runtime_2.12/0.6.0/scalapb-runtime_2.12-0.6.0.jar"
-                        },
-                        {
-                            "name": "scalapb-runtime_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/trueaccord/scalapb/scalapb-runtime_2.12/0.6.0/scalapb-runtime_2.12-0.6.0.jar"
                         },
                         {
                             "name": "scalapb-runtime_2.12",
@@ -1342,10 +1134,6 @@
                         },
                         {
                             "name": "util-control_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-control_2.12/1.3.3/util-control_2.12-1.3.3.jar"
-                        },
-                        {
-                            "name": "util-control_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-control_2.12/1.3.3/util-control_2.12-1.3.3-sources.jar"
                         }
@@ -1360,10 +1148,6 @@
                         {
                             "name": "lm-coursier-shaded_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/io/get-coursier/lm-coursier-shaded_2.12/2.0.0-RC5-3/lm-coursier-shaded_2.12-2.0.0-RC5-3.jar"
-                        },
-                        {
-                            "name": "lm-coursier-shaded_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/io/get-coursier/lm-coursier-shaded_2.12/2.0.0-RC5-3/lm-coursier-shaded_2.12-2.0.0-RC5-3.jar"
                         },
                         {
                             "name": "lm-coursier-shaded_2.12",
@@ -1384,10 +1168,6 @@
                         },
                         {
                             "name": "main-settings_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/main-settings_2.12/1.3.7/main-settings_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "main-settings_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/main-settings_2.12/1.3.7/main-settings_2.12-1.3.7-sources.jar"
                         }
@@ -1402,10 +1182,6 @@
                         {
                             "name": "main_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/main_2.12/1.3.7/main_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "main_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/main_2.12/1.3.7/main_2.12-1.3.7.jar"
                         },
                         {
                             "name": "main_2.12",
@@ -1426,10 +1202,6 @@
                         },
                         {
                             "name": "scripted-plugin_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/scripted-plugin_2.12/1.3.7/scripted-plugin_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "scripted-plugin_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/scripted-plugin_2.12/1.3.7/scripted-plugin_2.12-1.3.7-sources.jar"
                         }
@@ -1444,10 +1216,6 @@
                         {
                             "name": "tasks_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/tasks_2.12/1.3.7/tasks_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "tasks_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/tasks_2.12/1.3.7/tasks_2.12-1.3.7.jar"
                         },
                         {
                             "name": "tasks_2.12",
@@ -1468,10 +1236,6 @@
                         },
                         {
                             "name": "scalacache-core_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/cb372/scalacache-core_2.12/0.20.0/scalacache-core_2.12-0.20.0.jar"
-                        },
-                        {
-                            "name": "scalacache-core_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/cb372/scalacache-core_2.12/0.20.0/scalacache-core_2.12-0.20.0-sources.jar"
                         }
@@ -1486,10 +1250,6 @@
                         {
                             "name": "logic_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/logic_2.12/1.3.7/logic_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "logic_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/logic_2.12/1.3.7/logic_2.12-1.3.7.jar"
                         },
                         {
                             "name": "logic_2.12",
@@ -1510,10 +1270,6 @@
                         },
                         {
                             "name": "util-position_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-position_2.12/1.3.3/util-position_2.12-1.3.3.jar"
-                        },
-                        {
-                            "name": "util-position_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-position_2.12/1.3.3/util-position_2.12-1.3.3-sources.jar"
                         }
@@ -1528,10 +1284,6 @@
                         {
                             "name": "sjson-new-core_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/sjson-new-core_2.12/0.8.3/sjson-new-core_2.12-0.8.3.jar"
-                        },
-                        {
-                            "name": "sjson-new-core_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/sjson-new-core_2.12/0.8.3/sjson-new-core_2.12-0.8.3.jar"
                         },
                         {
                             "name": "sjson-new-core_2.12",
@@ -1552,10 +1304,6 @@
                         },
                         {
                             "name": "config",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/config/1.3.3/config-1.3.3.jar"
-                        },
-                        {
-                            "name": "config",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/config/1.3.3/config-1.3.3-sources.jar"
                         }
@@ -1570,10 +1318,6 @@
                         {
                             "name": "librarymanagement-core_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/librarymanagement-core_2.12/1.3.1/librarymanagement-core_2.12-1.3.1.jar"
-                        },
-                        {
-                            "name": "librarymanagement-core_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/librarymanagement-core_2.12/1.3.1/librarymanagement-core_2.12-1.3.1.jar"
                         },
                         {
                             "name": "librarymanagement-core_2.12",
@@ -1594,10 +1338,6 @@
                         },
                         {
                             "name": "run_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/run_2.12/1.3.7/run_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "run_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/run_2.12/1.3.7/run_2.12-1.3.7-sources.jar"
                         }
@@ -1612,10 +1352,6 @@
                         {
                             "name": "zinc_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc_2.12/1.3.2/zinc_2.12-1.3.2.jar"
-                        },
-                        {
-                            "name": "zinc_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc_2.12/1.3.2/zinc_2.12-1.3.2.jar"
                         },
                         {
                             "name": "zinc_2.12",
@@ -1636,10 +1372,6 @@
                         },
                         {
                             "name": "sbinary_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/sbinary_2.12/0.5.0/sbinary_2.12-0.5.0.jar"
-                        },
-                        {
-                            "name": "sbinary_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/sbinary_2.12/0.5.0/sbinary_2.12-0.5.0-sources.jar"
                         }
@@ -1654,10 +1386,6 @@
                         {
                             "name": "okhttp-urlconnection",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/squareup/okhttp3/okhttp-urlconnection/3.7.0/okhttp-urlconnection-3.7.0.jar"
-                        },
-                        {
-                            "name": "okhttp-urlconnection",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/squareup/okhttp3/okhttp-urlconnection/3.7.0/okhttp-urlconnection-3.7.0.jar"
                         },
                         {
                             "name": "okhttp-urlconnection",
@@ -1678,10 +1406,6 @@
                         },
                         {
                             "name": "log4j-api",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.11.2/log4j-api-2.11.2.jar"
-                        },
-                        {
-                            "name": "log4j-api",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.11.2/log4j-api-2.11.2-sources.jar"
                         }
@@ -1696,10 +1420,6 @@
                         {
                             "name": "okio",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/squareup/okio/okio/1.17.2/okio-1.17.2.jar"
-                        },
-                        {
-                            "name": "okio",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/squareup/okio/okio/1.17.2/okio-1.17.2.jar"
                         },
                         {
                             "name": "okio",
@@ -1720,10 +1440,6 @@
                         },
                         {
                             "name": "util-interface",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-interface/1.3.3/util-interface-1.3.3.jar"
-                        },
-                        {
-                            "name": "util-interface",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-interface/1.3.3/util-interface-1.3.3-sources.jar"
                         }
@@ -1738,10 +1454,6 @@
                         {
                             "name": "actions_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/actions_2.12/1.3.7/actions_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "actions_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/actions_2.12/1.3.7/actions_2.12-1.3.7.jar"
                         },
                         {
                             "name": "actions_2.12",
@@ -1762,10 +1474,6 @@
                         },
                         {
                             "name": "log4j-core",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.11.2/log4j-core-2.11.2.jar"
-                        },
-                        {
-                            "name": "log4j-core",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.11.2/log4j-core-2.11.2-sources.jar"
                         }
@@ -1780,10 +1488,6 @@
                         {
                             "name": "util-logging_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-logging_2.12/1.3.3/util-logging_2.12-1.3.3.jar"
-                        },
-                        {
-                            "name": "util-logging_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-logging_2.12/1.3.3/util-logging_2.12-1.3.3.jar"
                         },
                         {
                             "name": "util-logging_2.12",
@@ -1804,10 +1508,6 @@
                         },
                         {
                             "name": "compiler-interface",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.3.2/compiler-interface-1.3.2.jar"
-                        },
-                        {
-                            "name": "compiler-interface",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.3.2/compiler-interface-1.3.2-sources.jar"
                         }
@@ -1822,10 +1522,6 @@
                         {
                             "name": "zinc-core_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-core_2.12/1.3.2/zinc-core_2.12-1.3.2.jar"
-                        },
-                        {
-                            "name": "zinc-core_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/zinc-core_2.12/1.3.2/zinc-core_2.12-1.3.2.jar"
                         },
                         {
                             "name": "zinc-core_2.12",
@@ -1846,10 +1542,6 @@
                         },
                         {
                             "name": "util-tracking_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-tracking_2.12/1.3.3/util-tracking_2.12-1.3.3.jar"
-                        },
-                        {
-                            "name": "util-tracking_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-tracking_2.12/1.3.3/util-tracking_2.12-1.3.3-sources.jar"
                         }
@@ -1864,10 +1556,6 @@
                         {
                             "name": "sjson-new-murmurhash_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/sjson-new-murmurhash_2.12/0.8.3/sjson-new-murmurhash_2.12-0.8.3.jar"
-                        },
-                        {
-                            "name": "sjson-new-murmurhash_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/sjson-new-murmurhash_2.12/0.8.3/sjson-new-murmurhash_2.12-0.8.3.jar"
                         },
                         {
                             "name": "sjson-new-murmurhash_2.12",
@@ -1888,10 +1576,6 @@
                         },
                         {
                             "name": "task-system_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/task-system_2.12/1.3.7/task-system_2.12-1.3.7.jar"
-                        },
-                        {
-                            "name": "task-system_2.12",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/task-system_2.12/1.3.7/task-system_2.12-1.3.7-sources.jar"
                         }
@@ -1906,10 +1590,6 @@
                         {
                             "name": "scala-library",
                             "path": "/home/sascha/.sbt/boot/scala-2.12.10/lib/scala-library.jar"
-                        },
-                        {
-                            "name": "scala-library",
-                            "path": "/root/.sbt/boot/scala-2.12.10/lib/scala-library.jar"
                         },
                         {
                             "name": "scala-library",
@@ -1930,10 +1610,6 @@
                         },
                         {
                             "name": "template-resolver",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/template-resolver/0.1/template-resolver-0.1.jar"
-                        },
-                        {
-                            "name": "template-resolver",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/template-resolver/0.1/template-resolver-0.1-sources.jar"
                         }
@@ -1948,10 +1624,6 @@
                         {
                             "name": "librarymanagement-ivy_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/librarymanagement-ivy_2.12/1.3.1/librarymanagement-ivy_2.12-1.3.1.jar"
-                        },
-                        {
-                            "name": "librarymanagement-ivy_2.12",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/librarymanagement-ivy_2.12/1.3.1/librarymanagement-ivy_2.12-1.3.1.jar"
                         },
                         {
                             "name": "librarymanagement-ivy_2.12",
@@ -1972,10 +1644,6 @@
                         },
                         {
                             "name": "test-agent",
-                            "path": "/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-agent/1.3.7/test-agent-1.3.7.jar"
-                        },
-                        {
-                            "name": "test-agent",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-agent/1.3.7/test-agent-1.3.7-sources.jar"
                         }
@@ -1993,10 +1661,6 @@
                         },
                         {
                             "name": "scala-library",
-                            "path": "/root/.sbt/boot/scala-2.12.10/lib/scala-library.jar"
-                        },
-                        {
-                            "name": "scala-library",
                             "classifier": "sources",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.10/scala-library-2.12.10-sources.jar"
                         }
@@ -2011,10 +1675,6 @@
                         {
                             "name": "scala-compiler",
                             "path": "/home/sascha/.sbt/boot/scala-2.12.10/lib/scala-compiler.jar"
-                        },
-                        {
-                            "name": "scala-compiler",
-                            "path": "/root/.sbt/boot/scala-2.12.10/lib/scala-compiler.jar"
                         },
                         {
                             "name": "scala-compiler",
