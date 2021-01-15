@@ -1,4 +1,3 @@
-[debug] "not up to date. inChanged = true, force = false
-[debug] Updating ProjectRef(uri("file:/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/project/"), "de-htwg-wt-gladiators-build")...
-[debug] Done updating ProjectRef(uri("file:/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/project/"), "de-htwg-wt-gladiators-build")
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
+[0m[[0m[0mdebug[0m] [0m[0m"not up to date. inChanged = true, force = false[0m
+[0m[[0m[0mdebug[0m] [0m[0mUpdating ProjectRef(uri("file:/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/project/"), "de-htwg-wt-gladiators-build")...[0m
+[0m[[0m[0minfo[0m] [0m[0mUpdating [0m
