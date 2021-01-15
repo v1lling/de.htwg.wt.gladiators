@@ -9,6 +9,7 @@
   "repository": "https://github.com/mohiva/play-silhouette-seed",
   "success_url": "/",
   "env": {
+    "PORT": 9000,
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-scala.git",
     "PLAY_CONF_FILE": "application.prod.conf",
     "PLAY_APP_SECRET": "changeme",
