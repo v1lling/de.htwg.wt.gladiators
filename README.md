@@ -6,7 +6,7 @@ This repository contains the game's web-frontend, using the Scala Play Framework
 Gladiators was created as an assignment for the courses 'Software Engineering', 'Software Architectures' and 'Web Technology' at the HTWG Konstanz.
 The corresponding lectures are held by Prof. Marco Boger.
 
-See here for the [backend part](https://github.com/VoigtSebastian/de.htwg.se.Gladiators)
+See here for the [game logic](https://github.com/VoigtSebastian/de.htwg.se.Gladiators)
 
 ## Get started
 

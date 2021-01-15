@@ -21,7 +21,8 @@ import de.htwg.se.gladiators.util.Events._
 import de.htwg.se.gladiators.util.json.CommandJson._
 import de.htwg.se.gladiators.util.json.CoordinateJson._
 import de.htwg.se.gladiators.util.json.EventsJson._
-
+import com.mohiva.play.silhouette.api.Silhouette
+import com.mohiva.play.silhouette.api.actions.SecuredRequest
 import _root_.controllers.WebSockets.GladiatorWebSocketActor
 import _root_.controllers.WebSockets.SpectatorWebSocketActor
 import akka.actor.ActorSystem
@@ -38,68 +39,67 @@ import play.api.libs.json._
 import play.api.libs.streams.ActorFlow
 import play.api.mvc.WebSocket.MessageFlowTransformer
 import play.api.mvc._
-import scala.concurrent.{ ExecutionContext, Future }
-
+import utils.auth.DefaultEnv
 @Singleton
-class GladiatorsController @Inject() (cc: ControllerComponents) (implicit ec: ExecutionContext, system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
-    val configuration = Configuration(5, 15)
-    val controller = Controller(configuration)
+class GladiatorsController @Inject() (
+  cc: ControllerComponents,
+  silhouette: Silhouette[DefaultEnv]
+)(
+  implicit
+  system: ActorSystem,
+  mat: Materializer
+) extends AbstractController(cc) {
 
-    val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
+  val configuration = Configuration(5, 15)
+  val controller = Controller(configuration)
+  // todo: We need to initialize players to call boardToString
+  // controller.namePlayerOne("one")
+  // controller.namePlayerTwo("two")
 
-    def app = Action.async {
-        Future(Ok(views.html.app("Welcome")))
-    }
+  val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
 
-    def about = Action {
-        Ok(views.html.old.about())
-    }
+  def controllerToJson = silhouette.SecuredAction {
+    Ok(Json.toJson(controller, None))
+  }
 
-    def gladiators = Action {
-        Ok(views.html.old.gladiators(controller))
-    }
-
-    def controllerToJson = Action {
-        Ok(Json.toJson(controller, None))
-    }
-
-    def processJsonCommand = Action(parse.json) { request: Request[JsValue] => {
-            readCommand(request.body) match {
-                case Failure(exception) => BadRequest(Json.toJson(jsonNotACommandError))
-                case Success(command) => controller.inputCommand(command) match {
-                    case message: ErrorMessage => BadRequest(Json.toJson(message: Events))
-                    case event: Events => Ok(Json.toJson(controller, event))
-                }
-            }
+  def processJsonCommand = Action(parse.json) { request: Request[JsValue] =>
+    {
+      readCommand(request.body) match {
+        case Failure(exception) => BadRequest(Json.toJson(jsonNotACommandError))
+        case Success(command) => controller.inputCommand(command) match {
+          case message: ErrorMessage => BadRequest(Json.toJson(message: Events))
+          case event: Events => Ok(Json.toJson(controller, event))
         }
+      }
     }
+  }
 
-    def gladiatorSelect = Action(parse.json) { position: Request[JsValue] =>
-        Try(Coordinate((position.body \ "x").as[Int], (position.body \ "y").as[Int])) match {
-            case Success(coordinate) => {
-                val gladiatorInfo = Json.obj(
-                    "gladiatorAtCoordinate" -> controller.tileOccupiedByCurrentPlayer(coordinate),
-                    "tilesAttack" -> controller.attackTiles(coordinate),
-                    "tilesMove" -> controller.moveTiles(coordinate)
-                )
-                Ok(Json.toJson(controller, gladiatorInfo))
-            }
-            case Failure(_) => BadRequest(Json.toJson(jsonNotACommandError))
-        }
+  def gladiatorSelect = Action(parse.json) { position: Request[JsValue] =>
+    Try(Coordinate((position.body \ "x").as[Int], (position.body \ "y").as[Int])) match {
+      case Success(coordinate) => {
+        val gladiatorInfo = Json.obj(
+          "gladiatorAtCoordinate" -> controller.tileOccupiedByCurrentPlayer(coordinate),
+          "tilesAttack" -> controller.attackTiles(coordinate),
+          "tilesMove" -> controller.moveTiles(coordinate)
+        )
+        Ok(Json.toJson(controller, gladiatorInfo))
+      }
+      case Failure(_) => BadRequest(Json.toJson(jsonNotACommandError))
     }
+  }
 
-    def socket = WebSocket.accept[JsValue, JsValue] { request =>
-        ActorFlow.actorRef { out =>
-            controller.gameState match {
-                case NamingPlayerOne | NamingPlayerTwo => {
-                    println("connecting player")
-                    Props(GladiatorWebSocketActor(out, controller))
-                }
-                case _ => {
-                    println("connecting spectator")
-                    Props(SpectatorWebSocketActor(out, controller))
-                }
-            }
+  def socket = WebSocket.accept[JsValue, JsValue] { request =>
+    ActorFlow.actorRef { out =>
+      controller.gameState match {
+        case NamingPlayerOne | NamingPlayerTwo => {
+          println("connecting player")
+          Props(GladiatorWebSocketActor(out, controller))
         }
+        case _ => {
+          println("connecting spectator")
+          Props(SpectatorWebSocketActor(out, controller))
+        }
+      }
     }
+  }
 }

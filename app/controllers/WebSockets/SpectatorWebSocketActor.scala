@@ -11,9 +11,9 @@ import akka.actor.ActorRef
 import play.api.libs.json.Json
 
 case class SpectatorWebSocketActor(out: ActorRef, controller: Controller) extends WebSocketsTrait {
-    listenTo(controller)
-    reactions += { case event: Events => sendJson(controller, event) }
+  listenTo(controller)
+  reactions += { case event: Events => sendJson(controller, event) }
 
-    override def receive: Actor.Receive = { case _ => out ! Json.toJson(controller, ErrorMessage("Spectators cannot enter commands"): Events)}
-    override def sendJson(controller: Controller, event: Events): Unit = out ! Json.toJson(controller, event)
+  override def receive: Actor.Receive = { case _ => out ! Json.toJson(controller, ErrorMessage("Spectators cannot enter commands"): Events) }
+  override def sendJson(controller: Controller, event: Events): Unit = out ! Json.toJson(controller, event)
 }
