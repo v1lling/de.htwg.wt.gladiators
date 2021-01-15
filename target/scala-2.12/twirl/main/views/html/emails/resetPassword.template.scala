@@ -35,7 +35,7 @@ Seq[Any](format.raw/*5.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-01-10T11:18:33.526588
+                  DATE: 2021-01-15T16:01:28.417742
                   SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/emails/resetPassword.scala.html
                   HASH: 81b9291d5fdac7c17a599b4bb3b16ede68dd57bf
                   MATRIX: 35->1|72->32|432->61|587->123|614->124|670->154|757->221|800->238|873->291

@@ -44,7 +44,7 @@ Seq[Any](format.raw/*9.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-01-10T11:18:33.447075
+                  DATE: 2021-01-15T16:01:28.311107
                   SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/activateAccount.scala.html
                   HASH: f3ffbf1f0cb9aeebc245325d6a5ec90573a6f96f
                   MATRIX: 28->1|65->32|106->67|140->95|183->132|273->170|646->231|808->300|836->302|885->342|925->344|957->349|1045->410|1094->438|1174->491|1229->525|1280->549|1306->554|1358->579|1413->613|1461->634|1599->750|1666->787

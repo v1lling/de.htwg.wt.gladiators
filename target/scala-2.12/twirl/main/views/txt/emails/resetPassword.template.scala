@@ -30,7 +30,7 @@ Seq[Any](_display_(/*4.2*/messages("email.reset.password.hello", user.name.getOr
 
               /*
                   -- GENERATED --
-                  DATE: 2021-01-10T11:18:33.509137
+                  DATE: 2021-01-15T16:01:28.383300
                   SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/emails/resetPassword.scala.txt
                   HASH: 20e040ce32e5d1d63dcf02402aef41c710d1b8db
                   MATRIX: 34->1|393->33|547->96|634->163|662->166|728->212

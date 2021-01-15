@@ -30,7 +30,7 @@ Seq[Any](_display_(/*4.2*/messages("email.activate.account.hello", user.name.get
 
               /*
                   -- GENERATED --
-                  DATE: 2021-01-10T11:18:33.536766
+                  DATE: 2021-01-15T16:01:28.427316
                   SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/emails/activateAccount.scala.txt
                   HASH: e0eedfa60f45f1c06fd86c261d667b29651aed14
                   MATRIX: 34->1|395->33|549->96|638->165|666->168|734->216

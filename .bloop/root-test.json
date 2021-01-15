@@ -350,6 +350,11 @@
                         {
                             "name": "play-ehcache_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-ehcache_2.12/2.8.0/play-ehcache_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-ehcache_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-ehcache_2.12/2.8.0/play-ehcache_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -362,6 +367,11 @@
                         {
                             "name": "error_prone_annotations",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar"
+                        },
+                        {
+                            "name": "error_prone_annotations",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2-sources.jar"
                         }
                     ]
                 },
@@ -391,6 +401,11 @@
                         {
                             "name": "mchange-commons-java",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mchange/mchange-commons-java/0.2.15/mchange-commons-java-0.2.15.jar"
+                        },
+                        {
+                            "name": "mchange-commons-java",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mchange/mchange-commons-java/0.2.15/mchange-commons-java-0.2.15-sources.jar"
                         }
                     ]
                 },
@@ -403,6 +418,11 @@
                         {
                             "name": "joda-time",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/joda-time/joda-time/2.10.1/joda-time-2.10.1.jar"
+                        },
+                        {
+                            "name": "joda-time",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/joda-time/joda-time/2.10.1/joda-time-2.10.1-sources.jar"
                         }
                     ]
                 },
@@ -466,6 +486,11 @@
                         {
                             "name": "json-smart",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/minidev/json-smart/2.3/json-smart-2.3.jar"
+                        },
+                        {
+                            "name": "json-smart",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/minidev/json-smart/2.3/json-smart-2.3-sources.jar"
                         }
                     ]
                 },
@@ -478,6 +503,11 @@
                         {
                             "name": "jwt-api",
                             "path": "/home/sascha/.cache/coursier/v1/https/jcenter.bintray.com/com/atlassian/jwt/jwt-api/2.0.5/jwt-api-2.0.5.jar"
+                        },
+                        {
+                            "name": "jwt-api",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/jcenter.bintray.com/com/atlassian/jwt/jwt-api/2.0.5/jwt-api-2.0.5-sources.jar"
                         }
                     ]
                 },
@@ -558,6 +588,11 @@
                         {
                             "name": "play-mailer_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-mailer_2.12/7.0.1/play-mailer_2.12-7.0.1.jar"
+                        },
+                        {
+                            "name": "play-mailer_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-mailer_2.12/7.0.1/play-mailer_2.12-7.0.1-sources.jar"
                         }
                     ]
                 },
@@ -570,6 +605,11 @@
                         {
                             "name": "akka-parsing_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.1.11/akka-parsing_2.12-10.1.11.jar"
+                        },
+                        {
+                            "name": "akka-parsing_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.1.11/akka-parsing_2.12-10.1.11-sources.jar"
                         }
                     ]
                 },
@@ -582,6 +622,11 @@
                         {
                             "name": "c3p0",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mchange/c3p0/0.9.5.4/c3p0-0.9.5.4.jar"
+                        },
+                        {
+                            "name": "c3p0",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mchange/c3p0/0.9.5.4/c3p0-0.9.5.4-sources.jar"
                         }
                     ]
                 },
@@ -594,6 +639,11 @@
                         {
                             "name": "checker-qual",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar"
+                        },
+                        {
+                            "name": "checker-qual",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1-sources.jar"
                         }
                     ]
                 },
@@ -657,6 +707,11 @@
                         {
                             "name": "play_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.12/2.8.0/play_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.12/2.8.0/play_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -737,6 +792,11 @@
                         {
                             "name": "slf4j-api",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.29/slf4j-api-1.7.29.jar"
+                        },
+                        {
+                            "name": "slf4j-api",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.29/slf4j-api-1.7.29-sources.jar"
                         }
                     ]
                 },
@@ -783,6 +843,11 @@
                         {
                             "name": "play-cache_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-cache_2.12/2.8.0/play-cache_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-cache_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-cache_2.12/2.8.0/play-cache_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -795,6 +860,11 @@
                         {
                             "name": "akka-protobuf-v3_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-protobuf-v3_2.12/2.6.1/akka-protobuf-v3_2.12-2.6.1.jar"
+                        },
+                        {
+                            "name": "akka-protobuf-v3_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-protobuf-v3_2.12/2.6.1/akka-protobuf-v3_2.12-2.6.1-sources.jar"
                         }
                     ]
                 },
@@ -841,6 +911,11 @@
                         {
                             "name": "jBCrypt",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/de/svenkubiak/jBCrypt/0.4.1/jBCrypt-0.4.1.jar"
+                        },
+                        {
+                            "name": "jBCrypt",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/de/svenkubiak/jBCrypt/0.4.1/jBCrypt-0.4.1-sources.jar"
                         }
                     ]
                 },
@@ -904,6 +979,11 @@
                         {
                             "name": "jackson-module-parameter-names",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-parameter-names/2.10.1/jackson-module-parameter-names-2.10.1.jar"
+                        },
+                        {
+                            "name": "jackson-module-parameter-names",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-parameter-names/2.10.1/jackson-module-parameter-names-2.10.1-sources.jar"
                         }
                     ]
                 },
@@ -916,6 +996,11 @@
                         {
                             "name": "objenesis",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6.jar"
+                        },
+                        {
+                            "name": "objenesis",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar"
                         }
                     ]
                 },
@@ -928,6 +1013,11 @@
                         {
                             "name": "jakarta.activation-api",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.jar"
+                        },
+                        {
+                            "name": "jakarta.activation-api",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1-sources.jar"
                         }
                     ]
                 },
@@ -940,6 +1030,11 @@
                         {
                             "name": "play-logback_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-logback_2.12/2.8.0/play-logback_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-logback_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-logback_2.12/2.8.0/play-logback_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -952,6 +1047,11 @@
                         {
                             "name": "play-silhouette-password-bcrypt_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-password-bcrypt_2.12/6.1.1/play-silhouette-password-bcrypt_2.12-6.1.1.jar"
+                        },
+                        {
+                            "name": "play-silhouette-password-bcrypt_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-password-bcrypt_2.12/6.1.1/play-silhouette-password-bcrypt_2.12-6.1.1-sources.jar"
                         }
                     ]
                 },
@@ -998,6 +1098,11 @@
                         {
                             "name": "jackson-module-paranamer",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.10.1/jackson-module-paranamer-2.10.1.jar"
+                        },
+                        {
+                            "name": "jackson-module-paranamer",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.10.1/jackson-module-paranamer-2.10.1-sources.jar"
                         }
                     ]
                 },
@@ -1078,6 +1183,11 @@
                         {
                             "name": "jquery",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/jquery/3.2.1/jquery-3.2.1.jar"
+                        },
+                        {
+                            "name": "jquery",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/jquery/3.2.1/jquery-3.2.1-sources.jar"
                         }
                     ]
                 },
@@ -1107,6 +1217,11 @@
                         {
                             "name": "bootstrap",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/bootstrap/4.4.1/bootstrap-4.4.1.jar"
+                        },
+                        {
+                            "name": "bootstrap",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/bootstrap/4.4.1/bootstrap-4.4.1-sources.jar"
                         }
                     ]
                 },
@@ -1119,6 +1234,11 @@
                         {
                             "name": "webjars-play_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/webjars-play_2.12/2.8.0/webjars-play_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "webjars-play_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/webjars-play_2.12/2.8.0/webjars-play_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -1165,6 +1285,11 @@
                         {
                             "name": "classgraph",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/io/github/classgraph/classgraph/4.8.53/classgraph-4.8.53.jar"
+                        },
+                        {
+                            "name": "classgraph",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/io/github/classgraph/classgraph/4.8.53/classgraph-4.8.53-sources.jar"
                         }
                     ]
                 },
@@ -1177,6 +1302,11 @@
                         {
                             "name": "akka-serialization-jackson_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-serialization-jackson_2.12/2.6.1/akka-serialization-jackson_2.12-2.6.1.jar"
+                        },
+                        {
+                            "name": "akka-serialization-jackson_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-serialization-jackson_2.12/2.6.1/akka-serialization-jackson_2.12-2.6.1-sources.jar"
                         }
                     ]
                 },
@@ -1189,6 +1319,11 @@
                         {
                             "name": "specs2-mock_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-mock_2.12/4.8.1/specs2-mock_2.12-4.8.1.jar"
+                        },
+                        {
+                            "name": "specs2-mock_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-mock_2.12/4.8.1/specs2-mock_2.12-4.8.1-sources.jar"
                         }
                     ]
                 },
@@ -1252,6 +1387,11 @@
                         {
                             "name": "ehcache",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6.jar"
+                        },
+                        {
+                            "name": "ehcache",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6-sources.jar"
                         }
                     ]
                 },
@@ -1281,6 +1421,11 @@
                         {
                             "name": "activation",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/javax/activation/activation/1.1/activation-1.1.jar"
+                        },
+                        {
+                            "name": "activation",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/javax/activation/activation/1.1/activation-1.1-sources.jar"
                         }
                     ]
                 },
@@ -1310,6 +1455,11 @@
                         {
                             "name": "commons-email",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-email/1.5/commons-email-1.5.jar"
+                        },
+                        {
+                            "name": "commons-email",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-email/1.5/commons-email-1.5-sources.jar"
                         }
                     ]
                 },
@@ -1322,6 +1472,11 @@
                         {
                             "name": "javax.mail",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/sun/mail/javax.mail/1.5.6/javax.mail-1.5.6.jar"
+                        },
+                        {
+                            "name": "javax.mail",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/sun/mail/javax.mail/1.5.6/javax.mail-1.5.6-sources.jar"
                         }
                     ]
                 },
@@ -1380,6 +1535,11 @@
                         {
                             "name": "akka-slf4j_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-slf4j_2.12/2.6.1/akka-slf4j_2.12-2.6.1.jar"
+                        },
+                        {
+                            "name": "akka-slf4j_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-slf4j_2.12/2.6.1/akka-slf4j_2.12-2.6.1-sources.jar"
                         }
                     ]
                 },
@@ -1392,6 +1552,11 @@
                         {
                             "name": "play-bootstrap-core_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/adrianhurt/play-bootstrap-core_2.12/1.5.1-P27/play-bootstrap-core_2.12-1.5.1-P27.jar"
+                        },
+                        {
+                            "name": "play-bootstrap-core_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/adrianhurt/play-bootstrap-core_2.12/1.5.1-P27/play-bootstrap-core_2.12-1.5.1-P27-sources.jar"
                         }
                     ]
                 },
@@ -1416,6 +1581,11 @@
                         {
                             "name": "filters-helpers_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/filters-helpers_2.12/2.8.0/filters-helpers_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "filters-helpers_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/filters-helpers_2.12/2.8.0/filters-helpers_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -1428,6 +1598,11 @@
                         {
                             "name": "specs2-core_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-core_2.12/4.8.1/specs2-core_2.12-4.8.1.jar"
+                        },
+                        {
+                            "name": "specs2-core_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-core_2.12/4.8.1/specs2-core_2.12-4.8.1-sources.jar"
                         }
                     ]
                 },
@@ -1440,6 +1615,11 @@
                         {
                             "name": "jcache",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/ehcache/jcache/1.0.1/jcache-1.0.1.jar"
+                        },
+                        {
+                            "name": "jcache",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/ehcache/jcache/1.0.1/jcache-1.0.1-sources.jar"
                         }
                     ]
                 },
@@ -1452,6 +1632,11 @@
                         {
                             "name": "play-exceptions",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-exceptions/2.8.0/play-exceptions-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-exceptions",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-exceptions/2.8.0/play-exceptions-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -1493,6 +1678,11 @@
                         {
                             "name": "specs2-fp_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-fp_2.12/4.8.1/specs2-fp_2.12-4.8.1.jar"
+                        },
+                        {
+                            "name": "specs2-fp_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-fp_2.12/4.8.1/specs2-fp_2.12-4.8.1-sources.jar"
                         }
                     ]
                 },
@@ -1505,6 +1695,11 @@
                         {
                             "name": "accessors-smart",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar"
+                        },
+                        {
+                            "name": "accessors-smart",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/minidev/accessors-smart/1.2/accessors-smart-1.2-sources.jar"
                         }
                     ]
                 },
@@ -1534,6 +1729,11 @@
                         {
                             "name": "build-link",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/build-link/2.8.0/build-link-2.8.0.jar"
+                        },
+                        {
+                            "name": "build-link",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/build-link/2.8.0/build-link-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -1546,6 +1746,11 @@
                         {
                             "name": "play-guice_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-guice_2.12/2.8.0/play-guice_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-guice_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-guice_2.12/2.8.0/play-guice_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -1558,6 +1763,11 @@
                         {
                             "name": "junit",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.jar"
+                        },
+                        {
+                            "name": "junit",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/junit/junit/4.12/junit-4.12-sources.jar"
                         }
                     ]
                 },
@@ -1604,6 +1814,11 @@
                         {
                             "name": "protobuf-java",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.10.0/protobuf-java-3.10.0.jar"
+                        },
+                        {
+                            "name": "protobuf-java",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.10.0/protobuf-java-3.10.0-sources.jar"
                         }
                     ]
                 },
@@ -1650,6 +1865,11 @@
                         {
                             "name": "akka-http-core_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.1.11/akka-http-core_2.12-10.1.11.jar"
+                        },
+                        {
+                            "name": "akka-http-core_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.1.11/akka-http-core_2.12-10.1.11-sources.jar"
                         }
                     ]
                 },
@@ -1696,6 +1916,11 @@
                         {
                             "name": "hamcrest",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar"
+                        },
+                        {
+                            "name": "hamcrest",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/hamcrest/hamcrest/2.2/hamcrest-2.2-sources.jar"
                         }
                     ]
                 },
@@ -1725,6 +1950,11 @@
                         {
                             "name": "specs2-matcher_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-matcher_2.12/4.8.1/specs2-matcher_2.12-4.8.1.jar"
+                        },
+                        {
+                            "name": "specs2-matcher_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-matcher_2.12/4.8.1/specs2-matcher_2.12-4.8.1-sources.jar"
                         }
                     ]
                 },
@@ -1754,6 +1984,11 @@
                         {
                             "name": "ficus_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/iheart/ficus_2.12/1.4.7/ficus_2.12-1.4.7.jar"
+                        },
+                        {
+                            "name": "ficus_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/iheart/ficus_2.12/1.4.7/ficus_2.12-1.4.7-sources.jar"
                         }
                     ]
                 },
@@ -1766,6 +2001,11 @@
                         {
                             "name": "guava",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/guava/guava/28.1-jre/guava-28.1-jre.jar"
+                        },
+                        {
+                            "name": "guava",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/guava/guava/28.1-jre/guava-28.1-jre-sources.jar"
                         }
                     ]
                 },
@@ -1778,6 +2018,11 @@
                         {
                             "name": "play-server_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-server_2.12/2.8.0/play-server_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-server_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-server_2.12/2.8.0/play-server_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -1926,6 +2171,11 @@
                         {
                             "name": "play-silhouette-testkit_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-testkit_2.12/6.1.1/play-silhouette-testkit_2.12-6.1.1.jar"
+                        },
+                        {
+                            "name": "play-silhouette-testkit_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-testkit_2.12/6.1.1/play-silhouette-testkit_2.12-6.1.1-sources.jar"
                         }
                     ]
                 },
@@ -1938,6 +2188,11 @@
                         {
                             "name": "scala-guice_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/codingwell/scala-guice_2.12/4.2.6/scala-guice_2.12-4.2.6.jar"
+                        },
+                        {
+                            "name": "scala-guice_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/codingwell/scala-guice_2.12/4.2.6/scala-guice_2.12-4.2.6-sources.jar"
                         }
                     ]
                 },
@@ -1950,6 +2205,11 @@
                         {
                             "name": "akka-actor-typed_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-actor-typed_2.12/2.6.1/akka-actor-typed_2.12-2.6.1.jar"
+                        },
+                        {
+                            "name": "akka-actor-typed_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-actor-typed_2.12/2.6.1/akka-actor-typed_2.12-2.6.1-sources.jar"
                         }
                     ]
                 },
@@ -1996,6 +2256,11 @@
                         {
                             "name": "googleauth",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/warrenstrange/googleauth/1.2.0/googleauth-1.2.0.jar"
+                        },
+                        {
+                            "name": "googleauth",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/warrenstrange/googleauth/1.2.0/googleauth-1.2.0-sources.jar"
                         }
                     ]
                 },
@@ -2025,6 +2290,11 @@
                         {
                             "name": "play-openid_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-openid_2.12/2.7.3/play-openid_2.12-2.7.3.jar"
+                        },
+                        {
+                            "name": "play-openid_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-openid_2.12/2.7.3/play-openid_2.12-2.7.3-sources.jar"
                         }
                     ]
                 },
@@ -2071,6 +2341,11 @@
                         {
                             "name": "guice",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/inject/guice/4.2.2/guice-4.2.2.jar"
+                        },
+                        {
+                            "name": "guice",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/inject/guice/4.2.2/guice-4.2.2-sources.jar"
                         }
                     ]
                 },
@@ -2083,6 +2358,11 @@
                         {
                             "name": "byte-buddy",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10.jar"
+                        },
+                        {
+                            "name": "byte-buddy",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10-sources.jar"
                         }
                     ]
                 },
@@ -2129,6 +2409,11 @@
                         {
                             "name": "jwt-core",
                             "path": "/home/sascha/.cache/coursier/v1/https/jcenter.bintray.com/com/atlassian/jwt/jwt-core/2.0.5/jwt-core-2.0.5.jar"
+                        },
+                        {
+                            "name": "jwt-core",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/jcenter.bintray.com/com/atlassian/jwt/jwt-core/2.0.5/jwt-core-2.0.5-sources.jar"
                         }
                     ]
                 },
@@ -2141,6 +2426,11 @@
                         {
                             "name": "specs2-junit_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-junit_2.12/4.8.1/specs2-junit_2.12-4.8.1.jar"
+                        },
+                        {
+                            "name": "specs2-junit_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-junit_2.12/4.8.1/specs2-junit_2.12-4.8.1-sources.jar"
                         }
                     ]
                 },
@@ -2170,6 +2460,11 @@
                         {
                             "name": "jcl-over-slf4j",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.29/jcl-over-slf4j-1.7.29.jar"
+                        },
+                        {
+                            "name": "jcl-over-slf4j",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.29/jcl-over-slf4j-1.7.29-sources.jar"
                         }
                     ]
                 },
@@ -2182,6 +2477,11 @@
                         {
                             "name": "quartz",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/quartz-scheduler/quartz/2.3.2/quartz-2.3.2.jar"
+                        },
+                        {
+                            "name": "quartz",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/quartz-scheduler/quartz/2.3.2/quartz-2.3.2-sources.jar"
                         }
                     ]
                 },
@@ -2194,6 +2494,11 @@
                         {
                             "name": "play-json-joda_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-json-joda_2.12/2.7.4/play-json-joda_2.12-2.7.4.jar"
+                        },
+                        {
+                            "name": "play-json-joda_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-json-joda_2.12/2.7.4/play-json-joda_2.12-2.7.4-sources.jar"
                         }
                     ]
                 },
@@ -2206,6 +2511,11 @@
                         {
                             "name": "play-akka-http-server_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-akka-http-server_2.12/2.8.0/play-akka-http-server_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-akka-http-server_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-akka-http-server_2.12/2.8.0/play-akka-http-server_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -2235,6 +2545,11 @@
                         {
                             "name": "play-mailer-guice_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-mailer-guice_2.12/7.0.1/play-mailer-guice_2.12-7.0.1.jar"
+                        },
+                        {
+                            "name": "play-mailer-guice_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-mailer-guice_2.12/7.0.1/play-mailer-guice_2.12-7.0.1-sources.jar"
                         }
                     ]
                 },
@@ -2247,6 +2562,11 @@
                         {
                             "name": "play-silhouette_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette_2.12/6.1.1/play-silhouette_2.12-6.1.1.jar"
+                        },
+                        {
+                            "name": "play-silhouette_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette_2.12/6.1.1/play-silhouette_2.12-6.1.1-sources.jar"
                         }
                     ]
                 },
@@ -2276,6 +2596,11 @@
                         {
                             "name": "akka-stream_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.6.1/akka-stream_2.12-2.6.1.jar"
+                        },
+                        {
+                            "name": "akka-stream_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.6.1/akka-stream_2.12-2.6.1-sources.jar"
                         }
                     ]
                 },
@@ -2288,6 +2613,11 @@
                         {
                             "name": "specs2-common_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-common_2.12/4.8.1/specs2-common_2.12-4.8.1.jar"
+                        },
+                        {
+                            "name": "specs2-common_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/specs2/specs2-common_2.12/4.8.1/specs2-common_2.12-4.8.1-sources.jar"
                         }
                     ]
                 },
@@ -2317,6 +2647,11 @@
                         {
                             "name": "play-bootstrap_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/adrianhurt/play-bootstrap_2.12/1.5.1-P27-B4/play-bootstrap_2.12-1.5.1-P27-B4.jar"
+                        },
+                        {
+                            "name": "play-bootstrap_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/adrianhurt/play-bootstrap_2.12/1.5.1-P27-B4/play-bootstrap_2.12-1.5.1-P27-B4-sources.jar"
                         }
                     ]
                 },
@@ -2329,6 +2664,11 @@
                         {
                             "name": "guice-assistedinject",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/4.2.2/guice-assistedinject-4.2.2.jar"
+                        },
+                        {
+                            "name": "guice-assistedinject",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/4.2.2/guice-assistedinject-4.2.2-sources.jar"
                         }
                     ]
                 },
@@ -2341,6 +2681,11 @@
                         {
                             "name": "nimbus-jose-jwt",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1.jar"
+                        },
+                        {
+                            "name": "nimbus-jose-jwt",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.41.1/nimbus-jose-jwt-4.41.1-sources.jar"
                         }
                     ]
                 },
@@ -2421,6 +2766,11 @@
                         {
                             "name": "scala-java8-compat_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.9.0/scala-java8-compat_2.12-0.9.0.jar"
+                        },
+                        {
+                            "name": "scala-java8-compat_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.9.0/scala-java8-compat_2.12-0.9.0-sources.jar"
                         }
                     ]
                 },
@@ -2450,6 +2800,11 @@
                         {
                             "name": "jul-to-slf4j",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.29/jul-to-slf4j-1.7.29.jar"
+                        },
+                        {
+                            "name": "jul-to-slf4j",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.29/jul-to-slf4j-1.7.29-sources.jar"
                         }
                     ]
                 },
@@ -2496,6 +2851,11 @@
                         {
                             "name": "akka-quartz-scheduler_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/enragedginger/akka-quartz-scheduler_2.12/1.8.3-akka-2.6.x/akka-quartz-scheduler_2.12-1.8.3-akka-2.6.x.jar"
+                        },
+                        {
+                            "name": "akka-quartz-scheduler_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/enragedginger/akka-quartz-scheduler_2.12/1.8.3-akka-2.6.x/akka-quartz-scheduler_2.12-1.8.3-akka-2.6.x-sources.jar"
                         }
                     ]
                 },
@@ -2542,6 +2902,11 @@
                         {
                             "name": "hamcrest-core",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar"
+                        },
+                        {
+                            "name": "hamcrest-core",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2-sources.jar"
                         }
                     ]
                 },
@@ -2554,6 +2919,11 @@
                         {
                             "name": "akka-actor_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.6.1/akka-actor_2.12-2.6.1.jar"
+                        },
+                        {
+                            "name": "akka-actor_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.6.1/akka-actor_2.12-2.6.1-sources.jar"
                         }
                     ]
                 },
@@ -2566,6 +2936,11 @@
                         {
                             "name": "ssl-config-core_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.4.1/ssl-config-core_2.12-0.4.1.jar"
+                        },
+                        {
+                            "name": "ssl-config-core_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.4.1/ssl-config-core_2.12-0.4.1-sources.jar"
                         }
                     ]
                 },
@@ -2578,6 +2953,11 @@
                         {
                             "name": "webjars-locator",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/webjars-locator/0.38/webjars-locator-0.38.jar"
+                        },
+                        {
+                            "name": "webjars-locator",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/webjars-locator/0.38/webjars-locator-0.38-sources.jar"
                         }
                     ]
                 },
@@ -2607,6 +2987,11 @@
                         {
                             "name": "webjars-locator-core",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/webjars-locator-core/0.43/webjars-locator-core-0.43.jar"
+                        },
+                        {
+                            "name": "webjars-locator-core",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/webjars/webjars-locator-core/0.43/webjars-locator-core-0.43-sources.jar"
                         }
                     ]
                 },
@@ -2636,6 +3021,11 @@
                         {
                             "name": "jcip-annotations",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/stephenc/jcip/jcip-annotations/1.0-1/jcip-annotations-1.0-1.jar"
+                        },
+                        {
+                            "name": "jcip-annotations",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/stephenc/jcip/jcip-annotations/1.0-1/jcip-annotations-1.0-1-sources.jar"
                         }
                     ]
                 },
@@ -2648,6 +3038,11 @@
                         {
                             "name": "jakarta.xml.bind-api",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2.jar"
+                        },
+                        {
+                            "name": "jakarta.xml.bind-api",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2-sources.jar"
                         }
                     ]
                 },
@@ -2660,6 +3055,11 @@
                         {
                             "name": "byte-buddy-agent",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10.jar"
+                        },
+                        {
+                            "name": "byte-buddy-agent",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10-sources.jar"
                         }
                     ]
                 },
@@ -2689,6 +3089,11 @@
                         {
                             "name": "play-silhouette-crypto-jca_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-crypto-jca_2.12/6.1.1/play-silhouette-crypto-jca_2.12-6.1.1.jar"
+                        },
+                        {
+                            "name": "play-silhouette-crypto-jca_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-crypto-jca_2.12/6.1.1/play-silhouette-crypto-jca_2.12-6.1.1-sources.jar"
                         }
                     ]
                 },
@@ -2701,6 +3106,11 @@
                         {
                             "name": "play-specs2_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-specs2_2.12/2.8.0/play-specs2_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-specs2_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-specs2_2.12/2.8.0/play-specs2_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -2713,6 +3123,11 @@
                         {
                             "name": "play-streams_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-streams_2.12/2.8.0/play-streams_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-streams_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-streams_2.12/2.8.0/play-streams_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -2725,6 +3140,11 @@
                         {
                             "name": "play-test_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-test_2.12/2.8.0/play-test_2.12-2.8.0.jar"
+                        },
+                        {
+                            "name": "play-test_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-test_2.12/2.8.0/play-test_2.12-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -2737,6 +3157,11 @@
                         {
                             "name": "bcprov-jdk15on",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60.jar"
+                        },
+                        {
+                            "name": "bcprov-jdk15on",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60-sources.jar"
                         }
                     ]
                 },
@@ -2766,6 +3191,11 @@
                         {
                             "name": "jackson-dataformat-cbor",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.10.1/jackson-dataformat-cbor-2.10.1.jar"
+                        },
+                        {
+                            "name": "jackson-dataformat-cbor",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.10.1/jackson-dataformat-cbor-2.10.1-sources.jar"
                         }
                     ]
                 },
@@ -2778,6 +3208,11 @@
                         {
                             "name": "play-silhouette-totp_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-totp_2.12/6.1.1/play-silhouette-totp_2.12-6.1.1.jar"
+                        },
+                        {
+                            "name": "play-silhouette-totp_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-totp_2.12/6.1.1/play-silhouette-totp_2.12-6.1.1-sources.jar"
                         }
                     ]
                 },
@@ -2807,6 +3242,11 @@
                         {
                             "name": "asm",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar"
+                        },
+                        {
+                            "name": "asm",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/ow2/asm/asm/5.0.4/asm-5.0.4-sources.jar"
                         }
                     ]
                 },
@@ -2819,6 +3259,11 @@
                         {
                             "name": "bcpkix-jdk15on",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60.jar"
+                        },
+                        {
+                            "name": "bcpkix-jdk15on",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60-sources.jar"
                         }
                     ]
                 },
@@ -2848,6 +3293,11 @@
                         {
                             "name": "play-silhouette-persistence_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-persistence_2.12/6.1.1/play-silhouette-persistence_2.12-6.1.1.jar"
+                        },
+                        {
+                            "name": "play-silhouette-persistence_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/mohiva/play-silhouette-persistence_2.12/6.1.1/play-silhouette-persistence_2.12-6.1.1-sources.jar"
                         }
                     ]
                 },
@@ -2877,6 +3327,11 @@
                         {
                             "name": "animal-sniffer-annotations",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/codehaus/mojo/animal-sniffer-annotations/1.18/animal-sniffer-annotations-1.18.jar"
+                        },
+                        {
+                            "name": "animal-sniffer-annotations",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/codehaus/mojo/animal-sniffer-annotations/1.18/animal-sniffer-annotations-1.18-sources.jar"
                         }
                     ]
                 },
@@ -2974,6 +3429,11 @@
                         {
                             "name": "jackson-module-scala_2.12",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-scala_2.12/2.10.1/jackson-module-scala_2.12-2.10.1.jar"
+                        },
+                        {
+                            "name": "jackson-module-scala_2.12",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-scala_2.12/2.10.1/jackson-module-scala_2.12-2.10.1-sources.jar"
                         }
                     ]
                 },
@@ -2986,6 +3446,11 @@
                         {
                             "name": "mockito-core",
                             "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/mockito/mockito-core/3.1.0/mockito-core-3.1.0.jar"
+                        },
+                        {
+                            "name": "mockito-core",
+                            "classifier": "sources",
+                            "path": "/home/sascha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/mockito/mockito-core/3.1.0/mockito-core-3.1.0-sources.jar"
                         }
                     ]
                 },

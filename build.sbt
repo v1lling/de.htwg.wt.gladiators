@@ -2,6 +2,7 @@ import com.typesafe.sbt.SbtScalariform._
 
 import scalariform.formatter.preferences._
 
+herokuAppName in Compile := "gladiators-game"
 name := "play-silhouette-seed"
 organization := "de.htwg"
 version := "6.0.0"

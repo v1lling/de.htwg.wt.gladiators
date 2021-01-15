@@ -2,5 +2,5 @@
 logLevel := Level.Warn
 
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.8.0")
-
+addSbtPlugin("com.heroku" % "sbt-heroku" % "2.1.4")
 addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.8.2")

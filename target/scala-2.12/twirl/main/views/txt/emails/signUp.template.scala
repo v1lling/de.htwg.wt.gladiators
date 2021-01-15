@@ -30,7 +30,7 @@ Seq[Any](_display_(/*4.2*/messages("email.sign.up.hello", user.name.getOrElse("u
 
               /*
                   -- GENERATED --
-                  DATE: 2021-01-10T11:18:33.512938
+                  DATE: 2021-01-15T16:01:28.391073
                   SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/emails/signUp.scala.txt
                   HASH: 98e25310caa4973ebb569176afaaa73c814c2a5a
                   MATRIX: 34->1|386->33|540->96|620->156|648->159|707->198

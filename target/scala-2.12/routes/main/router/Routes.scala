@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/conf/routes
-// @DATE:Sun Jan 10 10:49:14 CET 2021
+// @DATE:Fri Jan 15 16:01:28 CET 2021
 
 package router
 

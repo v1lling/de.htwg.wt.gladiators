@@ -35,7 +35,7 @@ Seq[Any](format.raw/*5.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-01-10T11:18:33.517549
+                  DATE: 2021-01-15T16:01:28.399562
                   SOURCE: /home/sascha/FH/Web-Technologien/de.htwg.wt.gladiators/app/views/emails/activateAccount.scala.html
                   HASH: 262b54a39d94bdde717d74f5f4932696e772dc30
                   MATRIX: 35->1|72->32|434->61|589->123|616->124|672->154|761->223|804->240|879->295
