@@ -26,7 +26,7 @@ class CustomSecuredErrorHandler @Inject() (val messagesApi: MessagesApi) extends
    */
   override def onNotAuthenticated(implicit request: RequestHeader) = {
     //Future.successful(Redirect(Calls.signin))
-    Status(401)("You have to be logged in to access this page")
+    Future.successful(Status(401)("You have to be logged in to access this page"))
   }
 
   /**
@@ -39,6 +39,6 @@ class CustomSecuredErrorHandler @Inject() (val messagesApi: MessagesApi) extends
    */
   override def onNotAuthorized(implicit request: RequestHeader) = {
     //Future.successful(Redirect(Calls.signin).flashing("error" -> Messages("access.denied")))
-    Status(401)("You are not authorized to access this page")
+    Future.successful(Status(401)("You are not authorized to access this page"))
   }
 }
