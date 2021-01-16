@@ -56,7 +56,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
       if (config.hasPathOrNull(path)) {
         if (config.getIsNull(path))
           Some(Cookie.SameSite.parse("None"))
-          //Some(None)
+        //Some(None)
         else {
           Some(Cookie.SameSite.parse(config.getString(path)))
         }

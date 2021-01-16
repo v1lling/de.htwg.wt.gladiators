@@ -62,8 +62,8 @@ class SignInController @Inject() (
         }.recover {
           case _: ProviderException =>
             println("eror")
-            new IdentityNotFoundException("Couldn't find user")
             //Redirect(Calls.signin).flashing("error" -> Messages("invalid.credentials"))
+            Status(401)("Could not find user")
         }
       }
     )
