@@ -270,7 +270,8 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
     configuration: Configuration,
     clock: Clock): AuthenticatorService[CookieAuthenticator] = {
 
-    val config = configuration.underlying.as[CookieAuthenticatorSettings]("silhouette.authenticator")
+    var config = configuration.underlying.as[CookieAuthenticatorSettings]("silhouette.authenticator")
+    print(config)
     val authenticatorEncoder = new CrypterAuthenticatorEncoder(crypter)
 
     new CookieAuthenticatorService(config, None, signer, cookieHeaderEncoding, authenticatorEncoder, fingerprintGenerator, idGenerator, clock)
