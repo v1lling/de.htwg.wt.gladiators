@@ -32,6 +32,7 @@ POST        /password/change                 controllers.ChangePasswordControlle
 GET         /account/email/:email            controllers.ActivateAccountController.send(email: String)
 GET         /account/activate/:token         controllers.ActivateAccountController.activate(token: java.util.UUID)
 
+GET     /signedIn                       controllers.GladiatorsController.signedIn
 POST    /gladiators/api/command         controllers.GladiatorsController.processJsonCommand
 POST    /gladiators/api/gladiatorSelect controllers.GladiatorsController.gladiatorSelect
 GET     /json                           controllers.GladiatorsController.controllerToJson

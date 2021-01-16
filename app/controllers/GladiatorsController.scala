@@ -58,6 +58,11 @@ class GladiatorsController @Inject() (
 
   val jsonNotACommandError: Events = Events.ErrorMessage("Command could not be parsed")
 
+  // Test if user is loggedIn. Responses implicitly with 303 if user is not logged in
+  def signedIn = silhouette.SecuredAction {
+    Ok("You are logged in! Good job bro! You are a hero!")
+  }
+
   def controllerToJson = silhouette.SecuredAction {
     Ok(Json.toJson(controller, None))
   }
