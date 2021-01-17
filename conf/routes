@@ -43,5 +43,5 @@ GET         /assets/*file                    controllers.Assets.versioned(file)
 
 ->          /webjars                         webjars.Routes
 
-GET         /*file                           controllers.Assets.at(path="/public/frontend", file)
 GET         /frontend/*file                  controllers.Assets.at(path="/public/frontend", file)
+GET         /*file                           controllers.Assets.at(path="/public/frontend", file)
