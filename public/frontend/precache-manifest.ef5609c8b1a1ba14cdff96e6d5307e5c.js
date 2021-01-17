@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "20394073ba62da89a8e9",
-    "url": "/frontend/css/app.ed44f67e.css"
+    "revision": "b5154cc6ae19e453f08a",
+    "url": "/frontend/css/app.588ab89f.css"
   },
   {
     "revision": "7cd2caa1d6ce44072925",
@@ -60,19 +60,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend/img/shield_transparent.png"
   },
   {
-    "revision": "a02664e1718fa277bd46c2731b45be28",
+    "revision": "fb063016d17a382b35054d44e4c228fb",
     "url": "/frontend/index.html"
   },
   {
-    "revision": "20394073ba62da89a8e9",
-    "url": "/frontend/js/app.58d15f86.js"
+    "revision": "b5154cc6ae19e453f08a",
+    "url": "/frontend/js/app.ea8ca213.js"
   },
   {
     "revision": "7cd2caa1d6ce44072925",
     "url": "/frontend/js/chunk-vendors.02aa7521.js"
   },
   {
-    "revision": "86dff26aa5bfc1dcd656b0dbba746411",
+    "revision": "a8a69e2d580c2c4b25934effb6019cdd",
     "url": "/frontend/manifest.json"
   },
   {
