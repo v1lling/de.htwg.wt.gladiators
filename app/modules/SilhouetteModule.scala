@@ -54,7 +54,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
   implicit val sameSiteReader: ValueReader[Option[Option[Cookie.SameSite]]] =
     (config: Config, path: String) => {
       Some(Cookie.SameSite.parse("None"))
-  }
+    }
 
   /**
    * Configures the module.
@@ -263,7 +263,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
 
     var config = configuration.underlying.as[CookieAuthenticatorSettings]("silhouette.authenticator")
     print(config)
-    val newConfig = config.copy(sameSite = "None")
+    val newConfig = config.copy(sameSite = Some(Cookie.SameSite.parse("None")))
     val authenticatorEncoder = new CrypterAuthenticatorEncoder(crypter)
 
     new CookieAuthenticatorService(newConfig, None, signer, cookieHeaderEncoding, authenticatorEncoder, fingerprintGenerator, idGenerator, clock)
