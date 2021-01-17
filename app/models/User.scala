@@ -48,9 +48,9 @@ object User {
       Json.obj(
         "userID" -> user.userID,
         "firstName" -> user.firstName,
-        "lastName": user.lastName,
-        "fullName": user.fullName,
-        "email": user.email
+        "lastName" -> user.lastName,
+        "fullName" -> user.fullName,
+        "email" -> user.email
       )
     }
   }
