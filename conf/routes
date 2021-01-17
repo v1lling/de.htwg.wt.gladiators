@@ -32,7 +32,8 @@ POST        /password/change                 controllers.ChangePasswordControlle
 GET         /account/email/:email            controllers.ActivateAccountController.send(email: String)
 GET         /account/activate/:token         controllers.ActivateAccountController.activate(token: java.util.UUID)
 
-GET     /signedIn                       controllers.GladiatorsController.signedIn
+GET     /frontend                       controllers.GladiatorsFrontendController.frontend
+GET     /frontend/*file                 controllers.Assets.at(path="/public/frontend", file)
 POST    /gladiators/api/command         controllers.GladiatorsController.processJsonCommand
 POST    /gladiators/api/gladiatorSelect controllers.GladiatorsController.gladiatorSelect
 GET     /json                           controllers.GladiatorsController.controllerToJson

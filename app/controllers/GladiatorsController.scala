@@ -40,6 +40,10 @@ import play.api.libs.streams.ActorFlow
 import play.api.mvc.WebSocket.MessageFlowTransformer
 import play.api.mvc._
 import utils.auth.DefaultEnv
+import java.io.File
+import java.nio.file.NoSuchFileException
+import scala.concurrent.{ ExecutionContext, Future }
+
 @Singleton
 class GladiatorsController @Inject() (
   cc: ControllerComponents,
@@ -105,6 +109,25 @@ class GladiatorsController @Inject() (
           Props(SpectatorWebSocketActor(out, controller))
         }
       }
+    }
+  }
+}
+
+@Singleton
+class GladiatorsFrontendController @Inject() (
+  cc: ControllerComponents,
+  silhouette: Silhouette[DefaultEnv]
+)(
+  implicit
+  ex: ExecutionContext,
+  system: ActorSystem,
+  mat: Materializer
+) extends AbstractController(cc) {
+  def frontend() = Action { implicit request: Request[AnyContent] =>
+    try {
+      Ok.sendFile(new File("/app/public/frontend/index.html"), inline = true)
+    } catch {
+      case e: NoSuchFileException => Ok.sendFile(new File("./public/frontend/index.html"), inline = true)
     }
   }
 }
