@@ -6,6 +6,7 @@ import com.mohiva.play.silhouette.api.services.AuthenticatorResult
 import models.User
 import play.api.mvc._
 import utils.route.Calls
+import play.api.libs.json._
 
 import scala.concurrent.{ ExecutionContext, Future }
 
@@ -27,7 +28,7 @@ abstract class AbstractAuthController(
    * @return The result to display.
    */
   protected def authenticateUser(user: User, rememberMe: Boolean)(implicit request: RequestHeader): Future[AuthenticatorResult] = {
-    val result = Redirect(Calls.home)
+    val result = Status(200)(Json.toJson(user)) // Redirect(Calls.home)
     authenticatorService.create(user.loginInfo).map {
       case authenticator if rememberMe =>
         authenticator.copy(
