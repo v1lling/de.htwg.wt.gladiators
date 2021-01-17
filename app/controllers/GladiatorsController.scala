@@ -60,9 +60,7 @@ class GladiatorsController @Inject() (
 
   // Test if user is loggedIn. Responses implicitly with 303 if user is not logged in
   def signedIn = silhouette.SecuredAction { implicit request =>
-    Ok({
-      "msg": "You are logged in! Good job bro! You are a hero!",
-      "user": Json.toJson(request.identity))
+    Ok(Json.toJson(request.identity))
   }
 
   def controllerToJson = silhouette.SecuredAction {
