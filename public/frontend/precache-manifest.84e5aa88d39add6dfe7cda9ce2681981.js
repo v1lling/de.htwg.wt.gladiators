@@ -60,7 +60,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend/img/shield_transparent.png"
   },
   {
-    "revision": "f56d2fa96db1dbfa20d50e885f280001",
+    "revision": "a78feaec21deedd68c55d8668303df80",
     "url": "/frontend/index.html"
   },
   {
