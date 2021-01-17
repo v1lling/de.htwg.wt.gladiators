@@ -38,6 +38,6 @@ class ApplicationController @Inject() (
     //Redirect(Calls.home)
     //authenticatorService.discard(request.authenticator, result)
     eventBus.publish(LogoutEvent(request.identity, request))
-    Future.successful(Ok("you are loggedout").discardingCookies(DiscardingCookie("PLAY_SESSION"), DiscardingCookie("authenticator")))
+    silhouetteCookie.env.authenticatorService.discard(request.authenticator, Ok("you are loggedout"))
   }
 }
