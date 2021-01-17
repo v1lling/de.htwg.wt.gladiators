@@ -38,6 +38,6 @@ class ApplicationController @Inject() (
     //Redirect(Calls.home)
     //authenticatorService.discard(request.authenticator, result)
     eventBus.publish(LogoutEvent(request.identity, request))
-    Future.successful(Ok("you are loggedout").discardingCookies(request.identity).discardingCookies("authenticator"))
+    Future.successful(Ok("you are loggedout").discardingCookies(DiscardingCookie(request.identity)).discardingCookies(DiscardingCookie("authenticator")))
   }
 }
