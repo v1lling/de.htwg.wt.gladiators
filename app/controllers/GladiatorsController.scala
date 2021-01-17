@@ -113,16 +113,7 @@ class GladiatorsController @Inject() (
   }
 }
 
-@Singleton
-class GladiatorsFrontendController @Inject() (
-  cc: ControllerComponents,
-  silhouette: Silhouette[DefaultEnv]
-)(
-  implicit
-  ex: ExecutionContext,
-  system: ActorSystem,
-  mat: Materializer
-) extends AbstractController(cc) {
+class GladiatorsFrontendController @Inject() (scc: SilhouetteControllerComponents)(implicit ex: ExecutionContext) extends SilhouetteController(scc) {
   def frontend() = Action { implicit request: Request[AnyContent] =>
     try {
       Ok.sendFile(new File("/app/public/frontend/index.html"), inline = true)
