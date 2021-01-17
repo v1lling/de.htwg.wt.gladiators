@@ -53,6 +53,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
    */
   implicit val sameSiteReader: ValueReader[Option[Option[Cookie.SameSite]]] =
     (config: Config, path: String) => {
+      /*
       if (config.hasPathOrNull(path)) {
         if (config.getIsNull(path))
           Some(Cookie.SameSite.parse("None"))
@@ -63,6 +64,8 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
       } else {
         None
       }
+      */
+      Some(Cookie.SameSite.parse("None"))
     }
 
   /**
