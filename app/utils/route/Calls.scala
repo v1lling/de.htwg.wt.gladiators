@@ -7,7 +7,7 @@ import play.api.mvc.Call
  */
 object Calls {
   /** @return The URL to redirect to when an authentication succeeds. */
-  def home: Call = controllers.routes.ApplicationController.index()
+  def home: Call = controllers.routes.GladiatorsFrontendController.frontend()
 
   /** @return The URL to redirect to when an authentication fails. */
   def signin: Call = controllers.routes.SignInController.view()

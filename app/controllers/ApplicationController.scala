@@ -18,17 +18,6 @@ class ApplicationController @Inject() (
 )(implicit ex: ExecutionContext) extends SilhouetteController(scc) {
 
   /**
-   * Handles the index action.
-   *
-   * @return The result to display.
-   */
-  def index = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
-    authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
-      Ok(home(request.identity, totpInfoOpt))
-    }
-  }
-
-  /**
    * Handles the Sign Out action.
    *
    * @return The result to display.

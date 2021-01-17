@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET         /                                controllers.ApplicationController.index
+GET         /                                controllers.GladiatorsFrontendController.frontend
 GET         /signOut                         controllers.ApplicationController.signOut
 GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
 
@@ -32,15 +32,14 @@ POST        /password/change                 controllers.ChangePasswordControlle
 GET         /account/email/:email            controllers.ActivateAccountController.send(email: String)
 GET         /account/activate/:token         controllers.ActivateAccountController.activate(token: java.util.UUID)
 
-GET     /frontend                       controllers.GladiatorsFrontendController.frontend
-GET     /frontend/*file                 controllers.Assets.at(path="/public/frontend", file)
+GET     /signedIn                       controllers.GladiatorsController.signedIn
 POST    /gladiators/api/command         controllers.GladiatorsController.processJsonCommand
 POST    /gladiators/api/gladiatorSelect controllers.GladiatorsController.gladiatorSelect
 GET     /json                           controllers.GladiatorsController.controllerToJson
 GET     /websocket                      controllers.GladiatorsController.socket
 
-
-
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                    controllers.Assets.versioned(file)
+GET         /frontend/*file                 controllers.Assets.at(path="/public/frontend", file)
+
 ->          /webjars                         webjars.Routes
