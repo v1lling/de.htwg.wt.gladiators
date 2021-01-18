@@ -12,6 +12,11 @@ cp -r ../de.htwg.wt.gladiators-vue/dist/* ./public/frontend
 echo "Moved new frontend"
 sleep 3
 git add .
-git commit -m "Automatically built frontend"
+if [ -z "$1" ]
+then
+    git commit -m "$1"
+else
+    git commit -m "Automatically built frontend"
+fi
 git push origin
 echo "Successfully pushed to github"
