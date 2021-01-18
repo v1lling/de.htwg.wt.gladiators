@@ -11,8 +11,8 @@
   "env": {
     "PORT": 9000,
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-scala.git",
-    "PLAY_CONF_FILE": "application.conf",
-    "PLAY_APP_SECRET": "changeme",
+    "PLAY_CONF_FILE": "application.prod.conf",
+    "PLAY_APP_SECRET": "QCYtAnfkaZiwrNwnxIlR6CTfG3gf90Sascha5241ABR5W1uDFNIkn",
     "FACEBOOK_CLIENT_ID": {
       "description": "The Facebook OAuth2 client ID",
       "required": false
