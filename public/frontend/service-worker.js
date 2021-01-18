@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/frontend/precache-manifest.97289b533ac4f6ccf63a133b8304277b.js"
+  "/frontend/precache-manifest.68d2c327759fd7bbaa8234588c9c50a3.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "de.htwg.gladiators-vue"});
