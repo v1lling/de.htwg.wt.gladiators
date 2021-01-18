@@ -6,11 +6,15 @@
 GET         /                                controllers.GladiatorsFrontendController.frontend
 + nocsrf
 GET         /signOut                         controllers.ApplicationController.signOut
++ nocsrf
 GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
++ nocsrf
 GET         /signUp                          controllers.SignUpController.view
++ nocsrf
 POST        /signUp                          controllers.SignUpController.submit
 + nocsrf
 GET         /signIn                          controllers.SignInController.view
++ nocsrf
 POST        /signIn                          controllers.SignInController.submit
 + nocsrf
 
