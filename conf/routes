@@ -4,14 +4,15 @@
 
 # Home page
 GET         /                                controllers.GladiatorsFrontendController.frontend
++ nocsrf
 GET         /signOut                         controllers.ApplicationController.signOut
 GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
-
 GET         /signUp                          controllers.SignUpController.view
 POST        /signUp                          controllers.SignUpController.submit
-
++ nocsrf
 GET         /signIn                          controllers.SignInController.view
 POST        /signIn                          controllers.SignInController.submit
++ nocsrf
 
 GET         /totp                            controllers.TotpController.view(userId: java.util.UUID, sharedKey: String, rememberMe: Boolean)
 GET         /enableTotp                      controllers.TotpController.enableTotp
@@ -33,15 +34,22 @@ GET         /account/email/:email            controllers.ActivateAccountControll
 GET         /account/activate/:token         controllers.ActivateAccountController.activate(token: java.util.UUID)
 
 GET     /signedIn                            controllers.GladiatorsController.signedIn
++ nocsrf
 POST    /gladiators/api/command              controllers.GladiatorsController.processJsonCommand
++ nocsrf
 POST    /gladiators/api/gladiatorSelect      controllers.GladiatorsController.gladiatorSelect
++ nocsrf
 GET     /json                                controllers.GladiatorsController.controllerToJson
++ nocsrf
 GET     /websocket                           controllers.GladiatorsController.socket
++ nocsrf
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                    controllers.Assets.versioned(file)
-
++ nocsrf
 ->          /webjars                         webjars.Routes
 
 GET         /frontend/*file                  controllers.Assets.at(path="/public/frontend", file)
++ nocsrf
 GET         /*file                           controllers.Assets.at(path="/public/frontend", file)
++ nocsrf
