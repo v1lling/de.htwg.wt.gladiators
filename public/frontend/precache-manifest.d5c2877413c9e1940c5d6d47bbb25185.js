@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e33954b8f7733c302cb2",
-    "url": "/frontend/css/app.42a8ac21.css"
+    "revision": "e5328903092a90deacc5",
+    "url": "/frontend/css/app.36d264d5.css"
   },
   {
     "revision": "7cd2caa1d6ce44072925",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend/img/attack.png"
   },
   {
-    "revision": "e3bed01799b4e08c2f3a53610055e49e",
-    "url": "/frontend/img/background3.jpg"
+    "revision": "d1fba6885120cff356b46e24f1cb297e",
+    "url": "/frontend/img/background.jpg"
   },
   {
     "revision": "042ae8196f4db4db70f326706e98c449",
@@ -60,12 +60,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend/img/shield_transparent.png"
   },
   {
-    "revision": "967b882df889a84bde082b237e543a12",
+    "revision": "a0c8bc512a4ce43cfc728972d4d77b73",
     "url": "/frontend/index.html"
   },
   {
-    "revision": "e33954b8f7733c302cb2",
-    "url": "/frontend/js/app.5aa7bf49.js"
+    "revision": "e5328903092a90deacc5",
+    "url": "/frontend/js/app.a16a3e5f.js"
   },
   {
     "revision": "7cd2caa1d6ce44072925",

@@ -10,7 +10,7 @@ cd ../de.htwg.wt.gladiators
 cp -r ../de.htwg.wt.gladiators-vue/dist/* ./public/frontend
 echo "Moved new frontend"
 git add .
-if [ -z "$1" ]
+if [ "$1" ]
 then
     git commit -m "$1"
 else
