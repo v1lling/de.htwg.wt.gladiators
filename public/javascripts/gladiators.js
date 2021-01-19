@@ -305,15 +305,10 @@ function createGladiatorDiv(oGladiator, iPlayer) {
  * @param {boolean} bKilled - boolean value if gladiator is killed 
  */
 function updateHealthBar(oGladiatorContainerDiv, bKilled) {
-    if (!bKilled) {
-        let oGladiator = oGladiatorContainerDiv.find(".gladiator").data("gladiator"),
-            iPercentage = oGladiator.healthPoints / oGladiator.initialHealthPoints * 100;
-        oGladiatorContainerDiv.find(".healthbar-inside").css("width", iPercentage+"%");
-        oGladiatorContainerDiv.find(".healthbar-inside").css("background", perc2color(iPercentage));
-    } else {
-        oGladiatorContainerDiv.find(".healthbar-inside").css("width", 0);
-        oGladiatorContainerDiv.find(".healthbar-inside").css("background", perc2color(0));
-    }
+    let oGladiator = oGladiatorContainerDiv.find(".gladiator").data("gladiator"),
+        iPercentage = bKilldes ? (oGladiator.healthPoints / oGladiator.initialHealthPoints * 10) : 0;
+    oGladiatorContainerDiv.find(".healthbar-inside").css("width", iPercentage+"%");
+    oGladiatorContainerDiv.find(".healthbar-inside").css("background", perc2color(iPercentage));
 }
 
 /**
