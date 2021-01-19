@@ -50,7 +50,8 @@ object User {
         "firstName" -> user.firstName,
         "lastName" -> user.lastName,
         "fullName" -> user.fullName,
-        "email" -> user.email
+        "email" -> user.email,
+        "avatarURL" -> user.avatarURL
       )
     }
   }
