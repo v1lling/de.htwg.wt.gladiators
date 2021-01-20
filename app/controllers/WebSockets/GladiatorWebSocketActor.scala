@@ -29,7 +29,7 @@ case class GladiatorWebSocketActor(out: ActorRef, controller: Controller) extend
   override def receive: Actor.Receive = {
     case msg: JsValue => {
       out ! (readCommand(msg) match {
-        case Failure(exception) => (Json.toJson(controller, ErrorMessage("Could not parse command"): Events))
+        case Failure(exception) => (Json.toJson(controller))
         case Success(parsedCommand) => (parsedCommand, player) match {
           case (NamePlayerOne(name), None) => controller.namePlayerOne(name) match {
             case named: PlayerOneNamed => {

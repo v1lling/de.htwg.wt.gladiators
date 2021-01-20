@@ -14,6 +14,13 @@ case class SpectatorWebSocketActor(out: ActorRef, controller: Controller) extend
   listenTo(controller)
   reactions += { case event: Events => sendJson(controller, event) }
 
-  override def receive: Actor.Receive = { case _ => out ! Json.toJson(controller, ErrorMessage("Spectators cannot enter commands"): Events) }
+  override def receive: Actor.Receive = { 
+    case msg: JsValue => {
+      out ! (readCommand(msg) match {
+        case Failure(exception) => Json.toJson(controller)
+        case Success(parsedCommand) => Json.toJson(controller, ErrorMessage("Spectators cannot enter commands"): Events)
+      }
+      )}
+  }
   override def sendJson(controller: Controller, event: Events): Unit = out ! Json.toJson(controller, event)
 }

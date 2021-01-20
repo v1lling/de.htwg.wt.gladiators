@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "178a94f947a342c533da",
+    "revision": "7452cffdd5c3ebe7de47",
     "url": "/frontend/css/app.36d264d5.css"
   },
   {
@@ -60,12 +60,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend/img/shield_transparent.png"
   },
   {
-    "revision": "26453cdc8ef8dfb475bcccf43dcd9e34",
+    "revision": "f0307c9ab42f4865c6336d398f94704b",
     "url": "/frontend/index.html"
   },
   {
-    "revision": "178a94f947a342c533da",
-    "url": "/frontend/js/app.d8f263a7.js"
+    "revision": "7452cffdd5c3ebe7de47",
+    "url": "/frontend/js/app.d4e29bf7.js"
   },
   {
     "revision": "7cd2caa1d6ce44072925",
